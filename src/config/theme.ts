@@ -1,43 +1,43 @@
 import createTheme from "@mui/material/styles/createTheme";
-import { Poppins } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-const poppins = Poppins({
+const roboto = Roboto({
   weight: "400",
   style: "normal",
   subsets: ["latin-ext"],
 });
 
 export enum ThemePalette {
-  BG = "#1d1d1d",
-  BLACK = "#121212",
-  GREEN = "#6ef96e",
-  WHITE = "#fff",
+  DARKER_BLUE = "#053B50",
+  DARK_BLUE = "#176B87",
+  BLUE = "#64CCC5",
+  WHITE = "#EEEEEE",
   ERROR = "#FF9494",
-  FONT_GLOBAL = "'Poppins', 'Roboto', sans-serif",
+  FONT_GLOBAL = "'Roboto', sans-serif",
 }
 
 export const theme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
     background: {
-      default: ThemePalette.BLACK,
+      default: ThemePalette.WHITE,
       paper: "#1d1d1d",
     },
     primary: {
-      main: ThemePalette.GREEN,
+      main: ThemePalette.DARKER_BLUE,
     },
   },
   typography: {
-    fontFamily: poppins.style.fontFamily,
+    fontFamily: roboto.style.fontFamily,
     h1: {
-      fontSize: "48px",
+      fontSize: "36px",
       fontWeight: 600,
       "@media (max-width:600px)": {
         fontSize: "36px",
       },
     },
     h2: {
-      fontSize: "36px",
+      fontSize: "30px",
       fontWeight: 600,
       "@media (max-width:600px)": {
         fontSize: "24px",
@@ -51,35 +51,17 @@ export const theme = createTheme({
       },
     },
     body1: {
-      fontSize: "18px",
+      fontSize: "16px",
       fontWeight: 400,
       "@media (max-width:600px)": {
         fontSize: "16px",
       },
     },
     body2: {
-      fontSize: "16px",
+      fontSize: "14px",
       fontWeight: 400,
       "@media (max-width:600px)": {
         fontSize: "14px",
-      },
-    },
-  },
-  components: {
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "grey.900",
-        },
-      },
-    },
-    MuiButton: {
-      defaultProps: {
-        style: {
-          textTransform: "capitalize",
-          fontWeight: 600,
-          boxShadow: "none",
-        },
       },
     },
   },
