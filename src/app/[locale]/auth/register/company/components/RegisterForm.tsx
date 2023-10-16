@@ -67,15 +67,16 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       onSubmit={formik.handleSubmit}
       sx={{ mt: 3, mx: 'auto', maxWidth: 1000 }}
     >
-      <Typography variant='body1' sx={{ mb: 3, fontWeight: 600 }}>
+      <Typography variant='h3' sx={{ mb: 3, fontWeight: 600 }}>
         {t('companySubtitle')}
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
             id="company_name"
             name="company_name"
             label={t('name')}
+            fullWidth
             required
             value={formik.values.company_name}
             onChange={formik.handleChange}
@@ -88,11 +89,12 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={1} marginRight={3}>
+        <Grid item xs={12} sm={1}>
           <TextField
             id="id_type"
             name="id_type"
             label={t('idType')}
+            fullWidth
             required
             value={formik.values.id_type}
             onChange={formik.handleChange}
@@ -105,11 +107,12 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={2} >
+        <Grid item xs={12} sm={3} >
           <TextField
             id="id_number"
             name="id_number"
             label={t('idNumber')}
+            fullWidth
             required
             value={formik.values.id_number}
             onChange={formik.handleChange}
@@ -127,6 +130,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="industry"
             name="industry"
             label={t('industry')}
+            fullWidth
             required
             value={formik.values.industry}
             onChange={formik.handleChange}
@@ -140,12 +144,13 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
       </Grid>
-      <Grid container spacing={1} marginY={3}>
+      <Grid container spacing={1} marginY={3} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
             id="email"
             name="email"
             label={t('email')}
+            fullWidth
             required
             value={formik.values.email}
             onChange={formik.handleChange}
@@ -158,11 +163,12 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={3} >
+        <Grid item xs={12} sm={4} >
           <TextField
             id="phone"
             name="phone"
             label={t('phone')}
+            fullWidth
             required
             value={formik.values.phone}
             onChange={formik.handleChange}
@@ -180,6 +186,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="country"
             name="country"
             label={t('country')}
+            fullWidth
             required
             value={formik.values.country}
             onChange={formik.handleChange}
@@ -193,12 +200,13 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
       </Grid>
-      <Grid container spacing={1} marginY={3}>
+      <Grid container spacing={1} marginY={3} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
             id="city"
             name="city"
             label={t('city')}
+            fullWidth
             required
             value={formik.values.city}
             onChange={formik.handleChange}
@@ -211,11 +219,12 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={3} >
+        <Grid item xs={12} sm={4} >
           <TextField
             id="address"
             name="address"
             label={t('address')}
+            fullWidth
             required
             value={formik.values.address}
             onChange={formik.handleChange}
@@ -233,6 +242,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="logo"
             name="logo"
             label={t('logo')}
+            fullWidth
             required
             value={formik.values.logo}
             onChange={formik.handleChange}
@@ -247,15 +257,16 @@ const RegisterForm: FC<RegisterFormProps> = () => {
         </Grid>
       </Grid>
 
-      <Typography variant='body1' sx={{ my: 3, fontWeight: 600 }}>
+      <Typography variant='h3' sx={{ my: 3, fontWeight: 600 }}>
         {t('legalRepresentativeSubtitle')}
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} marginX={2}>
         <Grid item xs={12} sm={1} >
           <TextField
             id="legal_repr_type_id"
             name="legal_repr_type_id"
             label={t('legalRepresentativeTypeId')}
+            fullWidth
             required
             value={formik.values.legal_repr_type_id}
             onChange={formik.handleChange}
@@ -268,11 +279,12 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={3} marginRight={3}>
+        <Grid item xs={12} sm={3}>
           <TextField
             id="legal_repr_id"
             name="legal_repr_id"
             label={t('legalRepresentativeIdNumber')}
+            fullWidth
             required
             value={formik.values.legal_repr_id}
             onChange={formik.handleChange}
@@ -290,6 +302,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="legal_repr_profession"
             name="legal_repr_profession"
             label={t('legalRepresentativeProfession')}
+            fullWidth
             required
             value={formik.values.legal_repr_profession}
             onChange={formik.handleChange}
@@ -303,12 +316,13 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
       </Grid>
-      <Grid container spacing={1} marginY={3}>
+      <Grid container spacing={1} marginY={3} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
             id="username"
             name="username"
             label={t('legalRepresentativeUser')}
+            fullWidth
             required
             value={formik.values.username}
             onChange={formik.handleChange}
@@ -326,6 +340,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="password"
             name="password"
             label={t('legalRepresentativePassword')}
+            fullWidth
             required
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -343,6 +358,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             id="confirm_password"
             name="confirm_password"
             label={t('legalRepresentativeConfirmPassword')}
+            fullWidth
             required
             value={formik.values.confirm_password}
             onChange={formik.handleChange}

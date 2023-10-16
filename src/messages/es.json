@@ -58,7 +58,9 @@
         "submitRequired": "Hubo un error al registrar la empresa",
         "companySubtitle": "Empresa",
         "legalRepresentativeSubtitle": "Representante legal",
-        "invalidEmail": "Email inválido"
+        "invalidEmail": "Email inválido",
+        "pageTitle": "ABC Jobs",
+        "pageSubTitle": "Registra tu empresa"
       }
     },
     "ToastMsg": {
