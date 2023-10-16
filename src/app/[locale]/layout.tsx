@@ -1,16 +1,60 @@
-import './globals.css'
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
 import { ThemeConfig } from '@/config'
+import Providers from '@/config/Providers';
 
-const inter = Inter({ subsets: ['latin'] })
+const APP_NAME = 'ABC App';
+const APP_DEFAULT_TITLE = 'ABC Criollos App';
+const APP_TITLE_TEMPLATE = '%s - ABC Criollos App';
+const APP_DESCRIPTION = 'ABC App created as the final project for the MISO Master Degree in the University of Los Andes';
 
 export const metadata: Metadata = {
-  title: 'ABC - Final Project',
-  description: 'ABC App created as the final project for the MISO Master Degree in the University of Los Andes',
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
+  },
+  description: APP_DESCRIPTION,
+  applicationName: APP_NAME,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: APP_DEFAULT_TITLE,
+    statusBarStyle: 'black-translucent',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  themeColor: 'black',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/shortcut-icon.png',
+    apple: '/apple-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  openGraph: {
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+    siteName: APP_NAME,
+    locale: 'es_CO',
+    type: 'website',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export function generateStaticParams() {
@@ -34,14 +78,15 @@ export default async function RootLayout({
   } catch (error) {
     notFound();
   }
-
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body>
         <ThemeConfig options={{ key: 'mui' }}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+            <Providers>
+              {children}
+            </Providers>
+          </NextIntlClientProvider >
         </ThemeConfig>
       </body>
     </html>

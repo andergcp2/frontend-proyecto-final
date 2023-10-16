@@ -1,5 +1,73 @@
 {
   "Index": {
     "title": "Hello world!"
+  },
+  "Auth": {
+    "SignUp": {
+      "Company": {
+        "name": "Company name",
+        "namePlaceholder": "Enter company name",
+        "nameRequired": "Company name is required",
+        "idType": "Type",
+        "idTypeRequired": "Company id type is required",
+        "idNumber": "Id Number",
+        "idNumberPlaceholder": "Enter company id number",
+        "idNumberRequired": "Company id number is required",
+        "industry": "Industry",
+        "industryPlaceholder": "Select company industry",
+        "industryRequired": "Company industry is required",
+        "email": "Email",
+        "emailPlaceholder": "Enter company email",
+        "emailRequired": "Company email is required",
+        "phone": "Phone",
+        "phonePlaceholder": "Enter company phone",
+        "phoneRequired": "Company phone is required",
+        "country": "Country",
+        "countryPlaceholder": "Select company country",
+        "countryRequired": "Company country is required",
+        "city": "City",
+        "cityPlaceholder": "Select company city",
+        "cityRequired": "Company city is required",
+        "address": "Address",
+        "addressPlaceholder": "Enter company address",
+        "addressRequired": "Company address is required",
+        "logo": "Logo",
+        "logoPlaceholder": "Select company logo",
+        "logoRequired": "Company logo is required",
+        "legalRepresentativeTypeId": "Type",
+        "legalRepresentativeTypeIdRequired": "Legal representative id type is required",
+        "legalRepresentativeIdNumber": "Id Number",
+        "legalRepresentativeIdNumberPlaceholder": "Enter legal representative id number",
+        "legalRepresentativeIdNumberRequired": "Legal representative id number is required",
+        "legalRepresentativeProfession": "Profession",
+        "legalRepresentativeProfessionPlaceholder": "Enter legal representative profession",
+        "legalRepresentativeProfessionRequired": "Legal representative profession is required",
+        "legalRepresentativeUser": "User",
+        "legalRepresentativeUserPlaceholder": "Select legal representative user",
+        "legalRepresentativeUserRequired": "Legal representative user is required",
+        "legalRepresentativePassword": "Password",
+        "legalRepresentativePasswordPlaceholder": "Enter legal representative password",
+        "legalRepresentativePasswordRequired": "Legal representative password is required",
+        "legalRepresentativeConfirmPassword": "Confirm password",
+        "legalRepresentativeConfirmPasswordPlaceholder": "Enter legal representative confirm password",
+        "legalRepresentativeConfirmPasswordRequired": "Legal representative confirm password is required",
+        "termsAndConditions": "I have read and agree to the terms and conditions",
+        "termsAndConditionsRequired": "You must accept the terms and conditions",
+        "privacyPolicy": "I agree to the privacy policy",
+        "submit": "Register",
+        "submitRequired": "There was an error registering the company",
+        "companySubtitle": "Company",
+        "legalRepresentativeSubtitle": "Legal representative",
+        "invalidEmail": "Invalid email"
+      }
+    },
+    "ToastMsg": {
+      "success": {
+        "signUpCompany": "Company registered successfully"
+      }
+    }
+  },
+  "Errors": {
+    "00": "Error 00"
   }
 }

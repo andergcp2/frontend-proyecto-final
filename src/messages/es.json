@@ -1,5 +1,73 @@
 {
   "Index": {
     "title": "Hola Mundo!"
+  },
+  "Auth": {
+    "SignUp": {
+      "Company": {
+        "name": "Nombre de la empresa",
+        "namePlaceholder": "Ingrese el nombre de la empresa",
+        "nameRequired": "Se requiere el nombre de la empresa",
+        "idType": "Tipo",
+        "idTypeRequired": "Se requiere el tipo de identificación de la empresa",
+        "idNumber": "Número de identificación",
+        "idNumberPlaceholder": "Ingrese el número de identificación de la empresa",
+        "idNumberRequired": "Se requiere el número de identificación de la empresa",
+        "industry": "Industria",
+        "industryPlaceholder": "Seleccione la industria de la empresa",
+        "industryRequired": "Se requiere la industria de la empresa",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "Ingrese el correo electrónico de la empresa",
+        "emailRequired": "Se requiere el correo electrónico de la empresa",
+        "phone": "Teléfono",
+        "phonePlaceholder": "Ingrese el teléfono de la empresa",
+        "phoneRequired": "Se requiere el teléfono de la empresa",
+        "country": "País",
+        "countryPlaceholder": "Seleccione el país de la empresa",
+        "countryRequired": "Se requiere el país de la empresa",
+        "city": "Ciudad",
+        "cityPlaceholder": "Seleccione la ciudad de la empresa",
+        "cityRequired": "Se requiere la ciudad de la empresa",
+        "address": "Dirección",
+        "addressPlaceholder": "Ingrese la dirección de la empresa",
+        "addressRequired": "Se requiere la dirección de la empresa",
+        "logo": "Logo",
+        "logoPlaceholder": "Seleccione el logo de la empresa",
+        "logoRequired": "Se requiere el logo de la empresa",
+        "legalRepresentativeTypeId": "Tipo",
+        "legalRepresentativeTypeIdRequired": "Se requiere el tipo de identificación del representante legal",
+        "legalRepresentativeIdNumber": "Número de identificación",
+        "legalRepresentativeIdNumberPlaceholder": "Ingrese el número de identificación del representante legal",
+        "legalRepresentativeIdNumberRequired": "Se requiere el número de identificación del representante legal",
+        "legalRepresentativeProfession": "Profesión",
+        "legalRepresentativeProfessionPlaceholder": "Ingrese la profesión del representante legal",
+        "legalRepresentativeProfessionRequired": "Se requiere la profesión del representante legal",
+        "legalRepresentativeUser": "Usuario",
+        "legalRepresentativeUserPlaceholder": "Seleccione el usuario del representante legal",
+        "legalRepresentativeUserRequired": "Se requiere el usuario del representante legal",
+        "legalRepresentativePassword": "Contraseña",
+        "legalRepresentativePasswordPlaceholder": "Ingrese la contraseña del representante legal",
+        "legalRepresentativePasswordRequired": "Se requiere la contraseña del representante legal",
+        "legalRepresentativeConfirmPassword": "Confirmar contraseña",
+        "legalRepresentativeConfirmPasswordPlaceholder": "Ingrese la confirmación de la contraseña del representante legal",
+        "legalRepresentativeConfirmPasswordRequired": "Se requiere la confirmación de la contraseña del representante legal",
+        "termsAndConditions": "He leído y acepto los términos y condiciones",
+        "termsAndConditionsRequired": "Debe aceptar los términos y condiciones",
+        "privacyPolicy": "Acepto la política de privacidad",
+        "submit": "Registrarse",
+        "submitRequired": "Hubo un error al registrar la empresa",
+        "companySubtitle": "Empresa",
+        "legalRepresentativeSubtitle": "Representante legal",
+        "invalidEmail": "Email inválido"
+      }
+    },
+    "ToastMsg": {
+      "success": {
+        "signUpCompany": "La empresa se registró correctamente"
+      }
+    }
+  },
+  "Errors": {
+    "00": "Error 00"
   }
 }
