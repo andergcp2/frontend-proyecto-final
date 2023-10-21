@@ -5,7 +5,7 @@ export const signUpCompany = async (
   params: SignUpCompanyDTO
 ): Promise<void> => {
   await axiosMethod<any>({
-    name: "signUpOTP",
+    name: "signUpCompany",
     data: {
       ...params,
     },

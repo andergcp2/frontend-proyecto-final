@@ -10,25 +10,85 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
+import { PASSWORD_REGEX } from '@/models'
 
 export interface RegisterFormProps { }
-
+const lengths = {
+  companyNameMin: 3,
+  companyNameMax: 50,
+  idNumberMin: 0,
+  industryMin: 3,
+  industryMax: 50,
+  legalRepresentativeProfessionMin: 3,
+  legalRepresentativeProfessionMax: 100,
+  legalRepresentativeUserMin: 3,
+  legalRepresentativeUserMax: 100,
+  legalRepresentativePasswordMin: 8,
+  legalRepresentativePasswordMax: 30,
+  legalRepresentativeTypeIdMin: 2,
+  legalRepresentativeTypeIdMax: 4,
+  legalRepresentativeIdNumberMin: 0,
+  emailMin: 3,
+  emailMax: 100,
+  countryMin: 3,
+  countryMax: 50,
+  cityMin: 3,
+  cityMax: 50,
+  addressMin: 3,
+  addressMax: 100,
+}
 const validationSchema = Yup.object({
-  company_name: Yup.string().required('nameRequired'),
-  id_type: Yup.string().required('idTypeRequired'),
-  id_number: Yup.string().required('idNumberRequired'),
-  industry: Yup.string().required('industryRequired'),
-  email: Yup.string().email('invalidEmail').required('emailRequired'),
-  phone: Yup.string().required('phoneRequired'),
-  country: Yup.string().required('countryRequired'),
-  city: Yup.string().required('cityRequired'),
-  address: Yup.string().required('addressRequired'),
+  companyName: Yup.string().
+    min(lengths.companyNameMin, 'companyNameMin').
+    max(lengths.companyNameMax, 'companyNameMax').
+    required('nameRequired'),
+  idType: Yup.string().required('idTypeRequired'),
+  idNumber: Yup.number().required('idNumberRequired').
+    min(lengths.idNumberMin, 'idNumberMin'),
+  industry: Yup.string().
+    required('industryRequired').
+    min(lengths.industryMin, 'industryMin').
+    max(lengths.industryMax, 'industryMax'),
+  email: Yup.string().
+    email('invalidEmail').
+    required('emailRequired').
+    min(lengths.emailMin, 'emailMin').
+    max(lengths.emailMax, 'emailMax'),
+  phone: Yup.number().
+    required('phoneRequired').
+    min(0, 'phoneMin'),
+  country: Yup.string().
+    required('countryRequired').
+    min(lengths.countryMin, 'countryMin').
+    max(lengths.countryMax, 'countryMax'),
+  city: Yup.string().
+    required('cityRequired').
+    min(lengths.cityMin, 'cityMin').
+    max(lengths.cityMax, 'cityMax'),
+  address: Yup.string().
+    required('addressRequired').
+    min(lengths.addressMin, 'addressMin').
+    max(lengths.addressMax, 'addressMax'),
   logo: Yup.string().required('logoRequired'),
-  legal_repr_type_id: Yup.string().required('legalRepresentativeTypeIdRequired'),
-  legal_repr_id: Yup.string().required('legalRepresentativeIdNumberRequired'),
+  reprIdType: Yup.string().
+    required('legalRepresentativeTypeIdRequired').
+    min(lengths.legalRepresentativeTypeIdMin, 'legalRepresentativeTypeIdMin').
+    max(lengths.legalRepresentativeTypeIdMax, 'legalRepresentativeTypeIdMax'),
+  reprIdNumber: Yup.number().
+    required('legalRepresentativeIdNumberRequired').
+    min(lengths.legalRepresentativeIdNumberMin, 'legalRepresentativeIdNumberMin'),
   legal_repr_profession: Yup.string().required('legalRepresentativeProfessionRequired'),
-  username: Yup.string().required('legalRepresentativeUserRequired'),
-  password: Yup.string().required('legalRepresentativePasswordRequired'),
+  reprName: Yup.string().
+    required('legalRepresentativeUserRequired').
+    min(lengths.legalRepresentativeUserMin, 'legalRepresentativeUserMin').
+    max(lengths.legalRepresentativeUserMax, 'legalRepresentativeUserMax'),
+  password: Yup.string().
+    required('legalRepresentativePasswordRequired').
+    matches(PASSWORD_REGEX, 'invalidPassword'),
+  // confirmPassword field which verifies it matches the password field
+  confirmPassword: Yup.string().
+    required('legalRepresentativeConfirmPasswordRequired').
+    oneOf([Yup.ref('password')], 'passwordsMustMatch'),
 })
 
 const RegisterForm: FC<RegisterFormProps> = () => {
@@ -39,22 +99,22 @@ const RegisterForm: FC<RegisterFormProps> = () => {
 
   const formik = useFormik({
     initialValues: {
-      company_name: '',
-      id_type: '',
-      id_number: '',
+      companyName: '',
+      idType: '',
+      idNumber: 0,
       industry: '',
       email: '',
-      phone: '',
+      phone: 0,
       country: '',
       city: '',
       address: '',
       logo: '',
-      legal_repr_type_id: '',
-      legal_repr_id: '',
+      reprIdType: '',
+      reprIdNumber: 0,
       legal_repr_profession: '',
-      username: '',
+      reprName: '',
       password: '',
-      confirm_password: '',
+      confirmPassword: '',
     },
     validationSchema: validationSchema,
     onSubmit: SignUpCompany,
@@ -73,55 +133,55 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       <Grid container spacing={1} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
-            id="company_name"
-            name="company_name"
+            id="companyName"
+            name="companyName"
             label={t('name')}
             fullWidth
             required
-            value={formik.values.company_name}
+            value={formik.values.companyName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.company_name && Boolean(formik.errors.company_name)}
+            error={formik.touched.companyName && Boolean(formik.errors.companyName)}
             helperText={
-              formik.touched.company_name &&
-              Boolean(formik.errors.company_name) &&
-              t(formik.errors.company_name as string)
+              formik.touched.companyName &&
+              Boolean(formik.errors.companyName) &&
+              t(formik.errors.companyName as string)
             }
           />
         </Grid>
         <Grid item xs={12} sm={1}>
           <TextField
-            id="id_type"
-            name="id_type"
+            id="idType"
+            name="idType"
             label={t('idType')}
             fullWidth
             required
-            value={formik.values.id_type}
+            value={formik.values.idType}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.id_type && Boolean(formik.errors.id_type)}
+            error={formik.touched.idType && Boolean(formik.errors.idType)}
             helperText={
-              formik.touched.id_type &&
-              Boolean(formik.errors.id_type) &&
-              t(formik.errors.id_type as string)
+              formik.touched.idType &&
+              Boolean(formik.errors.idType) &&
+              t(formik.errors.idType as string)
             }
           />
         </Grid>
         <Grid item xs={12} sm={3} >
           <TextField
-            id="id_number"
-            name="id_number"
+            id="idNumber"
+            name="idNumber"
             label={t('idNumber')}
             fullWidth
             required
-            value={formik.values.id_number}
+            value={formik.values.idNumber}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.id_number && Boolean(formik.errors.id_number)}
+            error={formik.touched.idNumber && Boolean(formik.errors.idNumber)}
             helperText={
-              formik.touched.id_number &&
-              Boolean(formik.errors.id_number) &&
-              t(formik.errors.id_number as string)
+              formik.touched.idNumber &&
+              Boolean(formik.errors.idNumber) &&
+              t(formik.errors.idNumber as string)
             }
           />
         </Grid>
@@ -263,37 +323,37 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       <Grid container spacing={1} marginX={2}>
         <Grid item xs={12} sm={1} >
           <TextField
-            id="legal_repr_type_id"
-            name="legal_repr_type_id"
+            id="reprIdType"
+            name="reprIdType"
             label={t('legalRepresentativeTypeId')}
             fullWidth
             required
-            value={formik.values.legal_repr_type_id}
+            value={formik.values.reprIdType}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.legal_repr_type_id && Boolean(formik.errors.legal_repr_type_id)}
+            error={formik.touched.reprIdType && Boolean(formik.errors.reprIdType)}
             helperText={
-              formik.touched.legal_repr_type_id &&
-              Boolean(formik.errors.legal_repr_type_id) &&
-              t(formik.errors.legal_repr_type_id as string)
+              formik.touched.reprIdType &&
+              Boolean(formik.errors.reprIdType) &&
+              t(formik.errors.reprIdType as string)
             }
           />
         </Grid>
         <Grid item xs={12} sm={3}>
           <TextField
-            id="legal_repr_id"
-            name="legal_repr_id"
+            id="reprIdNumber"
+            name="reprIdNumber"
             label={t('legalRepresentativeIdNumber')}
             fullWidth
             required
-            value={formik.values.legal_repr_id}
+            value={formik.values.reprIdNumber}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.legal_repr_id && Boolean(formik.errors.legal_repr_id)}
+            error={formik.touched.reprIdNumber && Boolean(formik.errors.reprIdNumber)}
             helperText={
-              formik.touched.legal_repr_id &&
-              Boolean(formik.errors.legal_repr_id) &&
-              t(formik.errors.legal_repr_id as string)
+              formik.touched.reprIdNumber &&
+              Boolean(formik.errors.reprIdNumber) &&
+              t(formik.errors.reprIdNumber as string)
             }
           />
         </Grid>
@@ -319,19 +379,19 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       <Grid container spacing={1} marginY={3} marginX={2}>
         <Grid item xs={12} sm={4} >
           <TextField
-            id="username"
-            name="username"
+            id="reprName"
+            name="reprName"
             label={t('legalRepresentativeUser')}
             fullWidth
             required
-            value={formik.values.username}
+            value={formik.values.reprName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.username && Boolean(formik.errors.username)}
+            error={formik.touched.reprName && Boolean(formik.errors.reprName)}
             helperText={
-              formik.touched.username &&
-              Boolean(formik.errors.username) &&
-              t(formik.errors.username as string)
+              formik.touched.reprName &&
+              Boolean(formik.errors.reprName) &&
+              t(formik.errors.reprName as string)
             }
           />
         </Grid>
@@ -339,6 +399,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           <TextField
             id="password"
             name="password"
+            type='password'
             label={t('legalRepresentativePassword')}
             fullWidth
             required
@@ -355,19 +416,20 @@ const RegisterForm: FC<RegisterFormProps> = () => {
         </Grid>
         <Grid item xs={12} sm={4} >
           <TextField
-            id="confirm_password"
-            name="confirm_password"
+            id="confirmPassword"
+            name="confirmPassword"
             label={t('legalRepresentativeConfirmPassword')}
+            type='password'
             fullWidth
             required
-            value={formik.values.confirm_password}
+            value={formik.values.confirmPassword}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.confirm_password && Boolean(formik.errors.confirm_password)}
+            error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
             helperText={
-              formik.touched.confirm_password &&
-              Boolean(formik.errors.confirm_password) &&
-              t(formik.errors.confirm_password as string)
+              formik.touched.confirmPassword &&
+              Boolean(formik.errors.confirmPassword) &&
+              t(formik.errors.confirmPassword as string)
             }
           />
         </Grid>

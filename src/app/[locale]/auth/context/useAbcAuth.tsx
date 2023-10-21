@@ -17,17 +17,14 @@ export default function useQanttoAuth() {
       // TODO: redirect to the right page
       // push(mainRoutes.auth.verify)
       // TODO: Hacer login automatico
-
       showToast(t('success.signUpCompany'), 'success')
     },
     onError: (error: any) => {
-      alert(JSON.stringify(error))
       showToast(error.message, 'error')
     }
   })
 
   const SignUpCompany = async (variables: SignUpCompanyDTO, options?: {}) => {
-    alert(JSON.stringify(variables))
     await SignUpCompanyReq(variables, options)
   }
 

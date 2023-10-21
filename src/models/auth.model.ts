@@ -1,18 +1,20 @@
 export interface SignUpCompanyDTO {
-  // TODO: Check the right values of the DTO
-  company_name: string;
-  id_type: string;
-  id_number: string;
+  companyName: string;
+  idType: string;
+  idNumber: number;
   industry: string;
   email: string;
-  phone: string;
+  phone: number;
   country: string;
   city: string;
   address: string;
   logo: string;
-  legal_repr_type_id: string;
-  legal_repr_id: string;
+  reprIdType: string;
+  reprIdNumber: number;
   legal_repr_profession: string;
-  username: string;
+  reprName: string;
   password: string;
 }
+
+export const PASSWORD_REGEX =
+  /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}$/;
