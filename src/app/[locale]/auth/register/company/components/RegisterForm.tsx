@@ -93,7 +93,6 @@ const validationSchema = Yup.object({
 
 const RegisterForm: FC<RegisterFormProps> = () => {
   const t = useTranslations('Auth.SignUp.Company')
-  // const validationT = useTranslations('ValidationMsgs')
 
   const { SignUpCompany, isSignUpCompanyLoading } = useAuth()
 

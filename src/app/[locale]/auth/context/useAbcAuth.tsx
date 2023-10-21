@@ -17,6 +17,7 @@ export default function useQanttoAuth() {
       // TODO: redirect to the right page
       // push(mainRoutes.auth.verify)
       // TODO: Hacer login automatico
+      alert('Empresa registrada exitosamente')
       showToast(t('success.signUpCompany'), 'success')
     },
     onError: (error: any) => {
