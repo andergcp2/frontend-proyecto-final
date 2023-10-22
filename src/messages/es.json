@@ -84,6 +84,11 @@
         "passwordsMustMatch": "Las contraseñas deben coincidir"
       }
     },
+    "Login": {
+      "emailAddress": "Correo electrónico",
+      "password": "Contraseña",
+      "signInBtn": "Iniciar sesión"
+    },
     "ToastMsg": {
       "success": {
         "signUpCompany": "La empresa se registró correctamente"
@@ -92,5 +97,10 @@
   },
   "Errors": {
     "00": "Error 00"
+  },
+  "ValidationMsgs": {
+    "invalidEmail": "Email inválido",
+    "requiredEmail": "Email es requerido",
+    "requiredPassword": "Contraseña es requerida"
   }
 }

@@ -3,7 +3,7 @@ import { ButtonProps } from '@mui/material'
 import { LoadingButton } from '@mui/lab'
 
 interface MyBtnProps {
-  loading: boolean
+  loading?: boolean
 }
 
 const Button = (props: ButtonProps & MyBtnProps) => {

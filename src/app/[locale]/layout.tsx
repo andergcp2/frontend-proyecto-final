@@ -5,6 +5,11 @@ import type { Metadata } from 'next'
 import { ThemeConfig } from '@/config'
 import Providers from '@/config/Providers';
 
+import { Amplify, Auth } from 'aws-amplify';
+import awsconfig from '../../aws-exports';
+
+Amplify.configure(awsconfig);
+
 const APP_NAME = 'ABC App';
 const APP_DEFAULT_TITLE = 'ABC Criollos App';
 const APP_TITLE_TEMPLATE = '%s - ABC Criollos App';
