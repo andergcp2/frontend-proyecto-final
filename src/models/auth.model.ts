@@ -1,3 +1,5 @@
+export const PASSWORD_REGEX =
+  /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}$/;
 export interface SignUpCompanyDTO {
   companyName: string;
   idType: string;
@@ -16,5 +18,20 @@ export interface SignUpCompanyDTO {
   password: string;
 }
 
-export const PASSWORD_REGEX =
-  /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}$/;
+export interface Permission {
+  name: string;
+}
+export interface Role {
+  id: number;
+  name: string;
+  description?: string;
+  permissions: Permission[];
+}
+
+export interface User {
+  id: number;
+  email: string;
+  name: string;
+  token?: string;
+  role?: Role;
+}

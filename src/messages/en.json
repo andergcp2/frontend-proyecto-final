@@ -84,6 +84,11 @@
         "passwordsMustMatch": "Passwords must match"
       }
     },
+    "Login": {
+      "emailAddress": "Email address",
+      "password": "Password",
+      "signInBtn": "Sign in"
+    },
     "ToastMsg": {
       "success": {
         "signUpCompany": "Company registered successfully"
@@ -92,5 +97,10 @@
   },
   "Errors": {
     "00": "Error 00"
+  },
+  "ValidationMsgs": {
+    "invalidEmail": "Invalid email",
+    "requiredEmail": "Email is required",
+    "requiredPassword": "Password is required"
   }
 }

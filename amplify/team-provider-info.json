@@ -1,0 +1,25 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify874aa7482c084-staging-41901-authRole",
+      "UnauthRoleArn": "arn:aws:iam::101526122836:role/amplify-amplify874aa7482c084-staging-41901-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::101526122836:role/amplify-amplify874aa7482c084-staging-41901-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify874aa7482c084-staging-41901-deployment",
+      "UnauthRoleName": "amplify-amplify874aa7482c084-staging-41901-unauthRole",
+      "StackName": "amplify-amplify874aa7482c084-staging-41901",
+      "StackId": "arn:aws:cloudformation:us-east-1:101526122836:stack/amplify-amplify874aa7482c084-staging-41901/214b8e80-7092-11ee-8617-0af5a1eebfad",
+      "AmplifyAppId": "d26g72fqjv2yn8"
+    },
+    "categories": {
+      "auth": {
+        "frontendproyectofina": {
+          "nativeClientId": "478h60ip95ogmd68cjsh6ori5q",
+          "userPoolId": "us-east-1_e8SLc0SQ4",
+          "userPoolName": "criollos-pool-name",
+          "webClientId": "478h60ip95ogmd68cjsh6ori5q"
+        }
+      }
+    }
+  }
+}

@@ -3,12 +3,14 @@ import { Dispatch, SetStateAction, createContext, useContext } from 'react'
 import useAbcAuth from './useAbcAuth'
 
 interface IAuthContext {
-  isSignUpCompanyLoading: boolean
+  isSignUpCompanyLoading: boolean,
+  Login: (variables: { email: string, password: string }) => Promise<void>,
   SignUpCompany: (variables: SignUpCompanyDTO) => Promise<void>
 }
 
 const AuthContext = createContext<IAuthContext>({
   isSignUpCompanyLoading: false,
+  Login: async () => { },
   SignUpCompany: async () => { },
 })
 
