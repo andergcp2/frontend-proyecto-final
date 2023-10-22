@@ -102,5 +102,8 @@
     "invalidEmail": "Email inválido",
     "requiredEmail": "Email es requerido",
     "requiredPassword": "Contraseña es requerida"
+  },
+  "Dashboard": {
+    "companyTitle": "Portal empresas"
   }
 }

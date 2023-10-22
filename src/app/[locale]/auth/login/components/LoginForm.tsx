@@ -70,7 +70,6 @@ const LoginForm: FC<LoginFormProps> = () => {
       />
 
       <Button
-        fullWidth
         variant="contained"
         type="submit"
         sx={{ mt: 3, mb: 2, fontWeight: 600 }}
