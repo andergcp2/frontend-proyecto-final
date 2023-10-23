@@ -22,6 +22,7 @@
     "@tanstack/react-query": "^4.36.1",
     "@tanstack/react-query-devtools": "^4.36.1",
     "aws-amplify": "^5.3.11",
+    "aws-sdk": "^2.1478.0",
     "axios": "^1.5.1",
     "formik": "^2.4.5",
     "next": "13.5.4",
