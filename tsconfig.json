@@ -29,14 +29,18 @@
       "module": "ESNext",
       "moduleResolution": "Node"
     }
-  },  
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/layout.tsx.bak",
-    "src/app/page.bak"
+    "src/app/page.bak",
+    "cypress/e2e/companies-spec.cy.js",
+    "cypress/support/commands.js",
+    "cypress/support/commands-companies.js",
+    "cypress/e2e/test-spec.cy.js"
   ],
   "exclude": ["node_modules"]
 }
