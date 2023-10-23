@@ -14,7 +14,7 @@ export interface LoginFormProps { }
 const validationSchema = Yup.object({
   email: Yup.string().email('invalidEmail').required('requiredEmail'),
   password: Yup.string().required('requiredPassword'),
-  userRole: Yup.string().required('requiredUserRole'),
+  // userRole: Yup.string().required('requiredUserRole'),
 })
 
 const LoginForm: FC<LoginFormProps> = () => {
@@ -27,7 +27,7 @@ const LoginForm: FC<LoginFormProps> = () => {
     initialValues: {
       email: '',
       password: '',
-      userRole: '',
+      // userRole: '',
     },
     validationSchema: validationSchema,
     onSubmit: Login,
@@ -74,7 +74,7 @@ const LoginForm: FC<LoginFormProps> = () => {
           formik.errors.password ? validationT(formik.errors.password) : ''
         }
       />
-
+      {/* 
       <FormControl fullWidth>
         <InputLabel id="user-role">Age</InputLabel>
         <Select
@@ -88,7 +88,7 @@ const LoginForm: FC<LoginFormProps> = () => {
           <MenuItem value={20}>Company</MenuItem>
           <MenuItem value={30}>ABC</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
       <Button
         variant="contained"
         type="submit"

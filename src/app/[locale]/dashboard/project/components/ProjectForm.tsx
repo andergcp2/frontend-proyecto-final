@@ -1,7 +1,7 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, TextField, Grid, Typography } from '@mui/material'
+import { Box, TextField, Grid, Typography, Divider } from '@mui/material'
 import { useTranslations } from 'next-intl'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -11,21 +11,22 @@ import { useProject } from '../context/projectContext'
 export interface ProjectFormProps { }
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  type: Yup.string().required('Required'),
-  responsibleName: Yup.string().required('Required'),
-  role: Yup.string().required('Required'),
-  phone: Yup.string().required('Required'),
-  email: Yup.string().required('Required'),
-  country: Yup.string().required('Required'),
-  city: Yup.string().required('Required'),
-  address: Yup.string().required('Required'),
+  name: Yup.string().required('required'),
+  type: Yup.string().required('required'),
+  responsibleName: Yup.string().required('required'),
+  role: Yup.string().required('required'),
+  phone: Yup.string().required('required'),
+  email: Yup.string().required('required'),
+  country: Yup.string().required('required'),
+  city: Yup.string().required('required'),
+  address: Yup.string().required('required'),
 })
 
 const ProjectForm: FC<ProjectFormProps> = () => {
-  const t = useTranslations('project')
+  const t = useTranslations('Project')
 
   const { CreateProject } = useProject()
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -45,7 +46,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
     <Box component="form"
       id="create-project-form"
       onSubmit={formik.handleSubmit}
-      sx={{ mt: 3, mx: 'auto', maxWidth: 1000 }}
+      sx={{ mt: 3, mx: 'auto', maxWidth: 1000, pt: 10 }}
     >
       <Typography variant="h4" sx={{ mb: 2 }}>{t('projectFormTitle')}</Typography>
       <Grid container spacing={2}>
@@ -75,6 +76,9 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             variant="outlined"
           />
         </Grid>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('responsible')}</Typography>
+        </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
@@ -93,7 +97,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             fullWidth
             id="role"
             name="role"
-            label={t('projectRole')}
+            label={t('role')}
             value={formik.values.role}
             onChange={formik.handleChange}
             error={formik.touched.role && Boolean(formik.errors.role)}
@@ -106,7 +110,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             fullWidth
             id="phone"
             name="phone"
-            label={t('projectPhone')}
+            label={t('phone')}
             value={formik.values.phone}
             onChange={formik.handleChange}
             error={formik.touched.phone && Boolean(formik.errors.phone)}
@@ -119,7 +123,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             fullWidth
             id="email"
             name="email"
-            label={t('projectEmail')}
+            label={t('email')}
             value={formik.values.email}
             onChange={formik.handleChange}
             error={formik.touched.email && Boolean(formik.errors.email)}
@@ -127,12 +131,15 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             variant="outlined"
           />
         </Grid>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('location')}</Typography>
+        </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
             id="country"
             name="country"
-            label={t('projectCountry')}
+            label={t('country')}
             value={formik.values.country}
             onChange={formik.handleChange}
             error={formik.touched.country && Boolean(formik.errors.country)}
@@ -145,7 +152,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             fullWidth
             id="city"
             name="city"
-            label={t('projectCity')}
+            label={t('city')}
             value={formik.values.city}
             onChange={formik.handleChange}
             error={formik.touched.city && Boolean(formik.errors.city)}
@@ -158,7 +165,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
             fullWidth
             id="address"
             name="address"
-            label={t('projectAddress')}
+            label={t('address')}
             value={formik.values.address}
             onChange={formik.handleChange}
             error={formik.touched.address && Boolean(formik.errors.address)}
@@ -167,7 +174,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button type="submit">{t('projectFormButton')}</Button>
+          <Button type="submit" variant='contained'>{t('projectFormButton')}</Button>
         </Grid>
       </Grid>
     </Box>

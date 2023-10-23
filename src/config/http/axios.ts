@@ -27,12 +27,12 @@ axiosInstance.interceptors.request.use(
   async function (config) {
     const session = await getSession();
     // TODO: Check token when auth is implemented
-    // if (session) {
-    //   const token = session.user?.token || undefined;
-    //   if (token) {
-    //     config.headers["Authorization"] = `Bearer ${token}`;
-    //   }
-    // }
+    if (session) {
+      const token = session.user?.token || undefined;
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+    }
 
     return config;
   },
