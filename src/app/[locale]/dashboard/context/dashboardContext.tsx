@@ -17,8 +17,6 @@ export const DashboardProvider = ({
   children: React.ReactNode
 }) => {
   const states = useDashboardContext()
-  console.log('Ander states', states)
-
   return (
     <DashboardContext.Provider value={states}>{children}</DashboardContext.Provider>
   )

@@ -1,5 +1,5 @@
 import { useToast } from '@/context/Toast.context'
-import { SignUpCompanyDTO, mainRoutes } from '@/models'
+import { LoginDTO, SignUpCompanyDTO, mainRoutes } from '@/models'
 import { signUpCompany } from '@/services/auth'
 import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
@@ -30,20 +30,23 @@ export default function useQanttoAuth() {
   })
 
   const { mutateAsync: LoginReq, isLoading: isLoginLoading } = useMutation({
-    mutationFn: (params: { email: string, password: string }) =>
+    mutationFn: (params: LoginDTO) =>
       signIn('credentials', { ...params, redirect: false }),
-    onSuccess: () => {
-      push(mainRoutes.home)
-    }
+    onSuccess: (data) => {
+      if (data?.error) {
+        return showToast(t('error.login'), 'error')
+      }
+      showToast(t('success.login'), 'success')
+      push(mainRoutes.dashboard)
+    },
   })
 
-  const SignUpCompany = async (variables: SignUpCompanyDTO, options?: {}) => {
-    await SignUpCompanyReq(variables, options)
+  const SignUpCompany = async (variables: SignUpCompanyDTO) => {
+    await SignUpCompanyReq(variables)
   }
 
-  const Login = async (variables: { email: string, password: string }, options?: {}) => {
-    console.log('Ander Login')
-    await LoginReq(variables, options)
+  const Login = async (variables: LoginDTO) => {
+    await LoginReq(variables)
   }
 
   return {
