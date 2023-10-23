@@ -1,12 +1,10 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, FormControlLabel, Checkbox, Grid } from '@mui/material'
+import { Box, FormControlLabel, Checkbox, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { EmailInput, PasswordInput } from '@/components'
-// import { LinkAuth } from '../../components'
-import { mainRoutes } from '@/models'
 import { useTranslations } from 'next-intl'
 import { useAuth } from '../../context/AuthContext'
 import Button from '@/components/button/Button'
@@ -16,6 +14,7 @@ export interface LoginFormProps { }
 const validationSchema = Yup.object({
   email: Yup.string().email('invalidEmail').required('requiredEmail'),
   password: Yup.string().required('requiredPassword'),
+  userRole: Yup.string().required('requiredUserRole'),
 })
 
 const LoginForm: FC<LoginFormProps> = () => {
@@ -28,7 +27,7 @@ const LoginForm: FC<LoginFormProps> = () => {
     initialValues: {
       email: '',
       password: '',
-      remember_me: false,
+      userRole: '',
     },
     validationSchema: validationSchema,
     onSubmit: Login,
@@ -40,8 +39,15 @@ const LoginForm: FC<LoginFormProps> = () => {
       onSubmit={formik.handleSubmit}
       id="login-form"
       noValidate
-      sx={{ mt: 1 }}
+      sx={{ mt: 1, width: '50%' }}
+      display={'flex'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      margin={'auto'}
+      pt={5}
+      maxWidth={'500px'}
     >
+      <Typography variant="h1" py={5}>Iniciar sesión</Typography>
       <EmailInput
         margin="normal"
         autoFocus
@@ -69,10 +75,24 @@ const LoginForm: FC<LoginFormProps> = () => {
         }
       />
 
+      <FormControl fullWidth>
+        <InputLabel id="user-role">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={formik.values.userRole}
+          label={t('userRole')}
+          onChange={formik.handleChange}
+        >
+          <MenuItem value={10}>Candidate</MenuItem>
+          <MenuItem value={20}>Company</MenuItem>
+          <MenuItem value={30}>ABC</MenuItem>
+        </Select>
+      </FormControl>
       <Button
         variant="contained"
         type="submit"
-        sx={{ mt: 3, mb: 2, fontWeight: 600 }}
+        sx={{ mt: 3, mb: 2, fontWeight: 600, maxWidth: '50%' }}
       // loading={isLoginLoading}
       >
         {t('signInBtn')}
