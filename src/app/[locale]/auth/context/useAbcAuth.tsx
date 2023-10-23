@@ -1,3 +1,5 @@
+'use client'
+
 import { useToast } from '@/context/Toast.context'
 import { LoginDTO, SignUpCompanyDTO, mainRoutes } from '@/models'
 import { signUpCompany } from '@/services/auth'
@@ -19,12 +21,14 @@ export default function useQanttoAuth() {
     mutationFn: signUpCompany,
     onSuccess: () => {
       // TODO: redirect to the right page
-      // push(mainRoutes.auth.verify)
-      // TODO: Hacer login automatico
       alert('Empresa registrada exitosamente')
+      push(mainRoutes.dashboard)
+      // TODO: Hacer login automatico
       showToast(t('success.signUpCompany'), 'success')
     },
     onError: (error: any) => {
+      alert('Empresa registrada exitosamente')
+      push(mainRoutes.dashboard)
       showToast(error.message, 'error')
     }
   })
