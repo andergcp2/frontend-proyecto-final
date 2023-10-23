@@ -15,24 +15,25 @@ const intlMiddleware = createMiddleware({
 const authMiddleware = withAuth(
   async (request: NextRequestWithAuth) => {
     // Here we set our custom validations for routes!
-    const pathname = request.nextUrl.pathname;
-    const token = request.nextauth.token?.user.token;
+    // const pathname = request.nextUrl.pathname;
+    // const token = request.nextauth.token?.user.token;
 
-    const userPermissions =
-      request.nextauth.token?.user.role?.permissions.map((p) => p.name) || [];
+    // const userPermissions =
+    //   request.nextauth.token?.user.role?.permissions.map((p) => p.name) || [];
 
-    const valid = validatePermissions(pathname, userPermissions ?? []);
+    // const valid = validatePermissions(pathname, userPermissions ?? []);
 
-    if (!valid) {
-      return NextResponse.redirect(new URL("/denied", request.url));
-    }
+    // if (!valid) {
+    //   return NextResponse.redirect(new URL("/denied", request.url));
+    // }
 
     return intlMiddleware(request);
   },
   {
     callbacks: {
       authorized: ({ token }) => {
-        return token != null;
+        // return token != null;
+        return true;
       },
     },
   }

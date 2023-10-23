@@ -1,53 +1,107 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { Auth } from "aws-amplify";
+import { cli } from "webpack";
+import aws from "aws-sdk";
 
 const handler = NextAuth({
   providers: [
     Credentials({
       name: "Credentials",
       credentials: {
-        email: { label: "email" },
-        password: { label: "password" },
+        email: { label: "email", type: "email" },
+        password: { label: "password", type: "password" },
       },
       async authorize(credentials) {
-        console.log("Ander credentials", credentials);
-        const cognitoUser = await Auth.signIn({
-          username: credentials?.email || "",
-          password: credentials?.password || "",
-        });
-        console.log("Ander cognitoUser", cognitoUser);
-        console.log("Ander cognitoUser Session", cognitoUser.Session);
-        const user = await Auth.currentAuthenticatedUser({
-          bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-        });
-        console.log("Ander user", user);
-        if (cognitoUser!!) {
-          // console.log(
-          //   "Ander aqui fue",
-          //   cognitoUser.attributes.sub,
-          //   cognitoUser.attributes.email,
-          //   { ...cognitoUser }
-          // );
-          console.log("Ander aqui fue2 ");
-          // return {
-          //   id: cognitoUser.attributes.sub,
-          //   email: cognitoUser.attributes.email,
-          //   name: cognitoUser.attributes.name,
-          // };
-          // Get the user JWT Token and add it in the token object
-          cognitoUser.Session = {
-            ...cognitoUser.Session,
-            token: cognitoUser.signInUserSession.idToken.jwtToken,
+        try {
+          console.debug("****createCredential: ", JSON.stringify(credentials));
+          // var aws = require("aws-sdk");
+          console.log(
+            "process.env.COGNITO_IDENTITY_POOL_ID",
+            process.env.COGNITO_IDENTITY_POOL_ID,
+            process.env.USER_POOL_ID,
+            process.env.COGNITO_CLIENT_ID
+          );
+          aws.config.update({
+            region: "us-east-1",
+            credentials: new aws.CognitoIdentityCredentials({
+              IdentityPoolId: process.env.COGNITO_IDENTITY_POOL_ID || "",
+            }),
+          });
+          var cognitoidentityserviceprovider =
+            new aws.CognitoIdentityServiceProvider();
+          // const UserPoolId = process.env.USER_POOL_ID;
+          const userParams = {
+            AuthParameters: {
+              EMAIL: credentials?.email || "",
+              PASSWORD: credentials?.password || "",
+            },
+            AuthFlow: "USER_PASSWORD_AUTH",
+            ClientId: process.env.COGNITO_CLIENT_ID || "",
+            UserPoolId: process.env.USER_POOL_ID || "",
           };
-
-          return cognitoUser.Session;
+          const errorInit = await cognitoidentityserviceprovider
+            .adminInitiateAuth(userParams)
+            .promise()
+            .then((data: any) => {
+              console.log("Data ---", data);
+              return data;
+              // return null;
+            })
+            .catch((error: any) => {
+              console.error(
+                "*****error createCredential adminInitiateAuth: ",
+                error
+              );
+              console.error(JSON.stringify(error));
+              return error;
+            });
+          if (errorInit) {
+            console.error("*****errorInit: ", errorInit);
+            if (errorInit.code) {
+              return Promise.reject(new Error(errorInit.code));
+            }
+            return Promise.reject(new Error("Unknown Error"));
+          }
+        } catch (error: any) {
+          console.log("Error ----", error);
+          return null;
         }
-        console.log("Ander va a retornar null");
         return null;
       },
     }),
+    // Credentials({
+    //   name: "Credentials",
+    //   credentials: {
+    //     email: { label: "email" },
+    //     password: { label: "password" },
+    //   },
+    //   async authorize(credentials) {
+    //     try {
+    //       const cognitoUser = await Auth.signIn({
+    //         username: credentials?.email || "",
+    //         password: credentials?.password || "",
+    //       });
+    //       console.log("Cognito user ----", cognitoUser);
+    //       // const user = await Auth.currentAuthenticatedUser({
+    //       //   bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+    //       // });
+    //       if (cognitoUser!!) {
+    //         cognitoUser.Session = {
+    //           ...cognitoUser.Session,
+    //           token: cognitoUser.signInUserSession.idToken.jwtToken,
+    //         };
+    //         return cognitoUser.Session;
+    //       }
+    //       return null;
+    //     } catch (error: any) {
+    //       console.log("Error ----", error);
+    //       return null;
+    //     }
+    //   },
+    // }),
   ],
+
   callbacks: {
     jwt({ token, user, trigger, session }) {
       if (trigger === "update") {
@@ -55,6 +109,7 @@ const handler = NextAuth({
       }
 
       if (user) {
+        console.log("Hay user-------- ", user);
         token.user = {
           ...user,
           id: Number(user.id),

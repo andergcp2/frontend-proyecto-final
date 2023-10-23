@@ -102,5 +102,24 @@
     "invalidEmail": "Email inválido",
     "requiredEmail": "Email es requerido",
     "requiredPassword": "Contraseña es requerida"
+  },
+  "Dashboard": {
+    "companyTitle": "Portal empresas"
+  },
+  "Project": {
+    "required": "El campo es requerido",
+    "projectFormTitle": "Crear proyecto",
+    "projectName": "Nombre del proyecto",
+    "projectType": "Tipo de proyecto",
+    "projectResponsibleName": "Nombre completo",
+    "role": "Rol",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "country": "País",
+    "city": "Ciudad",
+    "address": "Dirección",
+    "projectFormButton": "Crear proyecto",
+    "responsible": "Responsable",
+    "location": "Ubicación"
   }
 }

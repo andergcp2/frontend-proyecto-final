@@ -21,7 +21,7 @@ export const theme = createTheme({
     mode: "light",
     background: {
       default: ThemePalette.WHITE,
-      paper: "#1d1d1d",
+      paper: ThemePalette.WHITE,
     },
     primary: {
       main: ThemePalette.DARKER_BLUE,

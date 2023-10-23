@@ -2,7 +2,6 @@
 
 import { FC } from 'react'
 import { Box, TextField, Grid, Typography } from '@mui/material'
-import { EmailInput, PasswordInput } from '@/components'
 // import { LinkAuth } from '../../components'
 // import { PASSWORD_REGEX, mainRoutes } from '@/models'
 import { useTranslations } from 'next-intl'

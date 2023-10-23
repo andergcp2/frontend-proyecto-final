@@ -102,5 +102,24 @@
     "invalidEmail": "Invalid email",
     "requiredEmail": "Email is required",
     "requiredPassword": "Password is required"
+  },
+  "Dashboard": {
+    "companyTitle": "Company Portal"
+  },
+  "Project": {
+    "required": "El campo es requerido",
+    "projectFormTitle": "Create project",
+    "projectName": "Project name",
+    "projectType": "Project type",
+    "projectResponsibleName": "Complete Name",
+    "role": "Role",
+    "phone": "Phone",
+    "email": "Email",
+    "country": "Country",
+    "city": "City",
+    "address": "Address",
+    "projectFormButton": "Create project",
+    "responsible": "Responsible",
+    "location": "Location"
   }
 }

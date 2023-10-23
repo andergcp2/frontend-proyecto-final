@@ -1,13 +1,15 @@
-'use client';
+import DashboardContainer from './components/Container';
+import { Metadata } from 'next';
+import { FC } from 'react';
 
-import { Typography } from '@mui/material';
-import { useTranslations } from 'next-intl';
-
-export default function Home() {
-  const t = useTranslations('Index');
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Typography variant="h1" component="h1">{t('title')} - Prueba</ Typography >
-    </div>
-  )
+export const metadata: Metadata = {
+  title: 'Dashboard',
 }
+
+export interface DashboardProps { }
+
+const Dashboard: FC<DashboardProps> = () => {
+  return <DashboardContainer />
+}
+
+export default Dashboard;
