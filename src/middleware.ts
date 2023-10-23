@@ -32,8 +32,8 @@ const authMiddleware = withAuth(
   {
     callbacks: {
       authorized: ({ token }) => {
-        // return token != null;
-        return true;
+        return token != null;
+        // return true;
       },
     },
   }

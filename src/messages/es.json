@@ -85,7 +85,7 @@
       }
     },
     "Login": {
-      "emailAddress": "Correo electrónico",
+      "username": "Nombre de usuario",
       "password": "Contraseña",
       "signInBtn": "Iniciar sesión"
     },
