@@ -1,11 +1,12 @@
-import { SignUpCompanyDTO } from '@/models'
-import { Dispatch, SetStateAction, createContext, useContext } from 'react'
+import { LoginDTO, SignUpCompanyDTO } from '@/models'
+import { createContext, useContext } from 'react'
 import useAbcAuth from './useAbcAuth'
+
 
 interface IAuthContext {
   isSignUpCompanyLoading: boolean,
-  Login: (variables: { email: string, password: string }) => Promise<void>,
-  SignUpCompany: (variables: SignUpCompanyDTO) => Promise<void>
+  Login: (variables: LoginDTO) => Promise<void>,
+  SignUpCompany: (variables: SignUpCompanyDTO, options?: {}) => Promise<void>
 }
 
 const AuthContext = createContext<IAuthContext>({

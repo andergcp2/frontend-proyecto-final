@@ -31,7 +31,18 @@ export interface Role {
 export interface User {
   id: number;
   email: string;
+  username: string;
   name: string;
   token?: string;
   role?: Role;
+}
+
+export interface LoginDTO {
+  username: string;
+  password: string;
+}
+
+export interface Login {
+  token: string;
+  user: User;
 }

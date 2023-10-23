@@ -1,7 +1,7 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, FormControlLabel, Checkbox, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import { Box, TextField, FormControlLabel, Checkbox, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { EmailInput, PasswordInput } from '@/components'
@@ -12,9 +12,9 @@ import Button from '@/components/button/Button'
 export interface LoginFormProps { }
 
 const validationSchema = Yup.object({
-  email: Yup.string().email('invalidEmail').required('requiredEmail'),
+  username: Yup.string().required('requiredEmail'),
   password: Yup.string().required('requiredPassword'),
-  // userRole: Yup.string().required('requiredUserRole'),
+  // userrole: Yup.string().required('requiredUserRole'),
 })
 
 const LoginForm: FC<LoginFormProps> = () => {
@@ -25,7 +25,7 @@ const LoginForm: FC<LoginFormProps> = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: '',
       // userRole: '',
     },
@@ -48,17 +48,22 @@ const LoginForm: FC<LoginFormProps> = () => {
       maxWidth={'500px'}
     >
       <Typography variant="h1" py={5}>Iniciar sesión</Typography>
-      <EmailInput
-        margin="normal"
-        autoFocus
-        label={t('emailAddress')}
-        value={formik.values.email}
+      <TextField
+        id="username"
+        name="username"
+        label={t('username')}
+        fullWidth
+        required
+        value={formik.values.username}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={Boolean(formik.touched.email) && Boolean(formik.errors.email)}
-        errorText={formik.errors.email ? validationT(formik.errors.email) : ''}
+        error={formik.touched.username && Boolean(formik.errors.username)}
+        helperText={
+          formik.touched.username &&
+          Boolean(formik.errors.username) &&
+          t(formik.errors.username as string)
+        }
       />
-
       <PasswordInput
         id="password"
         name="password"
@@ -74,12 +79,12 @@ const LoginForm: FC<LoginFormProps> = () => {
           formik.errors.password ? validationT(formik.errors.password) : ''
         }
       />
-      {/* 
-      <FormControl fullWidth>
-        <InputLabel id="user-role">Age</InputLabel>
+
+      {/* <FormControl fullWidth>
+        <InputLabel id="userrole">Role</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="select-role"
+          id="select-role"
           value={formik.values.userRole}
           label={t('userRole')}
           onChange={formik.handleChange}

@@ -85,7 +85,7 @@
       }
     },
     "Login": {
-      "emailAddress": "Email address",
+      "username": "Username",
       "password": "Password",
       "signInBtn": "Sign in"
     },
