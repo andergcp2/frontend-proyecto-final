@@ -82,6 +82,48 @@
         "legalRepresentativeUserMax": "El usuario debe tener como máximo 100 caracteres",
         "invalidPassword": "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial",
         "passwordsMustMatch": "Las contraseñas deben coincidir"
+      },
+      "Candidate": {
+        "namesRequired": "Se requieren los nombres",
+        "lastNamesRequired": "Se requieren los apellidos",
+        "identificationTypeRequired": "Se requiere el tipo de identificación",
+        "identificationNumberRequired": "Se requiere el número de identificación",
+        "emailRequired": "Se requiere el correo electrónico",
+        "phoneNumberRequired": "Se requiere el número de teléfono",
+        "countryRequired": "Se requiere el país",
+        "cityRequired": "Se requiere la ciudad",
+        "addressRequired": "Se requiere la dirección",
+        "photoRequired": "Se requiere la foto",
+        "professionRequired": "Se requiere la profesión",
+        "softSkillsRequired": "Se requieren las habilidades blandas",
+        "technicalSkillsRequired": "Se requieren las habilidades técnicas",
+        "usernameRequired": "Se requiere el usuario",
+        "passwordRequired": "Se requiere la contraseña",
+        "passwordConfirmationRequired": "Se requiere la confirmación de la contraseña",
+        "termsAndConditionsRequired": "Se requiere aceptar los términos y condiciones",
+        "privacyPolicyRequired": "Se requiere aceptar la política de privacidad",
+        "personalInformation": "Información personal",
+        "names": "Nombres",
+        "lastNames": "Apellidos",
+        "identificationType": "Tipo de identificación",
+        "identificationNumber": "Número de identificación",
+        "email": "Correo electrónico",
+        "phoneNumber": "Número de teléfono",
+        "country": "País",
+        "city": "Ciudad",
+        "address": "Dirección",
+        "photo": "Foto",
+        "profession": "Profesión",
+        "softSkills": "Habilidades blandas",
+        "technicalSkills": "Habilidades técnicas",
+        "username": "Usuario",
+        "password": "Contraseña",
+        "passwordConfirmation": "Confirmación de contraseña",
+        "termsAndConditions": "He leído y acepto los términos y condiciones",
+        "privacyPolicy": "Acepto la política de privacidad",
+        "professionalInformation": "Información profesional",
+        "accountInformation": "Información de la cuenta",
+        "submit": "Registrarse"
       }
     },
     "Login": {
@@ -91,7 +133,8 @@
     },
     "ToastMsg": {
       "success": {
-        "signUpCompany": "La empresa se registró correctamente"
+        "signUpCompany": "La empresa se registró correctamente",
+        "signUpCandidate": "El candidato se registró correctamente"
       }
     }
   },
