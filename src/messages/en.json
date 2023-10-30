@@ -147,7 +147,21 @@
     "requiredPassword": "Password is required"
   },
   "Dashboard": {
-    "companyTitle": "Company Portal"
+    "companyTitle": "Company Portal",
+    "Modules": {
+      "Projects": {
+        "cardTitle": "Projects",
+        "cardSubtitle": "Manage your projects",
+        "cardDescription": "In this section you can manage your projects",
+        "cardButtonLabel": "Go to projects"
+      },
+      "Management": {
+        "cardTitle": "Management",
+        "cardSubtitle": "Manage your company",
+        "cardDescription": "In this section you can manage your company",
+        "cardButtonLabel": "Go to management"
+      }
+    }
   },
   "Project": {
     "required": "El campo es requerido",

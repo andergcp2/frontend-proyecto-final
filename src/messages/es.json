@@ -147,7 +147,21 @@
     "requiredPassword": "Contraseña es requerida"
   },
   "Dashboard": {
-    "companyTitle": "Portal empresas"
+    "companyTitle": "Portal empresas",
+    "Modules": {
+      "Projects": {
+        "cardTitle": "Proyectos",
+        "cardSubtitle": "Administra tus proyectos",
+        "cardDescription": "En esta sección puedas ver los proyectos de tu empresa y gestionarlos",
+        "cardButtonLabel": "Acceder"
+      },
+      "Management": {
+        "cardTitle": "Gestión",
+        "cardSubtitle": "Administra tu empresa",
+        "cardDescription": "En esta sección puedas ver y gestionar la información de tu empresa",
+        "cardButtonLabel": "Acceder"
+      }
+    }
   },
   "Project": {
     "required": "El campo es requerido",
