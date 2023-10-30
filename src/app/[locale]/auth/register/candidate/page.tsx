@@ -1,5 +1,7 @@
+// 'use client'
+
 import { FC } from 'react'
-import { RegisterForm } from '@/app/[locale]/auth/register/company/components'
+import { RegisterForm } from '@/app/[locale]/auth/register/candidate/components'
 import { Metadata } from 'next'
 import { Box } from '@mui/material'
 
