@@ -77,7 +77,7 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ top: 50 }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <IconButton
             color="inherit"

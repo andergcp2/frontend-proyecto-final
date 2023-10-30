@@ -1,6 +1,5 @@
 'use client'
 
-import { Box } from "@mui/material"
 import Header from "./components/Header"
 
 interface AuthLayoutProps {
@@ -9,10 +8,9 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
-    <Box marginX={4}>
-      <Header />
+    <Header>
       {children}
-    </Box>
+    </Header>
   )
 }
 
