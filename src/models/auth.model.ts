@@ -22,23 +22,25 @@ export interface SignUpCompanyDTO {
 }
 
 export interface SignUpCandidateDTO {
-  names: string;
-  lastNames: string;
-  identificationType: string;
-  identificationNumber: string;
+  name: string;
+  lastName: string;
+  idType: string;
+  identification: string;
   email: string;
-  phoneNumber: string;
+  phone: string;
   country: string;
   city: string;
   address: string;
-  photo: string;
+  // photo: string;
   profession: string;
-  softSkills: CandidateSoftSkill[];
-  technicalSkills: CandidateTechnicalSkill[];
+  // softSkills: CandidateSoftSkill[];
+  softSkills: string[];
+  technicalSkills: string[];
+  // technicalSkills: CandidateTechnicalSkill[];
   username: string;
   password: string;
-  termsAndConditions: boolean;
-  privacyPolicy: boolean;
+  // termsAndConditions: boolean;
+  // privacyPolicy: boolean;
 }
 
 export interface Candidate {
