@@ -19,7 +19,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Children, FC, useState } from "react";
+import { FC, useState } from "react";
 import Button from '@/components/button/Button';
 
 const drawerWidth = 320;
@@ -32,9 +32,7 @@ interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
 
-interface SidebarProps {
-  children: React.ReactNode
-}
+interface SidebarProps { }
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -43,6 +41,8 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  position: 'sticky',
+  width: '100%',
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: `${drawerWidth}px`,
@@ -62,7 +62,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const Sidebar: FC<SidebarProps> = ({ children }) => {
+const Sidebar: FC<SidebarProps> = ({ }) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -75,9 +75,9 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} className='AnderBoxBar' position={'sticky'} top={'50px'}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ top: 50 }}>
+      <AppBar open={open} className='AnderAppBar'>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <IconButton
             color="inherit"
@@ -169,9 +169,6 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
           ))}
         </List>
       </Drawer>
-      <Box>
-        {children}
-      </Box>
     </Box>
   )
 }

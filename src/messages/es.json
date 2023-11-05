@@ -176,7 +176,14 @@
     "city": "Ciudad",
     "address": "Dirección",
     "projectFormButton": "Crear proyecto",
+    "addProfile": "Agregar perfil",
+    "addProfileTitle": "Agregar perfil",
     "responsible": "Responsable",
-    "location": "Ubicación"
+    "location": "Ubicación",
+    "rolName": "Nombre del cargo",
+    "profession": "Profesión",
+    "softSkills": "Habilidades blandas",
+    "techSkills": "Habilidades técnicas",
+    "profilesList": "Perfiles"
   }
 }
