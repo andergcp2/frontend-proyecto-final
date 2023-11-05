@@ -75,7 +75,7 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }} className='AnderBoxBar'>
+    <Box sx={{ display: 'flex' }} className='AnderBoxBar' position={'sticky'} top={'50px'}>
       <CssBaseline />
       <AppBar open={open} className='AnderAppBar'>
         <Toolbar sx={{ justifyContent: 'space-between' }}>

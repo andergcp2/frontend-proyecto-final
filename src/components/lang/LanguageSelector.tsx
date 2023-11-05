@@ -45,6 +45,9 @@ const LanguageSelector: FC<LanguageSwitcherProps> = () => {
       justifyContent={'flex-end'}
       className='language-selector'
       position={'sticky'}
+      top={0}
+      minHeight={'60px'}
+      sx={{ backgroundColor: 'white', zIndex: 100 }}
     >
       <TextField
         id="toggle-language"
