@@ -176,7 +176,14 @@
     "city": "City",
     "address": "Address",
     "projectFormButton": "Create project",
+    "addProfile": "Add profile",
+    "addProfileTitle": "Add profile",
     "responsible": "Responsible",
-    "location": "Location"
+    "location": "Location",
+    "rolName": "Rol name",
+    "profession": "Profession",
+    "softSkills": "Soft skills",
+    "techSkills": "Tech skills",
+    "profilesList": "Profiles"
   }
 }
