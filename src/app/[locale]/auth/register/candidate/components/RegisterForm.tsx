@@ -4,33 +4,35 @@ import { useTranslations } from 'next-intl'
 import { FC } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import { Box, Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material'
 
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
+import softSkills from '@/data/softSkills'
+import technicalSkills from '@/data/technicalSkills'
 
 
 export interface RegisterFormProps { }
 
 const validationSchema = Yup.object({
-  names: Yup.string().required('namesRequired'),
-  lastNames: Yup.string().required('lastNamesRequired'),
-  identificationType: Yup.string().required('identificationTypeRequired'),
-  identificationNumber: Yup.string().required('identificationNumberRequired'),
+  name: Yup.string().required('namesRequired'),
+  lastName: Yup.string().required('lastNamesRequired'),
+  idType: Yup.string().required('identificationTypeRequired'),
+  identification: Yup.string().required('identificationNumberRequired'),
   email: Yup.string().required('emailRequired'),
-  phoneNumber: Yup.string().required('phoneNumberRequired'),
+  phone: Yup.string().required('phoneNumberRequired'),
   country: Yup.string().required('countryRequired'),
   city: Yup.string().required('cityRequired'),
   address: Yup.string().required('addressRequired'),
-  photo: Yup.string().required('photoRequired'),
+  // photo: Yup.string().required('photoRequired'),
   profession: Yup.string().required('professionRequired'),
   softSkills: Yup.array().required('softSkillsRequired'),
   technicalSkills: Yup.array().required('technicalSkillsRequired'),
   username: Yup.string().required('usernameRequired'),
   password: Yup.string().required('passwordRequired'),
   passwordConfirmation: Yup.string().required('passwordConfirmationRequired'),
-  termsAndConditions: Yup.boolean().required('termsAndConditionsRequired'),
-  privacyPolicy: Yup.boolean().required('privacyPolicyRequired')
+  // termsAndConditions: Yup.boolean().required('termsAndConditionsRequired'),
+  // privacyPolicy: Yup.boolean().required('privacyPolicyRequired')
 })
 const RegisterForm: FC<RegisterFormProps> = () => {
   const t = useTranslations('Auth.SignUp.Candidate')
@@ -39,24 +41,24 @@ const RegisterForm: FC<RegisterFormProps> = () => {
 
   const formik = useFormik({
     initialValues: {
-      names: '',
-      lastNames: '',
-      identificationType: '',
-      identificationNumber: '',
+      name: '',
+      lastName: '',
+      idType: '',
+      identification: '',
       email: '',
-      phoneNumber: '',
+      phone: '',
       country: '',
       city: '',
       address: '',
-      photo: '',
+      // photo: '',
       profession: '',
       softSkills: [],
       technicalSkills: [],
       username: '',
       password: '',
       passwordConfirmation: '',
-      termsAndConditions: false,
-      privacyPolicy: false
+      // termsAndConditions: false,
+      // privacyPolicy: false
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -78,57 +80,57 @@ const RegisterForm: FC<RegisterFormProps> = () => {
         <Grid item xs={12} sm={4}>
           <TextField
             fullWidth
-            id="names"
-            name="names"
+            id="name"
+            name="name"
             label={t('names')}
-            value={formik.values.names}
+            value={formik.values.name}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.names && Boolean(formik.errors.names)}
-            helperText={formik.touched.names && t(formik.errors.names)}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && t(formik.errors.name)}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextField
             fullWidth
-            id="lastNames"
-            name="lastNames"
+            id="lastName"
+            name="lastName"
             label={t('lastNames')}
-            value={formik.values.lastNames}
+            value={formik.values.lastName}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.lastNames && Boolean(formik.errors.lastNames)}
-            helperText={formik.touched.lastNames && t(formik.errors.lastNames)}
+            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+            helperText={formik.touched.lastName && t(formik.errors.lastName)}
           />
         </Grid>
         <Grid item xs={12} sm={1}>
           <TextField
             fullWidth
-            id="identificationType"
-            name="identificationType"
-            label={t('identificationType')}
-            value={formik.values.identificationType}
+            id="idType"
+            name="idType"
+            label={t('idType')}
+            value={formik.values.idType}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.identificationType && Boolean(formik.errors.identificationType)}
-            helperText={formik.touched.identificationType && t(formik.errors.identificationType)}
+            error={formik.touched.idType && Boolean(formik.errors.idType)}
+            helperText={formik.touched.idType && t(formik.errors.idType)}
           />
         </Grid>
         <Grid item xs={12} sm={3}>
           <TextField
             fullWidth
-            id="identificationNumber"
-            name="identificationNumber"
-            label={t('identificationNumber')}
-            value={formik.values.identificationNumber}
+            id="identification"
+            name="identification"
+            label={t('identification')}
+            value={formik.values.identification}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.identificationNumber && Boolean(formik.errors.identificationNumber)}
-            helperText={formik.touched.identificationNumber && t(formik.errors.identificationNumber)}
+            error={formik.touched.identification && Boolean(formik.errors.identification)}
+            helperText={formik.touched.identification && t(formik.errors.identification)}
           />
         </Grid>
       </Grid>
@@ -150,15 +152,15 @@ const RegisterForm: FC<RegisterFormProps> = () => {
         <Grid item xs={12} sm={4}>
           <TextField
             fullWidth
-            id="phoneNumber"
-            name="phoneNumber"
-            label={t('phoneNumber')}
-            value={formik.values.phoneNumber}
+            id="phone"
+            name="phone"
+            label={t('phone')}
+            value={formik.values.phone}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-            helperText={formik.touched.phoneNumber && t(formik.errors.phoneNumber)}
+            error={formik.touched.phone && Boolean(formik.errors.phone)}
+            helperText={formik.touched.phone && t(formik.errors.phone)}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -205,7 +207,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             helperText={formik.touched.address && t(formik.errors.address)}
           />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        {/* <Grid item xs={12} sm={4}>
           <TextField
             fullWidth
             id="photo"
@@ -218,7 +220,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             error={formik.touched.photo && Boolean(formik.errors.photo)}
             helperText={formik.touched.photo && t(formik.errors.photo)}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
       <Typography variant="h3" sx={{ my: 2, fontWeight: 600 }}>
         {t('professionalInformation')}
@@ -239,7 +241,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          {/* <TextField
             fullWidth
             id="softSkills"
             name="softSkills"
@@ -250,10 +252,62 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
             helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
+          /> */}
+          <Autocomplete
+            multiple
+            // id="softSkills"
+            options={softSkills}
+            getOptionLabel={(option) => {
+              return option
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                id="softSkills"
+                name='softSkills'
+                variant="standard"
+                label={t('softSkills')}
+                // placeholder="Favorites"
+                // onChange={formik.handleChange}
+                // onBlur={formik.handleBlur}
+                error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
+                helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
+              />
+            )}
+            value={formik.values.softSkills}  // Add this line to set the value
+            onChange={(event, newValue) => {
+              formik.setFieldValue('softSkills', newValue);  // Update the formik state
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          <Autocomplete
+            multiple
+            // id="technicalSkills"
+            options={technicalSkills}
+            getOptionLabel={(option) => {
+              return option
+            }}
+            value={formik.values.technicalSkills}  // Add this line to set the value
+            onChange={(event, newValue) => {
+              formik.setFieldValue('technicalSkills', newValue);  // Update the formik state
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                id="softSkills"
+                name='technicalSkills'
+                variant="standard"
+                label={t('technicalSkills')}
+                // placeholder="Favorites"
+                // onChange={formik.handleChange}
+                // onBlur={formik.handleBlur}
+                error={formik.touched.technicalSkills && Boolean(formik.errors.technicalSkills)}
+                helperText={formik.touched.technicalSkills && t(formik.errors.technicalSkills)}
+              />
+            )}
+          />
+          {/* <TextField
             fullWidth
             id="technicalSkills"
             name="technicalSkills"
@@ -264,7 +318,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.technicalSkills && Boolean(formik.errors.technicalSkills)}
             helperText={formik.touched.technicalSkills && t(formik.errors.technicalSkills)}
-          />
+          /> */}
         </Grid>
       </Grid>
       <Typography variant="h3" sx={{ my: 2, fontWeight: 600 }}>
@@ -313,7 +367,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             helperText={formik.touched.passwordConfirmation && t(formik.errors.passwordConfirmation)}
           />
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <FormGroup>
             <FormControlLabel
               id="termsAndConditions"
@@ -332,7 +386,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
               value={formik.values.privacyPolicy}
             />
           </FormGroup>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Button
         type="submit"
