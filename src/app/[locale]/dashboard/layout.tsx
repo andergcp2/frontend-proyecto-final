@@ -12,11 +12,8 @@ export interface DashboardLayoutProps {
 const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <DashboardProvider>
-      <Box sx={{ display: 'flex' }}>
-        <Sidebar>
-          {children}
-        </Sidebar>
-      </Box>
+      <Sidebar />
+      {children}
     </DashboardProvider>
   )
 }
