@@ -47,9 +47,11 @@ const useProjectContext = () => {
   const { mutateAsync: CreateProjectReq, isLoading: isCreateProjectLoading } = useMutation({
     mutationFn: createProject,
     onSuccess: () => {
+      alert('Proyecto creado exitosamente')
       console.log('Pryecto creado exitosamente')
     },
     onError: (error: any) => {
+      alert('Hubo un error creando el proyecto')
       console.log(error.message)
     }
   })
