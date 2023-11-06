@@ -8,7 +8,7 @@ import { Autocomplete, Box, Checkbox, FormControlLabel, FormGroup, Grid, TextFie
 
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
-import softskills from '@/data/softskills'
+import softskills from '@/data/softSkills'
 import technicalSkills from '@/data/technicalSkills'
 
 
