@@ -26,7 +26,7 @@ const validationSchema = Yup.object({
   address: Yup.string().required('addressRequired'),
   // photo: Yup.string().required('photoRequired'),
   profession: Yup.string().required('professionRequired'),
-  softskills: Yup.array().required('softskillsRequired'),
+  softSkills: Yup.array().required('softskillsRequired'),
   technicalSkills: Yup.array().required('technicalSkillsRequired'),
   username: Yup.string().required('usernameRequired'),
   password: Yup.string().required('passwordRequired'),
@@ -52,7 +52,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       address: '',
       // photo: '',
       profession: '',
-      softskills: [],
+      softSkills: [],
       technicalSkills: [],
       username: '',
       password: '',
@@ -263,20 +263,20 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softskills"
-                name='softskills'
+                id="softSkills"
+                name='softSkills'
                 variant="standard"
                 label={t('softskills')}
                 // placeholder="Favorites"
                 // onChange={formik.handleChange}
                 // onBlur={formik.handleBlur}
-                error={formik.touched.softskills && Boolean(formik.errors.softskills)}
-                helperText={formik.touched.softskills && t(formik.errors.softskills)}
+                error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
+                helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
               />
             )}
-            value={formik.values.softskills}  // Add this line to set the value
+            value={formik.values.softSkills}  // Add this line to set the value
             onChange={(event, newValue) => {
-              formik.setFieldValue('softskills', newValue);  // Update the formik state
+              formik.setFieldValue('softSkills', newValue);  // Update the formik state
             }}
           />
         </Grid>
@@ -295,7 +295,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softskills"
+                id="technicalSkills"
                 name='technicalSkills'
                 variant="standard"
                 label={t('technicalSkills')}

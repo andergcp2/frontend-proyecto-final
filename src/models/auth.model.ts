@@ -34,7 +34,7 @@ export interface SignUpCandidateDTO {
   // photo: string;
   profession: string;
   // softskills: CandidateSoftSkill[];
-  softskills: string[];
+  softSkills: string[];
   technicalSkills: string[];
   // technicalSkills: CandidateTechnicalSkill[];
   username: string;
