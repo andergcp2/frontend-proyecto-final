@@ -2,7 +2,7 @@ export interface Project {
   id: number;
   name: string;
   type: string;
-  responsibleName: string;
+  leader: string;
   role: string;
   phone: number;
   email: string;
@@ -13,10 +13,11 @@ export interface Project {
 }
 
 export interface Profile {
-  rolName: string;
+  name: string;
   profession: string;
-  softSkills: SoftSkill[];
-  techSkills: string;
+  // softskills: SoftSkill[];
+  softskills: string;
+  techskills: string;
 }
 
 export interface SoftSkill {

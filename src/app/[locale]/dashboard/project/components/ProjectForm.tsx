@@ -1,12 +1,13 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, TextField, Grid, Typography, Divider, Modal, Autocomplete } from '@mui/material'
+import { Box, TextField, Grid, Typography, Divider, Modal, Autocomplete, FormHelperText } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Field, FieldArray, FieldArrayRenderProps, FormikProvider, useFormik } from 'formik'
+import { Field, FieldArray, FieldArrayRenderProps, FormikErrors, FormikProvider, useFormik } from 'formik'
 import Button from '@/components/button/Button'
 import { useProject } from '../context/projectContext'
-import softSkills from '@/data/softSkills'
+import softskills from '@/data/softskills'
+import { Profile, Project } from '@/models';
 
 export interface ProjectFormProps { }
 
@@ -57,13 +58,13 @@ const ProjectForm: FC<ProjectFormProps> = () => {
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              id="responsibleName"
-              name="responsibleName"
-              label={t('projectResponsibleName')}
-              value={formik.values.responsibleName}
+              id="leader"
+              name="leader"
+              label={t('projectLeader')}
+              value={formik.values.leader}
               onChange={formik.handleChange}
-              error={formik.touched.responsibleName && Boolean(formik.errors.responsibleName)}
-              helperText={formik.touched.responsibleName && formik.errors.responsibleName}
+              error={formik.touched.leader && Boolean(formik.errors.leader)}
+              helperText={formik.touched.leader && formik.errors.leader}
               variant="outlined"
             />
           </Grid>
@@ -165,12 +166,12 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                     >
                       <Grid item xs={12} sm={6}>
                         <TextField
-                          key={`rolName-${idx}`}
+                          key={`name-${idx}`}
                           fullWidth
-                          id={`profiles.${idx}.rolName`}
-                          name={`profiles.${idx}.rolName`}
+                          id={`profiles.${idx}.name`}
+                          name={`profiles.${idx}.name`}
                           label={t('rolName')}
-                          value={formik.values.profiles[idx].rolName}
+                          value={formik.values.profiles[idx].name}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.rolName && Boolean(formik.errors.profiles?.[idx])}
                           // helperText={formik.touched.profiles?.[idx]?.rolName && formik.errors.profiles?.[idx]}
@@ -193,15 +194,15 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         {/* <Autocomplete
-                          key={`softSkills-${idx}`}
+                          key={`softskills-${idx}`}
                           multiple
-                          id={`profiles.${idx}.softSkills`}
-                          // name={`profiles.${idx}.softSkills`}
-                          options={softSkills}
+                          id={`profiles.${idx}.softskills`}
+                          // name={`profiles.${idx}.softskills`}
+                          options={softskills}
                           onChange={(_, newValue) => {
-                            formik.setFieldValue(`profiles[${idx}].softSkills`, newValue);
+                            formik.setFieldValue(`profiles[${idx}].softskills`, newValue);
                           }}
-                          value={formik.values.profiles[idx].softSkills} // Use formik.values
+                          value={formik.values.profiles[idx].softskills} // Use formik.values
                           getOptionLabel={(option) => {
                             if (typeof option === 'string') {
                               return option;
@@ -211,37 +212,37 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           freeSolo
                           renderInput={(params) => (
                             <TextField
-                              // key={`softSkills-${idx}-input${value}`}
+                              // key={`softskills-${idx}-input${value}`}
                               {...params}
                               fullWidth
-                              label={t('softSkills')}
+                              label={t('softskills')}
                               variant="outlined"
                             />
                           )}
                         /> */}
                         {/* Field array for adding soft skills */}
                         {/* <FieldArray
-                          name={`profiles.${idx}.softSkills`}
+                          name={`profiles.${idx}.softskills`}
                           render={(arrayHelpers: FieldArrayRenderProps) => (
                             <>
-                              {(formik.values.profiles[idx].softSkills ?? []).map((_, idx2) => (
+                              {(formik.values.profiles[idx].softskills ?? []).map((_, idx2) => (
                                 <Grid
                                   container
                                   spacing={2}
-                                  key={`softSkills-container-${idx2}`}
+                                  key={`softskills-container-${idx2}`}
                                   pb={2}
                                 >
                                   <Grid item xs={12} sm={6}>
                                     <TextField
-                                      key={`softSkills-${idx2}`}
+                                      key={`softskills-${idx2}`}
                                       fullWidth
-                                      id={`profiles.${idx2}.softSkills`}
-                                      name={`profiles.${idx2}.softSkills`}
-                                      label={t('softSkills')}
-                                      value={formik.values.profiles[idx2].softSkills}
+                                      id={`profiles.${idx2}.softskills`}
+                                      name={`profiles.${idx2}.softskills`}
+                                      label={t('softskills')}
+                                      value={formik.values.profiles[idx2].softskills}
                                       onChange={formik.handleChange}
-                                      // error={formik.touched.profiles?.[idx]?.softSkills && Boolean(formik.errors.profiles?.[idx]?.softSkills)}
-                                      // helperText={formik.touched.profiles?.[idx]?.softSkills && formik.errors.profiles?.[idx]?.softSkills}
+                                      // error={formik.touched.profiles?.[idx]?.softskills && Boolean(formik.errors.profiles?.[idx]?.softskills)}
+                                      // helperText={formik.touched.profiles?.[idx]?.softskills && formik.errors.profiles?.[idx]?.softskills}
                                       variant="outlined"
                                     />
                                     <Grid item xs={12}>
@@ -255,17 +256,29 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           )}
                         /> */}
                         <TextField
-                          key={`softSkills-${idx}`}
+                          key={`softskills-${idx}`}
                           fullWidth
-                          id={`profiles.${idx}.softSkills`}
-                          name={`profiles.${idx}.softSkills`}
-                          label={t('softSkills')}
-                          value={formik.values.profiles[idx].softSkills}
+                          id={`profiles.${idx}.softskills`}
+                          name={`profiles.${idx}.softskills`}
+                          label={t('softskills')}
+                          value={formik.values.profiles[idx].softskills}
                           onChange={formik.handleChange}
-                          // error={formik.touched.profiles?.[idx]?.softSkills && Boolean(formik.errors.profiles?.[idx]?.softSkills)}
-                          // helperText={formik.touched.profiles?.[idx]?.softSkills && formik.errors.profiles?.[idx]?.softSkills}
+                          // error={formik.touched.profiles?.[idx]?.softskills && Boolean(formik.errors.profiles?.[idx]?.softskills)}
+                          // helperText={formik.touched.profiles?.[idx]?.softskills && formik.errors.profiles?.[idx]?.softskills}
                           variant="outlined"
                         />
+                        {/* {formik.touched.profiles?.[idx].softskills &&
+                          !!(formik.errors.profiles as FormikErrors<Profile[]>)?.[
+                            idx
+                          ]?.softskills &&
+                          <FormHelperText error>
+                            {t(
+                              (
+                                formik.errors.profiles as FormikErrors<Project[]>
+                              )?.profiles.[idx].softskills as string,
+                            )}
+                          </FormHelperText>
+                        } */}
                         {/* <Grid item xs={12}>
                           <Button sx={{ marginRight: '4px' }} variant='contained' onClick={() => arrayHelpers.remove(idx)}>-</Button>
                           <Button variant='contained' onClick={() => arrayHelpers.push(idx)}>+</Button>
@@ -273,17 +286,29 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <TextField
-                          key={`techSkills-${idx}`}
+                          key={`techskills-${idx}`}
                           fullWidth
-                          id={`profiles.${idx}.techSkills`}
-                          name={`profiles.${idx}.techSkills`}
-                          label={t('techSkills')}
-                          value={formik.values.profiles[idx].techSkills}
+                          id={`profiles.${idx}.techskills`}
+                          name={`profiles.${idx}.techskills`}
+                          label={t('techskills')}
+                          value={formik.values.profiles[idx].techskills}
                           onChange={formik.handleChange}
-                          // error={formik.touched.profiles?.[idx]?.techSkills && Boolean(formik.errors.profiles?.[idx]?.techSkills)}
-                          // helperText={formik.touched.profiles?.[idx]?.techSkills && formik.errors.profiles?.[idx]?.techSkills}
+                          // error={formik.touched.profiles?.[idx]?.techskills && Boolean(formik.errors.profiles?.[idx]?.techskills)}
+                          // helperText={formik.touched.profiles?.[idx]?.techskills && formik.errors.profiles?.[idx]?.techskills}
                           variant="outlined"
                         />
+                        {/* {formik.touched.profiles?.[idx].techskills &&
+                          !!(formik.errors.profiles as FormikErrors<Profile[]>)?.[
+                            idx
+                          ]?.techskills &&
+                          <FormHelperText error>
+                            {t(
+                              (
+                                formik.errors?.profiles as FormikErrors<Project[]>
+                              ).profiles[idx].techskills as string,
+                            )}
+                          </FormHelperText>
+                        } */}
                       </Grid>
                       <Grid item xs={12}>
                         <Button sx={{ marginRight: '4px' }} variant='contained' onClick={() => arrayHelpers.remove(idx)}><DeleteIcon /></Button>
@@ -292,7 +317,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                     </Grid>
                   ))}
                   <Grid item xs={12} py={2}>
-                    <Button variant='contained' onClick={() => arrayHelpers.push({ rolName: '', profession: '', softSkills: '', techSkills: '' })}>{t('addProfile')}</Button>
+                    <Button variant='contained' onClick={() => arrayHelpers.push({ name: '', profession: '', softskills: '', techskills: '' })}>{t('addProfile')}</Button>
                   </Grid>
                 </>
               )}
