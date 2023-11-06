@@ -8,7 +8,7 @@ import { Autocomplete, Box, Checkbox, FormControlLabel, FormGroup, Grid, TextFie
 
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
-import softSkills from '@/data/softSkills'
+import softskills from '@/data/softSkills'
 import technicalSkills from '@/data/technicalSkills'
 
 
@@ -26,7 +26,7 @@ const validationSchema = Yup.object({
   address: Yup.string().required('addressRequired'),
   // photo: Yup.string().required('photoRequired'),
   profession: Yup.string().required('professionRequired'),
-  softSkills: Yup.array().required('softSkillsRequired'),
+  softskills: Yup.array().required('softskillsRequired'),
   technicalSkills: Yup.array().required('technicalSkillsRequired'),
   username: Yup.string().required('usernameRequired'),
   password: Yup.string().required('passwordRequired'),
@@ -52,7 +52,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       address: '',
       // photo: '',
       profession: '',
-      softSkills: [],
+      softskills: [],
       technicalSkills: [],
       username: '',
       password: '',
@@ -243,40 +243,40 @@ const RegisterForm: FC<RegisterFormProps> = () => {
         <Grid item xs={12} sm={4}>
           {/* <TextField
             fullWidth
-            id="softSkills"
-            name="softSkills"
-            label={t('softSkills')}
-            value={formik.values.softSkills}
+            id="softskills"
+            name="softskills"
+            label={t('softskills')}
+            value={formik.values.softskills}
             required
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
-            helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
+            error={formik.touched.softskills && Boolean(formik.errors.softskills)}
+            helperText={formik.touched.softskills && t(formik.errors.softskills)}
           /> */}
           <Autocomplete
             multiple
-            // id="softSkills"
-            options={softSkills}
+            // id="softskills"
+            options={softskills}
             getOptionLabel={(option) => {
               return option
             }}
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softSkills"
-                name='softSkills'
+                id="softskills"
+                name='softskills'
                 variant="standard"
-                label={t('softSkills')}
+                label={t('softskills')}
                 // placeholder="Favorites"
                 // onChange={formik.handleChange}
                 // onBlur={formik.handleBlur}
-                error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
-                helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
+                error={formik.touched.softskills && Boolean(formik.errors.softskills)}
+                helperText={formik.touched.softskills && t(formik.errors.softskills)}
               />
             )}
-            value={formik.values.softSkills}  // Add this line to set the value
+            value={formik.values.softskills}  // Add this line to set the value
             onChange={(event, newValue) => {
-              formik.setFieldValue('softSkills', newValue);  // Update the formik state
+              formik.setFieldValue('softskills', newValue);  // Update the formik state
             }}
           />
         </Grid>
@@ -295,7 +295,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softSkills"
+                id="softskills"
                 name='technicalSkills'
                 variant="standard"
                 label={t('technicalSkills')}

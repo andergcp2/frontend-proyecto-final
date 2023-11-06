@@ -17,21 +17,21 @@ const techSkillSchema = Yup.object({
 })
 
 const profileSchema = Yup.object({
-  rolName: Yup.string().required('required'),
+  name: Yup.string().required('required'),
   profession: Yup.string().required('required'),
   // softSkill is an array of SoftSkill
-  // softSkills: Yup.array().of(softSkillSchema),
-  // techSkills: Yup.array().of(techSkillSchema),
-  softSkills: Yup.string().required('required'),
-  techSkills: Yup.string().required('required'),
+  // softskills: Yup.array().of(softSkillSchema),
+  // techskills: Yup.array().of(techSkillSchema),
+  softskills: Yup.string().required('required'),
+  techskills: Yup.string().required('required'),
 })
 
 const validationSchema = Yup.object({
   name: Yup.string().required('required'),
   type: Yup.string().required('required'),
-  responsibleName: Yup.string().required('required'),
+  leader: Yup.string().required('required'),
   role: Yup.string().required('required'),
-  phone: Yup.string().required('required'),
+  phone: Yup.number().required('required'),
   email: Yup.string().required('required'),
   country: Yup.string().required('required'),
   city: Yup.string().required('required'),
@@ -66,7 +66,7 @@ const useProjectContext = () => {
       id: 0,
       name: '',
       type: '',
-      responsibleName: '',
+      leader: '',
       role: '',
       phone: 0,
       email: '',
