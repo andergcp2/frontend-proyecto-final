@@ -1,8 +1,8 @@
 'use client'
 
 import { useToast } from '@/context/Toast.context'
-import { LoginDTO, SignUpCompanyDTO, mainRoutes } from '@/models'
-import { signUpCompany } from '@/services/auth'
+import { LoginDTO, SignUpCandidateDTO, SignUpCompanyDTO, mainRoutes } from '@/models'
+import { signUpCompany, signUpCandidate } from '@/services/auth'
 import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
@@ -27,8 +27,22 @@ export default function useQanttoAuth() {
       showToast(t('success.signUpCompany'), 'success')
     },
     onError: (error: any) => {
-      alert('Empresa registrada exitosamente')
+      alert('Hubo un error registrando la empresa')
+      push(mainRoutes.auth.companyRegister)
+      showToast(error.message, 'error')
+    }
+  })
+
+  const { mutateAsync: SignUpCandidateReq, isLoading: isSignUpCandidateLoading } = useMutation({
+    mutationFn: signUpCandidate,
+    onSuccess: () => {
+      alert('Candidato registrado exitosamente')
       push(mainRoutes.dashboard)
+      showToast(t('success.signUpCandidate'), 'success')
+    },
+    onError: (error: any) => {
+      alert('Hubo un error registrando el candidato')
+      push(mainRoutes.auth.candidateRegister)
       showToast(error.message, 'error')
     }
   })
@@ -53,9 +67,15 @@ export default function useQanttoAuth() {
     await LoginReq(variables)
   }
 
+  const SignUpCandidate = async (variables: SignUpCandidateDTO) => {
+    await SignUpCandidateReq(variables)
+  }
+
   return {
+    isSignUpCandidateLoading,
     isSignUpCompanyLoading,
     Login,
+    SignUpCandidate,
     SignUpCompany,
   }
 }

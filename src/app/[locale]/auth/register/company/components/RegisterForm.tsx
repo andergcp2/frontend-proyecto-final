@@ -114,7 +114,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       password: '',
       confirmPassword: '',
     },
-    validationSchema: validationSchema,
+    validationSchema,
     onSubmit: SignUpCompany,
   })
 

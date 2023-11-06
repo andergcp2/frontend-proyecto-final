@@ -82,6 +82,48 @@
         "legalRepresentativeUserMax": "User must be at most 100 characters long",
         "invalidPassword": "Password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
         "passwordsMustMatch": "Passwords must match"
+      },
+      "Candidate": {
+        "namesRequired": "Names are required",
+        "lastNamesRequired": "Last names are required",
+        "identificationTypeRequired": "Identification type is required",
+        "identificationNumberRequired": "Identification number is required",
+        "emailRequired": "Email is required",
+        "phoneNumberRequired": "Phone number is required",
+        "countryRequired": "Country is required",
+        "cityRequired": "City is required",
+        "addressRequired": "Address is required",
+        "photoRequired": "Photo is required",
+        "professionRequired": "Profession is required",
+        "softskillsRequired": "Soft skills are required",
+        "technicalSkillsRequired": "Technical skills are required",
+        "usernameRequired": "Username is required",
+        "passwordRequired": "Password is required",
+        "passwordConfirmationRequired": "Password confirmation is required",
+        "termsAndConditionsRequired": "You must accept the terms and conditions",
+        "privacyPolicyRequired": "You must accept the privacy policy",
+        "personalInformation": "Personal information",
+        "names": "Names",
+        "lastNames": "Last names",
+        "idType": "Identification type",
+        "identification": "Identification number",
+        "email": "Email",
+        "phone": "Phone number",
+        "country": "Country",
+        "city": "City",
+        "address": "Address",
+        "photo": "Photo",
+        "profession": "Profession",
+        "softskills": "Soft skills",
+        "technicalSkills": "Technical skills",
+        "username": "Username",
+        "password": "Password",
+        "passwordConfirmation": "Password confirmation",
+        "termsAndConditions": "I have read and agree to the terms and conditions",
+        "privacyPolicy": "I agree to the privacy policy",
+        "professionalInformation": "Professional information",
+        "accountInformation": "Account information",
+        "submit": "Register"
       }
     },
     "Login": {
@@ -91,7 +133,8 @@
     },
     "ToastMsg": {
       "success": {
-        "signUpCompany": "Company registered successfully"
+        "signUpCompany": "Company registered successfully",
+        "signUpCandidate": "Candidate registered successfully"
       }
     }
   },
@@ -104,14 +147,28 @@
     "requiredPassword": "Password is required"
   },
   "Dashboard": {
-    "companyTitle": "Company Portal"
+    "companyTitle": "Company Portal",
+    "Modules": {
+      "Projects": {
+        "cardTitle": "Projects",
+        "cardSubtitle": "Manage your projects",
+        "cardDescription": "In this section you can manage your projects",
+        "cardButtonLabel": "Go to projects"
+      },
+      "Management": {
+        "cardTitle": "Management",
+        "cardSubtitle": "Manage your company",
+        "cardDescription": "In this section you can manage your company",
+        "cardButtonLabel": "Go to management"
+      }
+    }
   },
   "Project": {
     "required": "El campo es requerido",
     "projectFormTitle": "Create project",
     "projectName": "Project name",
     "projectType": "Project type",
-    "projectResponsibleName": "Complete Name",
+    "projectLeader": "Complete Name",
     "role": "Role",
     "phone": "Phone",
     "email": "Email",
@@ -119,7 +176,14 @@
     "city": "City",
     "address": "Address",
     "projectFormButton": "Create project",
+    "addProfile": "Add profile",
+    "addProfileTitle": "Add profile",
     "responsible": "Responsible",
-    "location": "Location"
+    "location": "Location",
+    "rolName": "Rol name",
+    "profession": "Profession",
+    "softskills": "Soft skills",
+    "techskills": "Tech skills",
+    "profilesList": "Profiles"
   }
 }

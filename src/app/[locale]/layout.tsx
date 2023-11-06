@@ -7,6 +7,8 @@ import Providers from '@/config/Providers';
 
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
+import LanguageSelector from '@/components/lang/LanguageSelector';
+import Toast from '@/components/toast/Toast';
 
 Amplify.configure(awsconfig);
 
@@ -89,7 +91,9 @@ export default async function RootLayout({
         <ThemeConfig options={{ key: 'mui' }}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Providers>
+              <LanguageSelector />
               {children}
+              <Toast />
             </Providers>
           </NextIntlClientProvider >
         </ThemeConfig>
