@@ -1,4 +1,4 @@
-const softSkills = [
+const softskills = [
   "Communication",
   "Teamwork",
   "Problem Solving",
@@ -29,4 +29,4 @@ const softSkills = [
   "Motivation",
 ];
 
-export default softSkills;
+export default softskills;

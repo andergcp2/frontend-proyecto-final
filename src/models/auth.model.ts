@@ -33,8 +33,8 @@ export interface SignUpCandidateDTO {
   address: string;
   // photo: string;
   profession: string;
-  // softSkills: CandidateSoftSkill[];
-  softSkills: string[];
+  // softskills: CandidateSoftSkill[];
+  softskills: string[];
   technicalSkills: string[];
   // technicalSkills: CandidateTechnicalSkill[];
   username: string;
@@ -56,7 +56,7 @@ export interface Candidate {
   address: string;
   photo: string;
   profession: string;
-  softSkills: CandidateSoftSkill[];
+  softskills: CandidateSoftSkill[];
   technicalSkills: CandidateTechnicalSkill[];
   username: string;
   password: string;
@@ -91,6 +91,7 @@ export interface User {
   email: string;
   username: string;
   name: string;
+  IdToken?: string;
   token?: string;
   role?: Role;
 }

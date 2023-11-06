@@ -95,7 +95,7 @@
         "addressRequired": "Se requiere la dirección",
         "photoRequired": "Se requiere la foto",
         "professionRequired": "Se requiere la profesión",
-        "softSkillsRequired": "Se requieren las habilidades blandas",
+        "softskillsRequired": "Se requieren las habilidades blandas",
         "technicalSkillsRequired": "Se requieren las habilidades técnicas",
         "usernameRequired": "Se requiere el usuario",
         "passwordRequired": "Se requiere la contraseña",
@@ -114,7 +114,7 @@
         "address": "Dirección",
         "photo": "Foto",
         "profession": "Profesión",
-        "softSkills": "Habilidades blandas",
+        "softskills": "Habilidades blandas",
         "technicalSkills": "Habilidades técnicas",
         "username": "Usuario",
         "password": "Contraseña",
@@ -168,7 +168,7 @@
     "projectFormTitle": "Crear proyecto",
     "projectName": "Nombre del proyecto",
     "projectType": "Tipo de proyecto",
-    "projectResponsibleName": "Nombre completo",
+    "projectLeader": "Nombre completo",
     "role": "Rol",
     "phone": "Teléfono",
     "email": "Correo electrónico",
@@ -182,8 +182,8 @@
     "location": "Ubicación",
     "rolName": "Nombre del cargo",
     "profession": "Profesión",
-    "softSkills": "Habilidades blandas",
-    "techSkills": "Habilidades técnicas",
+    "softskills": "Habilidades blandas",
+    "techskills": "Habilidades técnicas",
     "profilesList": "Perfiles"
   }
 }

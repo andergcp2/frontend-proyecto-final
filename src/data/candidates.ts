@@ -11,7 +11,7 @@
 // address: string;
 // photo: string;
 // profession: string;
-// softSkills: CandidateSoftSkill[];
+// softskills: CandidateSoftSkill[];
 // technicalSkills: CandidateTechnicalSkill[];
 // username: string;
 // password: string;
@@ -34,7 +34,7 @@ const candidates: Candidate[] = [
     address: "Calle 123",
     photo: "https://picsum.photos/200/300",
     profession: "Ingeniero",
-    softSkills: [
+    softskills: [
       {
         id: 1,
         name: "Trabajo en equipo",
@@ -76,7 +76,7 @@ const candidates: Candidate[] = [
     address: "Calle 123",
     photo: "https://picsum.photos/200/300",
     profession: "Ingeniero",
-    softSkills: [
+    softskills: [
       {
         id: 1,
         name: "Trabajo en equipo",
@@ -118,7 +118,7 @@ const candidates: Candidate[] = [
     address: "Calle 123",
     photo: "https://picsum.photos/200/300",
     profession: "Ingeniero",
-    softSkills: [
+    softskills: [
       {
         id: 1,
         name: "Trabajo en equipo",
@@ -160,7 +160,7 @@ const candidates: Candidate[] = [
     address: "Calle 123",
     photo: "https://picsum.photos/200/300",
     profession: "Ingeniero",
-    softSkills: [
+    softskills: [
       {
         id: 1,
         name: "Trabajo en equipo",
