@@ -6,7 +6,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Field, FieldArray, FieldArrayRenderProps, FormikErrors, FormikProvider, useFormik } from 'formik'
 import Button from '@/components/button/Button'
 import { useProject } from '../context/projectContext'
-import softskills from '@/data/softskills'
 import { Profile, Project } from '@/models';
 
 export interface ProjectFormProps { }
