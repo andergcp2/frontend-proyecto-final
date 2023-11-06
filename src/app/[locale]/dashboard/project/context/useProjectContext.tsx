@@ -2,9 +2,48 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { createProject } from "@/services/project";
-import { CreateProjectDTO } from "@/models";
+import { CreateProjectDTO, Project } from "@/models";
+import * as Yup from 'yup'
+import { useState } from "react";
+import { useFormik } from "formik";
+import { useTranslations } from "next-intl";
+
+const softSkillSchema = Yup.object({
+  name: Yup.string().required('required'),
+})
+
+const techSkillSchema = Yup.object({
+  name: Yup.string().required('required'),
+})
+
+const profileSchema = Yup.object({
+  rolName: Yup.string().required('required'),
+  profession: Yup.string().required('required'),
+  // softSkill is an array of SoftSkill
+  // softSkills: Yup.array().of(softSkillSchema),
+  // techSkills: Yup.array().of(techSkillSchema),
+  softSkills: Yup.string().required('required'),
+  techSkills: Yup.string().required('required'),
+})
+
+const validationSchema = Yup.object({
+  name: Yup.string().required('required'),
+  type: Yup.string().required('required'),
+  responsibleName: Yup.string().required('required'),
+  role: Yup.string().required('required'),
+  phone: Yup.string().required('required'),
+  email: Yup.string().required('required'),
+  country: Yup.string().required('required'),
+  city: Yup.string().required('required'),
+  address: Yup.string().required('required'),
+  profiles: Yup.array().of(profileSchema)
+})
 
 const useProjectContext = () => {
+  // TRANSLATIONS
+  const t = useTranslations('Project')
+
+  // MUTATIONS
   const { mutateAsync: CreateProjectReq, isLoading: isCreateProjectLoading } = useMutation({
     mutationFn: createProject,
     onSuccess: () => {
@@ -15,11 +54,37 @@ const useProjectContext = () => {
     }
   })
 
+  // FUNCTIONS
   const CreateProject = async (variables: CreateProjectDTO) => {
+    console.log('Ander variables', variables)
     await CreateProjectReq(variables)
   }
 
-  return { CreateProject };
+  // FORMIK - FORMS
+  const formik = useFormik<Project>({
+    initialValues: {
+      id: 0,
+      name: '',
+      type: '',
+      responsibleName: '',
+      role: '',
+      phone: 0,
+      email: '',
+      country: '',
+      city: '',
+      address: '',
+      profiles: [],
+    },
+    validationSchema,
+    onSubmit: CreateProject
+  })
+
+  return {
+    formik,
+    t,
+    validationSchema,
+    CreateProject,
+  };
 }
 
 export default useProjectContext;

@@ -105,10 +105,10 @@
         "personalInformation": "Personal information",
         "names": "Names",
         "lastNames": "Last names",
-        "identificationType": "Identification type",
-        "identificationNumber": "Identification number",
+        "idType": "Identification type",
+        "identification": "Identification number",
         "email": "Email",
-        "phoneNumber": "Phone number",
+        "phone": "Phone number",
         "country": "Country",
         "city": "City",
         "address": "Address",
@@ -176,7 +176,14 @@
     "city": "City",
     "address": "Address",
     "projectFormButton": "Create project",
+    "addProfile": "Add profile",
+    "addProfileTitle": "Add profile",
     "responsible": "Responsible",
-    "location": "Location"
+    "location": "Location",
+    "rolName": "Rol name",
+    "profession": "Profession",
+    "softSkills": "Soft skills",
+    "techSkills": "Tech skills",
+    "profilesList": "Profiles"
   }
 }

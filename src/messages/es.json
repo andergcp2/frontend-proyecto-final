@@ -105,10 +105,10 @@
         "personalInformation": "Información personal",
         "names": "Nombres",
         "lastNames": "Apellidos",
-        "identificationType": "Tipo de identificación",
-        "identificationNumber": "Número de identificación",
+        "idType": "Tipo de identificación",
+        "identification": "Número de identificación",
         "email": "Correo electrónico",
-        "phoneNumber": "Número de teléfono",
+        "phone": "Número de teléfono",
         "country": "País",
         "city": "Ciudad",
         "address": "Dirección",
@@ -176,7 +176,14 @@
     "city": "Ciudad",
     "address": "Dirección",
     "projectFormButton": "Crear proyecto",
+    "addProfile": "Agregar perfil",
+    "addProfileTitle": "Agregar perfil",
     "responsible": "Responsable",
-    "location": "Ubicación"
+    "location": "Ubicación",
+    "rolName": "Nombre del cargo",
+    "profession": "Profesión",
+    "softSkills": "Habilidades blandas",
+    "techSkills": "Habilidades técnicas",
+    "profilesList": "Perfiles"
   }
 }
