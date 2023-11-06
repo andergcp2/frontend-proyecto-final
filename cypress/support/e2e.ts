@@ -17,6 +17,7 @@
 import './commands'
 import './commands-login';
 import './commands-projects';
+import './commands-candidates';
 import './commands-companies';
 
 // Alternatively you can use CommonJS syntax:
