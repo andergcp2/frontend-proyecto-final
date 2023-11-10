@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.criollos.abcjobs",
+      "sha256_cert_fingerprints": [
+        "B5:CC:3D:6D:E5:1E:87:DB:4D:E1:7E:7C:09:E2:B7:1F:85:F3:E1:1C:F6:3C:54:88:52:1E:48:02:61:95:C8:C1"
+      ]
+    }
+  }
+]

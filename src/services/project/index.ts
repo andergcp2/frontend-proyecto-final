@@ -1,7 +1,6 @@
 import { axiosMethod } from "@/config/http/axios";
 import { CreateProjectDTO } from "@/models";
 import { Project } from "@/models/project.model";
-import { profile } from "console";
 
 export const createProject = async (
   params: CreateProjectDTO
