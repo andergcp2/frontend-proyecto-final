@@ -16,7 +16,6 @@ axiosInstance.interceptors.response.use(
   (error: AxiosError) => {
     if (error.response?.status == 401) {
       //TODO: Sign-out
-      console.log("Ander error in response ", error);
       throw new Error({ statusCode: 401, title: "Unauthorized" });
     }
 
