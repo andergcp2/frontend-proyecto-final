@@ -48,7 +48,7 @@ const useProjectContext = () => {
     mutationFn: createProject,
     onSuccess: () => {
       alert('Proyecto creado exitosamente')
-      console.log('Pryecto creado exitosamente')
+      console.log('Proyecto creado exitosamente')
     },
     onError: (error: any) => {
       alert('Hubo un error creando el proyecto')
@@ -58,7 +58,6 @@ const useProjectContext = () => {
 
   // FUNCTIONS
   const CreateProject = async (variables: CreateProjectDTO) => {
-    console.log('Ander variables', variables)
     await CreateProjectReq(variables)
   }
 
