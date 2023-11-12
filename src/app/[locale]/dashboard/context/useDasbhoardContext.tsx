@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { CustomCardProps } from "../components/Card";
 import { useTranslations } from "next-intl";
 

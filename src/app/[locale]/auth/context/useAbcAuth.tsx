@@ -55,7 +55,7 @@ export default function useQanttoAuth() {
         return showToast(t('error.login'), 'error')
       }
       showToast(t('success.login'), 'success')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
     },
   })
 

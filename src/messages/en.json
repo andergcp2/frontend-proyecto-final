@@ -160,6 +160,13 @@
         "cardSubtitle": "Manage your company",
         "cardDescription": "In this section you can manage your company",
         "cardButtonLabel": "Go to management"
+      },
+      "SearchCandidate": {
+        "title": "Search candidates",
+        "role": "Role",
+        "softskills": "Soft skills",
+        "technicalSkills": "Technical skills",
+        "submit": "Search"
       }
     }
   },

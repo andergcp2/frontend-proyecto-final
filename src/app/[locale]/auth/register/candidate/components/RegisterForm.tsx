@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { FC } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import { Autocomplete, Box, Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material'
 
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
