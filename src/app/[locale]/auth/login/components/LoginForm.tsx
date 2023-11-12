@@ -2,7 +2,7 @@
 
 import { FC } from 'react'
 import Business from '@mui/icons-material/Business';
-import { Box, TextField, Avatar , Paper, Typography, Grid , Container, Select, MenuItem } from '@mui/material'
+import { Box, TextField, Avatar , Paper, Typography, Grid , Container, Select, MenuItem, Link } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { EmailInput, PasswordInput } from '@/components'
@@ -17,6 +17,19 @@ const validationSchema = Yup.object({
   password: Yup.string().required('requiredPassword'),
   // userrole: Yup.string().required('requiredUserRole'),
 })
+
+function Copyright(props: any) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Abc Jobs
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const LoginForm: FC<LoginFormProps> = () => {
   const { Login } = useAuth()
@@ -36,7 +49,7 @@ const LoginForm: FC<LoginFormProps> = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+      <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={3}>
         <Box component="img" src='/Logo.png' alt='Logo abc' sx={{ height: "auto", width: "100%" }} />
           <Box
             component="form"
@@ -109,8 +122,12 @@ const LoginForm: FC<LoginFormProps> = () => {
             >
               {t('signInBtn')}
             </Button>
+            <Link href="register/candidate" variant="body2">
+                  {t('registerLinkMsg')}
+            </Link>
           </Box>
       </Paper>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   )
 }

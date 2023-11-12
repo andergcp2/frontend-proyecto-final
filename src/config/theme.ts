@@ -11,7 +11,7 @@ export enum ThemePalette {
   DARKER_BLUE = "#053B50",
   DARK_BLUE = "#176B87",
   BLUE = "#64CCC5",
-  WHITE = "#EEEEEE",
+  WHITE = "#FFFFFF",
   ERROR = "#FF9494",
   FONT_GLOBAL = "'Roboto', sans-serif",
 }
