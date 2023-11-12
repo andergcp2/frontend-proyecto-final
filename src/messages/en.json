@@ -127,6 +127,7 @@
       }
     },
     "Login": {
+      "Title": "Login",
       "username": "Username",
       "password": "Password",
       "signInBtn": "Sign in"
