@@ -1,23 +1,3 @@
-// Create an array of candidates 10 with the next data:
-// id: number;
-// names: string;
-// lastNames: string;
-// identificationType: string;
-// identificationNumber: string;
-// email: string;
-// phoneNumber: string;
-// country: string;
-// city: string;
-// address: string;
-// photo: string;
-// profession: string;
-// softskills: CandidateSoftSkill[];
-// technicalSkills: CandidateTechnicalSkill[];
-// username: string;
-// password: string;
-// termsAndConditions: boolean;
-// privacyPolicy: boolean;
-
 import { Candidate } from "@/models";
 
 const candidates: Candidate[] = [

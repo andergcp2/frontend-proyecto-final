@@ -1,5 +1,3 @@
-import { Software } from "aws-sdk/clients/directconnect";
-
 export const PASSWORD_REGEX =
   /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}$/;
 

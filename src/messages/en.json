@@ -127,9 +127,11 @@
       }
     },
     "Login": {
+      "Title": "Login",
       "username": "Username",
       "password": "Password",
-      "signInBtn": "Sign in"
+      "signInBtn": "Sign in",
+      "registerLinkMsg": "Don't have an account? Sign Up"
     },
     "ToastMsg": {
       "success": {
