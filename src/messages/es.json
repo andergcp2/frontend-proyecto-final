@@ -130,7 +130,8 @@
       "Title": "Iniciar Sesión",
       "username": "Nombre de usuario",
       "password": "Contraseña",
-      "signInBtn": "Iniciar sesión"
+      "signInBtn": "Iniciar sesión",
+      "registerLinkMsg": "¿No tiene cuenta? Regístrese"
     },
     "ToastMsg": {
       "success": {
