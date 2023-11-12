@@ -1,8 +1,11 @@
 import SearchCandidateContainer from "./container/SearchCandidateContainer";
+import { SearchCandidateProvider } from "./context/searchCandidateContext";
 
 const SearchCandidate = () => {
   return (
-    <SearchCandidateContainer />
+    <SearchCandidateProvider>
+      <SearchCandidateContainer />
+    </SearchCandidateProvider>
   )
 }
 

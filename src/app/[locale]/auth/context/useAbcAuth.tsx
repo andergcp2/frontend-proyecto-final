@@ -22,7 +22,7 @@ export default function useQanttoAuth() {
     onSuccess: () => {
       // TODO: redirect to the right page
       alert('Empresa registrada exitosamente')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
       // TODO: Hacer login automatico
       showToast(t('success.signUpCompany'), 'success')
     },
@@ -37,7 +37,7 @@ export default function useQanttoAuth() {
     mutationFn: signUpCandidate,
     onSuccess: () => {
       alert('Candidato registrado exitosamente')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
       showToast(t('success.signUpCandidate'), 'success')
     },
     onError: (error: any) => {
@@ -55,7 +55,7 @@ export default function useQanttoAuth() {
         return showToast(t('error.login'), 'error')
       }
       showToast(t('success.login'), 'success')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
     },
   })
 

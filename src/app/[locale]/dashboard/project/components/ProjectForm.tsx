@@ -170,7 +170,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.name`}
                           name={`profiles.${idx}.name`}
                           label={t('rolName')}
-                          value={formik.values.profiles[idx].name}
+                          value={formik.values?.profiles?.[idx].name}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.rolName && Boolean(formik.errors.profiles?.[idx])}
                           // helperText={formik.touched.profiles?.[idx]?.rolName && formik.errors.profiles?.[idx]}
@@ -184,7 +184,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.profession`}
                           name={`profiles.${idx}.profession`}
                           label={t('profession')}
-                          value={formik.values.profiles[idx].profession}
+                          value={formik.values?.profiles?.[idx].profession}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.profession && Boolean(formik.errors.profiles?.[idx]?.profession)}
                           // helperText={formik.touched.profiles?.[idx]?.profession && formik.errors.profiles?.[idx]?.profession}
@@ -260,7 +260,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.softskills`}
                           name={`profiles.${idx}.softskills`}
                           label={t('softskills')}
-                          value={formik.values.profiles[idx].softskills}
+                          value={formik.values?.profiles?.[idx].softskills}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.softskills && Boolean(formik.errors.profiles?.[idx]?.softskills)}
                           // helperText={formik.touched.profiles?.[idx]?.softskills && formik.errors.profiles?.[idx]?.softskills}
@@ -290,7 +290,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.techskills`}
                           name={`profiles.${idx}.techskills`}
                           label={t('techskills')}
-                          value={formik.values.profiles[idx].techskills}
+                          value={formik.values?.profiles?.[idx].techskills}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.techskills && Boolean(formik.errors.profiles?.[idx]?.techskills)}
                           // helperText={formik.touched.profiles?.[idx]?.techskills && formik.errors.profiles?.[idx]?.techskills}

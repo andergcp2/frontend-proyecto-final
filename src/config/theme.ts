@@ -26,6 +26,9 @@ export const theme = createTheme({
     primary: {
       main: ThemePalette.DARKER_BLUE,
     },
+    secondary: {
+      main: ThemePalette.WHITE,
+    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,

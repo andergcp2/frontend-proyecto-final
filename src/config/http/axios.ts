@@ -26,11 +26,9 @@ axiosInstance.interceptors.response.use(
 axiosInstance.interceptors.request.use(
   async function (config) {
     const session = await getSession();
-    console.log("Ander session", session);
     // TODO: Check token when auth is implemented
     if (session) {
       const token = session.user?.IdToken || undefined;
-      console.log("Ander Si hay token", token);
       if (token) {
         config.headers["Authorization"] = `Bearer ${token}`;
       }

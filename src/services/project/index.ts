@@ -12,7 +12,7 @@ export const createProject = async (
       company: 123,
       country: "CO",
       city: "11001",
-      profiles: params.profiles.map((profile) => ({
+      profiles: params.profiles?.map((profile) => ({
         ...profile,
         softskills: [
           {

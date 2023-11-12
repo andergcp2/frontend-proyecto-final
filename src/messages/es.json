@@ -162,6 +162,13 @@
         "cardSubtitle": "Administra tu empresa",
         "cardDescription": "En esta sección puedas ver y gestionar la información de tu empresa",
         "cardButtonLabel": "Acceder"
+      },
+      "SearchCandidate": {
+        "title": "Buscar Candidatos",
+        "role": "Role",
+        "softskills": "Habilidades blandas",
+        "technicalSkills": "Habilidades técnicas",
+        "submit": "Buscar"
       }
     }
   },
