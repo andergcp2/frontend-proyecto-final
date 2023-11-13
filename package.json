@@ -43,6 +43,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
     "cypress": "^13.5.0",
+    "cypress-file-upload": "^5.0.8",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "faker": "^6.6.6",
