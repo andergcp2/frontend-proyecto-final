@@ -7,7 +7,7 @@ export const permissions: { [key: string]: string[] } = {
   [mainRoutes.auth.login]: ["all"],
   [mainRoutes.auth.companyRegister]: ["all"],
 
-  [mainRoutes.dashboard]: ["all"],
+  [mainRoutes.dashboard.root]: ["all"],
   [mainRoutes.home]: ["all"],
 };
 
