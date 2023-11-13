@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { useSearchCandidate } from "../context/searchCandidateContext";
 import StyledDataGrid from "../../../../../components/styledDataGrid/StyledDataGrid";
 import SearchCandidateForm from "../components/SearchCandidateForm";
+import { GridEventListener } from "@mui/x-data-grid";
 
 interface SearchCandidateContainerProps { }
 const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
@@ -14,6 +15,10 @@ const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
     rows,
     t,
   } = useSearchCandidate()
+
+  const handleRowClick: GridEventListener<'rowClick'> = (params) => {
+    alert(`User "${params.row.names}" clicked`);
+  };
 
   return (
     <Box
@@ -35,7 +40,7 @@ const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
         disableRowSelectionOnClick
         autoHeight
         loading={isFetchingCandidatesData}
-        onCellClick={() => alert('click')}
+        onRowClick={handleRowClick} {...rows}
         initialState={{
           columns: {
             columnVisibilityModel: {
