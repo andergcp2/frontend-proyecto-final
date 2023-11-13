@@ -169,6 +169,11 @@
         "softskills": "Soft skills",
         "technicalSkills": "Technical skills",
         "submit": "Search"
+      },
+      "QuestionsBank": {
+        "uploadText": "Click or drag file to this area to upload",
+        "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
+        "uploadTitle": "Here you can upload your question bank"
       }
     }
   },
