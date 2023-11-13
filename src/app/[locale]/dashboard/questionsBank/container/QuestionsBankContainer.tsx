@@ -2,10 +2,12 @@
 
 import Uploader from "@/components/uploader/Uploader"
 import { Box, Typography } from "@mui/material"
+import { useQuestionsBank } from "../context/questionsBankContext"
 
 interface QuestionsBankContainerProps { }
 
 const QuestionsBankContainer = ({ }: QuestionsBankContainerProps) => {
+  const { props, t } = useQuestionsBank();
 
   return (
     <Box
@@ -16,9 +18,11 @@ const QuestionsBankContainer = ({ }: QuestionsBankContainerProps) => {
       py={10}
     >
       <Typography variant="h3" component="div" gutterBottom>
-        Here you can upload your question bank
+        {t('uploadTitle')}
       </Typography>
-      <Uploader />
+      <Uploader
+        {...props}
+      />
     </Box>
   )
 }
