@@ -19,6 +19,7 @@ import './commands-login';
 import './commands-projects';
 import './commands-candidates';
 import './commands-companies';
+import './commands-search-candidates';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

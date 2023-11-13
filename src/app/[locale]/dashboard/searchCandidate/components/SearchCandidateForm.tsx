@@ -60,7 +60,7 @@ const SearchCandidateForm: FC<SearchCandidateFormProps> = () => {
         <Grid item xs={12} my={1}>
           <Autocomplete
             multiple
-            // id="softskills"
+            id="softSkillsComplete"
             options={softskills}
             getOptionLabel={(option) => {
               return option
@@ -88,7 +88,7 @@ const SearchCandidateForm: FC<SearchCandidateFormProps> = () => {
         <Grid item xs={12} my={1}>
           <Autocomplete
             multiple
-            // id="softskills"
+            id="technicalSkillsComplete"
             options={technicalSkills}
             getOptionLabel={(option) => {
               return option
