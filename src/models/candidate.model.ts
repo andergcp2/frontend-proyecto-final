@@ -35,12 +35,12 @@ export interface CandidateTechnicalSkill {
 
 export type SearchCandidateRow = {
   id: number;
-  names?: string;
-  lastNames?: string;
+  name?: string;
+  lastName?: string;
   identificationType?: string;
   identificationNumber?: string;
   email?: string;
-  phoneNumber?: string;
+  phone?: string;
   country?: string;
   city?: string;
   address?: string;

@@ -26,6 +26,7 @@ const drawerWidth = 320;
 const navItems = ['Bienvenido'];
 const projectItems = ['Crear Proyectos', 'Resultados entrevistas', 'Candidatos']
 const candidateItems = ['Búsqueda de candidatos', 'Gestión de entrevistas', 'Gestión de cantidatos']
+const candidateRoutes = ['./dashboard/searchCandidate', 'dashboard/searchCandidates', 'dashboard/searchCandidates']
 const managementItems = ['Gestión de contratos', 'Gestión de desempeño', 'Gestión de tiempo']
 
 interface AppBarProps extends MuiAppBarProps {
@@ -143,7 +144,7 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
         <List>
           {candidateItems.map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton href={candidateRoutes[index]}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
