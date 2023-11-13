@@ -57,12 +57,12 @@ const useSearchCandidateContext = () => {
   const rows: SearchCandidateRow[] = candidates.map((candidate) => {
     return {
       id: candidate.id,
-      names: candidate.names,
-      lastNames: candidate.lastNames,
+      names: candidate.name,
+      lastNames: candidate.lastName,
       identificationType: candidate.identificationType,
       identificationNumber: candidate.identificationNumber,
       email: candidate.email,
-      phoneNumber: candidate.phoneNumber,
+      phoneNumber: candidate.phone,
       country: candidate.country,
       city: candidate.city,
       address: candidate.address,

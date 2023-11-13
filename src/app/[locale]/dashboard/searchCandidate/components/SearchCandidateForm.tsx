@@ -30,6 +30,7 @@ const SearchCandidateForm: FC<SearchCandidateFormProps> = () => {
     validationSchema,
     onSubmit: (values: searchCandidateParams) => {
       const params = buildParams(values)
+      console.log(params)
       setQueryParams(params)
       getCandidatesData()
     }
