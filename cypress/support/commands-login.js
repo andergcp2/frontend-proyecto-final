@@ -8,16 +8,17 @@ Cypress.Commands.add('checkLoginTest', () => {
 })
 
 Cypress.Commands.add('loginTestEmpty', () => {
-    cy.get('[id=username]').scrollIntoView({duration: 600}).focus()
-    cy.get('[id=password]').scrollIntoView({duration: 600}).focus()
+    cy.get('[id=username]').scrollIntoView().focus()
+    cy.get('[id=password]').type("xxx")
+    // cy.get('[id=password]').scrollIntoView().focus()
     cy.get('button[type="submit"]').click()
     // cy.contains('requerida').should('be.visible') 
     cy.wait(1000)
 })
 
 Cypress.Commands.add('loginUsrTestError', () => {
-    cy.get('[id=username]').scrollIntoView().focus().type(faker.person.firstName())
-    cy.get('[id=password]').scrollIntoView().focus().type(faker.internet.password())
+    cy.get('[id=username]').type(faker.person.firstName())
+    cy.get('[id=password]').type(faker.internet.password())
     cy.wait(1000)
     cy.get('button[type="submit"]').click()
     cy.wait(1000)
