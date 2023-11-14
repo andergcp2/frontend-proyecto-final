@@ -1,11 +1,10 @@
 'use client'
 
 import { FC } from 'react'
-import Business from '@mui/icons-material/Business';
-import { Box, TextField, Avatar , Paper, Typography, Grid , Container, Select, MenuItem, Link } from '@mui/material'
+import { Box, TextField, Paper, Typography, Container, Link } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { EmailInput, PasswordInput } from '@/components'
+import { PasswordInput } from '@/components'
 import { useTranslations } from 'next-intl'
 import { useAuth } from '../../context/AuthContext'
 import Button from '@/components/button/Button'
@@ -14,8 +13,7 @@ export interface LoginFormProps { }
 
 const validationSchema = Yup.object({
   username: Yup.string().required('requiredEmail'),
-  password: Yup.string().required('requiredPassword'),
-  // userrole: Yup.string().required('requiredUserRole'),
+  password: Yup.string().required('requiredPassword')
 })
 
 function Copyright(props: any) {
@@ -40,8 +38,7 @@ const LoginForm: FC<LoginFormProps> = () => {
   const formik = useFormik({
     initialValues: {
       username: '',
-      password: '',
-      // userRole: '',
+      password: ''
     },
     validationSchema: validationSchema,
     onSubmit: Login,
@@ -98,21 +95,6 @@ const LoginForm: FC<LoginFormProps> = () => {
                 formik.errors.password ? validationT(formik.errors.password) : ''
               }
             />
-            
-            {/* <FormControl fullWidth>
-              <InputLabel id="userrole">Role</InputLabel>
-              <Select
-                labelId="select-role"
-                id="select-role"
-                value={formik.values.userRole}
-                label={t('userRole')}
-                onChange={formik.handleChange}
-              >
-                <MenuItem value={10}>Candidate</MenuItem>
-                <MenuItem value={20}>Company</MenuItem>
-                <MenuItem value={30}>ABC</MenuItem>
-              </Select>
-            </FormControl> */}
             <Button
               variant="contained"
               type="submit"

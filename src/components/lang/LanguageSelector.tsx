@@ -43,8 +43,7 @@ const LanguageSelector: FC<LanguageSwitcherProps> = () => {
         select
         defaultValue={locale}
         size='small'
-        label = "Lang"
-        sx={{ color: "inherit"}}
+        sx={{ background: "white", borderRadius: "10px"}}
         disabled={isPending}
         onChange={(event) => onSelectChange(event)}
       >
