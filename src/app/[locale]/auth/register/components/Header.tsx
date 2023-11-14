@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { FC } from "react";
 import Button from '@/components/button/Button';
+import LanguageSelector from '@/components/lang/LanguageSelector';
 
 // const navItems = ['Candidate', 'Companies', 'Sign In'];
 const navItems: string[] = [];
@@ -26,6 +27,9 @@ const Sidebar: FC<MuiAppBarProps> = ({ children }) => {
                 {item}
               </Button>
             ))}
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
+            <LanguageSelector />          
           </Box>
         </Toolbar>
       </MuiAppBar>

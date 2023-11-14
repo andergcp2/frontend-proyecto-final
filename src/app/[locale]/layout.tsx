@@ -91,7 +91,6 @@ export default async function RootLayout({
         <ThemeConfig options={{ key: 'mui' }}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Providers>
-              <LanguageSelector />
               {children}
               <Toast />
             </Providers>
