@@ -104,7 +104,7 @@ const LoginForm: FC<LoginFormProps> = () => {
             >
               {t('signInBtn')}
             </Button>
-            <Link href="register/candidate" variant="body2">
+            <Link href="/auth/" variant="body2">
                   {t('registerLinkMsg')}
             </Link>
           </Box>
