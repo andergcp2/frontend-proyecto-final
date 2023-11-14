@@ -3,6 +3,10 @@
     "title": "Hello world!"
   },
   "Auth": {
+    "Register":{
+      "companyRegister": "Register as a company",
+      "candidateRegister": "Register as a candidate"
+    },
     "SignUp": {
       "Company": {
         "name": "Company name",
