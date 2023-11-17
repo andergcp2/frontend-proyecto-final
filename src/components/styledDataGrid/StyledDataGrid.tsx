@@ -1,6 +1,6 @@
 import { theme } from "@/config/theme";
 import styled from "@mui/material/styles/styled";
-import { DataGrid } from "@mui/x-data-grid/DataGrid/DataGrid";
+import { DataGrid } from "@mui/x-data-grid/DataGrid";
 
 const StyledDataGrid = styled(DataGrid)(() => ({
   "& .MuiDataGrid-sortIcon": {
