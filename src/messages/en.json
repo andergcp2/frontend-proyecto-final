@@ -3,7 +3,7 @@
     "title": "Hello world!"
   },
   "Auth": {
-    "Register":{
+    "Register": {
       "companyRegister": "Register as a company",
       "candidateRegister": "Register as a candidate"
     },
@@ -179,7 +179,7 @@
         "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
         "uploadTitle": "Here you can upload your question bank"
       },
-      "Candidate":{
+      "Candidate": {
         "welcome": "Welcome"
       }
     }
