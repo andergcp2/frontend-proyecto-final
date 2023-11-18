@@ -11,36 +11,37 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: 'none',
+  borderRadius: '10px',
   boxShadow: 24,
   p: 4,
 };
 
-interface BasicModalProps{
-    modalText: string, 
-    modalTitle: string,
-    open: boolean,
-    handleOpen: () => void,
-    handleClose: () => void
+interface BasicModalProps {
+  modalText: string,
+  modalTitle: string,
+  open: boolean,
+  handleOpen: () => void,
+  handleClose: () => void
 }
 
-export default function BasicModal({modalText, modalTitle, open, handleClose, handleOpen}:BasicModalProps) {
+export default function BasicModal({ modalText, modalTitle, open, handleClose, handleOpen }: BasicModalProps) {
 
   return (
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            ${modalTitle}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            ${modalText}
-          </Typography>
-        </Box>
-      </Modal>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+          {modalTitle}
+        </Typography>
+        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          {modalText}
+        </Typography>
+      </Box>
+    </Modal>
   );
 }
