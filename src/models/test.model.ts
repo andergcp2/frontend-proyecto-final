@@ -1,7 +1,7 @@
-import { CandidateTechnicalSkill, Profile } from ".";
+import { CandidateTechnicalSkill, CandidateProfile } from ".";
 
 export interface Test {
-  profiles: Profile[];
+  profiles: CandidateProfile[];
   techSkills: CandidateTechnicalSkill[];
   questions: Question[];
   id: number;

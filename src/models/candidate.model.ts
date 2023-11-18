@@ -69,7 +69,7 @@ export interface AssignTestProps {
   testId: number;
 }
 
-export interface Profile {
+export interface CandidateProfile {
   id: number;
   profile: string;
 }
