@@ -3,7 +3,7 @@
     "title": "Hola Mundo!"
   },
   "Auth": {
-    "Register":{
+    "Register": {
       "companyRegister": "Regístrate como empresa",
       "candidateRegister": "Regístrate como candidato"
     },
@@ -178,6 +178,13 @@
         "uploadText": "Arrastre y suelte el archivo aquí o haga clic",
         "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
         "uploadTitle": "Aquí puedes subir tus bancos de preguntas"
+      },
+      "AssignTest": {
+        "assignTestTitle": "Asignar prueba a candidato",
+        "assignTestButton": "Asignar prueba",
+        "candidate": "Candidato",
+        "test": "Prueba",
+        "assignSuccess": "La prueba se asignó correctamente"
       }
     }
   },

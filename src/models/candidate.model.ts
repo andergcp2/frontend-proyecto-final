@@ -1,4 +1,4 @@
-import { type } from "os";
+import { Test } from "./test.model";
 
 export interface Candidate {
   id: number;
@@ -63,3 +63,13 @@ export type SearchCandidateResponse = {
   total_items: number;
   pages: number;
 };
+
+export interface AssignTestProps {
+  candidateId: number;
+  testId: number;
+}
+
+export interface Profile {
+  id: number;
+  profile: string;
+}
