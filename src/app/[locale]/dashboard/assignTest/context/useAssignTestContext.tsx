@@ -11,8 +11,8 @@ import { useEffect, useMemo, useState } from "react"
 import { Test } from "@/models/test.model"
 
 const validationSchema = Yup.object<AssignTestProps>({
-  candidate: Yup.string().required('required'),
-  test: Yup.string().required('required'),
+  candidateId: Yup.string().required('required'),
+  testId: Yup.string().required('required'),
 })
 
 const useAssignTestContext = () => {
@@ -21,12 +21,14 @@ const useAssignTestContext = () => {
   // STATES
   const [candidates, setCandidates] = useState<SearchCandidateRow[]>([])
   const [tests, setTests] = useState<Test[]>([])
+  const [open, setOpen] = useState(false)
 
   // MUTATIONS
   const { mutateAsync: AssignTestReq, isLoading: isAssignTestLoading } = useMutation({
     mutationFn: assignTest,
     onSuccess: () => {
-      alert('Test asignado exitosamente')
+      setOpen(true)
+      // alert('Test asignado exitosamente')
       console.log('Test asignado exitosamente')
     },
     onError: (error: any) => {
@@ -44,7 +46,7 @@ const useAssignTestContext = () => {
     queryKey: ['candidates'],
     queryFn: getCandidatesData,
     onSuccess: (data) => {
-      setCandidates({ ...data.items } ?? [])
+      setCandidates([...data.items] ?? [])
       console.log(data)
     },
     onError: (error: any) => {
@@ -60,7 +62,7 @@ const useAssignTestContext = () => {
     queryKey: ['tests'],
     queryFn: getTestsData,
     onSuccess: (data) => {
-      setTests({ ...data } ?? [])
+      setTests([...data] ?? [])
       console.log(data)
     },
     onError: (error: any) => {
@@ -70,8 +72,10 @@ const useAssignTestContext = () => {
 
   // FUNCTIONS
   const AssignTest = async (variables: AssignTestProps) => {
+    console.log('Ander variables', variables)
     await AssignTestReq(variables)
   }
+
 
   // EFFECTS - MEMOS
   const isLoading = useMemo(
@@ -93,16 +97,31 @@ const useAssignTestContext = () => {
       testId: 0,
     },
     validationSchema: validationSchema,
-    onSubmit: AssignTest
+    onSubmit: async (values) => {
+      console.log("Anderrrr")
+      await AssignTest(values)
+    }
   })
+
+  const handleCandidateChange = (_: any, value: any) => {
+    formik.setFieldValue("candidateId", value?.id || null);
+  };
+
+  const handleTestChange = (_: any, value: any) => {
+    formik.setFieldValue("testId", value?.id || null);
+  };
 
   return {
     candidates,
     isLoading,
     formik,
+    open,
     t,
     tests,
-    validationSchema
+    validationSchema,
+    handleCandidateChange,
+    handleTestChange,
+    setOpen,
   }
 }
 

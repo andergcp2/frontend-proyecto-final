@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext } from "react";
+import { Dispatch, SetStateAction, createContext, useContext } from "react";
 import useAssignTestContext from "./useAssignTestContext";
 import { FormikProps } from "formik";
 import { AssignTestProps, SearchCandidateRow } from "@/models";
@@ -10,8 +10,12 @@ interface AssignTestContextProps {
   candidates: SearchCandidateRow[]
   formik: FormikProps<AssignTestProps>
   isLoading: boolean
+  open: boolean
   tests: Test[]
   validationSchema: any,
+  handleCandidateChange: (_: any, value: any) => void
+  handleTestChange: (_: any, value: any) => void
+  setOpen: Dispatch<SetStateAction<boolean>>
   t: (...args0: any) => string
 }
 

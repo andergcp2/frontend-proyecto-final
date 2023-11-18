@@ -179,8 +179,12 @@
         "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
         "uploadTitle": "Aquí puedes subir tus bancos de preguntas"
       },
-      "Candidate": {
-        "welcome": "Bienvenid@"
+      "AssignTest": {
+        "assignTestTitle": "Asignar prueba a candidato",
+        "assignTestButton": "Asignar prueba",
+        "candidate": "Candidato",
+        "test": "Prueba",
+        "assignSuccess": "La prueba se asignó correctamente"
       }
     }
   },
