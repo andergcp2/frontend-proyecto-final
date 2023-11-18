@@ -15,7 +15,13 @@ const QuestionsBankContainer = ({ }: QuestionsBankContainerProps) => {
       flexDirection={'column'}
       justifyContent={'center'}
       alignItems={'center'}
-      py={10}
+      textAlign={'center'}
+      marginTop={20}
+      width={'100%'}
+      px={{
+        xs: 2,
+        sm: 'auto',
+      }}
     >
       <Typography variant="h3" component="div" gutterBottom>
         {t('uploadTitle')}
