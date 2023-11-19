@@ -11,4 +11,9 @@ export const candidateMethods = {
     url: "candidates/tests",
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   },
+  getCandidateTests: {
+    method: "GET" as Method,
+    url: "candidateTest/{params.candidateId}",
+    baseUrl: process.env.NEXT_PUBLIC_API_URL,
+  },
 };

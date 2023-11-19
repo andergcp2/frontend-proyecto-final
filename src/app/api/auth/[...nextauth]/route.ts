@@ -3,7 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import { Login, LoginDTO } from "@/models";
 import axios, { AxiosError } from "axios";
 
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const handler = NextAuth({
   providers: [
@@ -42,12 +42,25 @@ const handler = NextAuth({
 
       if (user) {
         console.log("Hay user-------- {}", user);
+        const id = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "custom:idDb"
+        );
+        const email = getAttributeValueFromToken(user.IdToken ?? "", "email");
+        const name = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "cognito:username"
+        );
+        const role = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "custom:Role"
+        );
         token.user = {
           ...user,
-          id: getAttributeValueFromToken(user.IdToken??"", "cognito:idDb"),
-          email: getAttributeValueFromToken(user.IdToken??"", "email"),
-          name: getAttributeValueFromToken(user.IdToken??"", "cognito:username") ,
-          role: getAttributeValueFromToken(user.IdToken??"", "custom:Role")
+          id,
+          email,
+          name,
+          role,
         };
       }
 
@@ -69,7 +82,7 @@ const handler = NextAuth({
 
 export { handler as GET, handler as POST };
 
-const getAttributeValueFromToken  = (token: string, attributeName: string) => {
+const getAttributeValueFromToken = (token: string, attributeName: string) => {
   try {
     const decodedToken = jwt.decode(token);
 
@@ -77,11 +90,11 @@ const getAttributeValueFromToken  = (token: string, attributeName: string) => {
     if (decodedToken && decodedToken[attributeName]) {
       return decodedToken[attributeName];
     } else {
-      console.error('Atributo no encontrado en el payload del token.');
+      console.error("Atributo no encontrado en el payload del token.");
       return null;
     }
   } catch (error) {
-    console.error('Error al decodificar el token:', error);
+    console.error("Error al decodificar el token:", error);
     return null;
   }
 };
