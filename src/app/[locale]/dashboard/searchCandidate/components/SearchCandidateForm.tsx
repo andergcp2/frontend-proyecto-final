@@ -118,7 +118,6 @@ const SearchCandidateForm: FC<SearchCandidateFormProps> = () => {
           type="submit"
           variant="contained"
           disabled={isFetchingCandidatesData}
-          loading={isFetchingCandidatesData}
           sx={{ mt: 1, mb: 2, fontWeight: 600 }}
         >
           {t('submit')}
