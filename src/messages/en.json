@@ -179,12 +179,18 @@
         "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
         "uploadTitle": "Here you can upload your question bank"
       },
+      "Candidate": {
+        "welcome": "Welcome"
+      },
       "AssignTest": {
         "assignTestTitle": "Assign test to candidate",
         "assignTestButton": "Assign test",
         "candidate": "Candidate",
         "test": "Test",
         "assignSuccess": "Test assigned successfully"
+      },
+      "CandidateTest": {
+        "title": "Your tests"
       }
     }
   },

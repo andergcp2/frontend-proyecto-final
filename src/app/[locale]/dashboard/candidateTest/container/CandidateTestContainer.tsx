@@ -1,3 +1,5 @@
+'use client'
+
 import StyledDataGrid from "@/components/styledDataGrid/StyledDataGrid"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
@@ -18,13 +20,17 @@ const CandidateTestContainer = ({ }: CandidateTestContainerProps) => {
       display={'flex'}
       flexDirection={'column'}
       justifyContent={'center'}
-      alignItems={'left'}
+      alignItems={'center'}
+      textAlign={'center'}
       height={'fit-content'}
       width={{ xs: '100%', md: '80%' }}
       mt={20}
-      px={{ xs: 2, sm: 4 }}
+      px={{
+        xs: 2,
+        sm: 'auto',
+      }}
     >
-      <Typography variant={'h2'}>{t('title')}</Typography>
+      <Typography variant={'h2'} component="div" gutterBottom>{t('title')}</Typography>
       <StyledDataGrid
         rows={rows}
         columns={columns}
