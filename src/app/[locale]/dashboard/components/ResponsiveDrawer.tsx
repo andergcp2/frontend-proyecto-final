@@ -2,6 +2,7 @@ import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, To
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useState } from "react";
+import { usePathname } from 'next/navigation'
 
 const navItems = ['Bienvenido'];
 const projectItems = ['Crear Proyectos', 'Resultados entrevistas', 'Candidatos']
@@ -15,13 +16,19 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
-  
+    const pathname = usePathname()
+    let title = ""
+    if (pathname == "/es/dashboard/candidate"){
+        title = "Candidatos"
+    }else{
+        title = "Empresas"
+    }
     return (
         <>
             <Toolbar />
                 <Divider />
                 <Typography variant="h3" noWrap component="div" sx={{ p: 2 }}>
-                Empresas
+                {title}
                 </Typography>
                 <Typography variant="body1" noWrap component="div" sx={{ p: 2 }}>
                 Proyectos
@@ -40,7 +47,7 @@ export default function ResponsiveDrawer(props: Props) {
                 </List>
                 <Divider />
                 <Typography variant="body1" noWrap component="div" sx={{ p: 2 }}>
-                Candidatos
+                {pathname}
                 </Typography>
                 <List>
                 {candidateItems.map((text, index) => (

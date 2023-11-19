@@ -178,6 +178,9 @@
         "uploadText": "Arrastre y suelte el archivo aquí o haga clic",
         "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
         "uploadTitle": "Aquí puedes subir tus bancos de preguntas"
+      },
+      "Candidate":{
+        "welcome": "Bienvenid@"
       }
     }
   },

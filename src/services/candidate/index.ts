@@ -1,5 +1,5 @@
 import { axiosMethod } from "@/config/http/axios";
-import { CandidatesByCriteriaParams, SearchCandidateResponse } from "@/models";
+import { CandidatesByCriteriaParams, SearchCandidateResponse, SearchCandidateRow } from "@/models";
 
 export const getCandidatesByCriteria = async ({
   queryParams,

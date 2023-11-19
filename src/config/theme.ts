@@ -1,5 +1,6 @@
 import createTheme from "@mui/material/styles/createTheme";
 import { Roboto } from "next/font/google";
+import img from "/background.png"
 
 const roboto = Roboto({
   weight: "400",
@@ -17,6 +18,15 @@ export enum ThemePalette {
 }
 
 export const theme = createTheme({
+  // components: {
+  //   MuiCssBaseline: {
+  //     styleOverrides: {
+  //       body: {
+  //         backgroundImage: `url(/background.png)`,
+  //       }
+  //     }
+  //   }
+  // },
   palette: {
     mode: "light",
     background: {

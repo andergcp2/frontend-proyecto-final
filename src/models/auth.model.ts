@@ -52,13 +52,13 @@ export interface Role {
 }
 
 export interface User {
-  id: number;
+  id: string;
   email: string;
   username: string;
   name: string;
   IdToken?: string;
   token?: string;
-  role?: Role;
+  role: string;
 }
 
 export interface LoginDTO {

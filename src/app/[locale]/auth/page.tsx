@@ -1,15 +1,18 @@
+'use client'
+
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Auth',
-}
+// export const metadata: Metadata = {
+//   title: 'Auth',
+// }
 
 export interface AuthProps { }
 
 const Auth: FC<AuthProps> = () => {
+  const t = useTranslations("Auth.Register") 
 
   return (
       <Grid 
@@ -30,7 +33,7 @@ const Auth: FC<AuthProps> = () => {
             />
             <CardContent >
               <Typography gutterBottom variant="h5" component="div">
-                Regístrese como candidato
+                {t('candidateRegister')}
               </Typography>
               <Typography variant="body1" color="text.secondary">
               ¡Descubre tu próximo desafío profesional con nosotros! En AbcJobs, 

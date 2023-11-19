@@ -27,6 +27,7 @@
     "aws-sdk": "^2.1478.0",
     "axios": "^1.5.1",
     "formik": "^2.4.5",
+    "jsonwebtoken": "^9.0.2",
     "next": "13.5.4",
     "next-auth": "^4.24.3",
     "next-intl": "^2.20.2",

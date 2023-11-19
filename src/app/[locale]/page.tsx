@@ -12,6 +12,7 @@ export default function Home() {
       <Typography variant="h1" component="h1">{t('title')}</ Typography >
       <Typography variant="h2" component="h2">{session?.expires}</ Typography >
       <Typography variant="h2" component="h2">{session?.user.name}</ Typography >
+      <Typography variant="h2" component="h2">{session?.user.role}</ Typography >
     </main>
   )
 }

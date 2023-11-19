@@ -9,5 +9,6 @@ export const mainRoutes = {
   dashboard: {
     root: "/dashboard",
     project: "/project",
+    candidate: "/candidate"
   },
 };
