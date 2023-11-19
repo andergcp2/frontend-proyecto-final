@@ -2,8 +2,16 @@
 
 import { createContext, useContext } from "react";
 import useCandidateTestContext from "./useCandidateTestContext";
+import { GridColDef } from "@mui/x-data-grid";
+import { CandidateTest } from "@/models/test.model";
 
-interface CandidateTestContextProps { }
+interface CandidateTestContextProps {
+  columns: GridColDef[],
+  isFetchingCandidateTestsData: boolean,
+  rows: CandidateTest[],
+  t: (...args: any[]) => string
+  handleRowClick: (params: any) => void
+}
 
 const CandidateTestContext = createContext<CandidateTestContextProps>({} as CandidateTestContextProps);
 
@@ -14,7 +22,7 @@ export const CandidateTestProvider = ({
 }) => {
   const states = useCandidateTestContext()
   return (
-    <CandidateTestContext.Provider value={{ states }}>{children}</CandidateTestContext.Provider>
+    <CandidateTestContext.Provider value={states}>{children}</CandidateTestContext.Provider>
   )
 }
 

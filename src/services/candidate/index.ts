@@ -4,6 +4,7 @@ import {
   CandidatesByCriteriaParams,
   SearchCandidateResponse,
 } from "@/models";
+import { CandidateTest } from "@/models/test.model";
 
 export const getCandidatesByCriteria = async ({
   queryParams,
@@ -30,4 +31,14 @@ export const assignTest = async ({ candidateId, testId }: AssignTestProps) => {
     },
   });
   return response.data;
+};
+
+export const getCandidateTests = async (
+  candidateId: string
+): Promise<CandidateTest[]> => {
+  const response = await axiosMethod({
+    name: "getCandidateTests",
+    pathParams: { candidateId },
+  });
+  return response.data as CandidateTest[];
 };

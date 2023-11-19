@@ -1,6 +1,6 @@
 import createTheme from "@mui/material/styles/createTheme";
 import { Roboto } from "next/font/google";
-import img from "/background.png"
+import img from "/background.png";
 
 const roboto = Roboto({
   weight: "400",
