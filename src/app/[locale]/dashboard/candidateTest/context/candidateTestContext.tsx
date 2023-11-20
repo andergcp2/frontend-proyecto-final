@@ -1,14 +1,15 @@
 'use client'
 
 import { createContext, useContext } from "react";
-import useCandidateTestContext from "./useCandidateTestContext";
 import { GridColDef } from "@mui/x-data-grid";
 import { CandidateTest } from "@/models/test.model";
+import useCandidateTestContext from "./useCandidateTestContext";
 
 interface CandidateTestContextProps {
-  columns: GridColDef[],
-  isFetchingCandidateTestsData: boolean,
-  rows: CandidateTest[],
+  columns: GridColDef[]
+  isFetchingCandidateTestsData: boolean
+  rows: CandidateTest[]
+  candidateTests: CandidateTest[]
   t: (...args: any[]) => string
   handleRowClick: (params: any) => void
 }
