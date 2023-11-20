@@ -1,7 +1,7 @@
 'use client'
 
-import StyledDataGrid from "@/components/styledDataGrid/StyledDataGrid"
 import Box from "@mui/material/Box"
+import StyledDataGrid from "@/components/styledDataGrid/StyledDataGrid"
 import Typography from "@mui/material/Typography"
 import { useCandidateTest } from "../context/candidateTestContext"
 
@@ -38,7 +38,7 @@ const CandidateTestContainer = ({ }: CandidateTestContainerProps) => {
         disableRowSelectionOnClick
         autoHeight
         loading={isFetchingCandidateTestsData}
-        onRowClick={handleRowClick} {...rows}
+        onRowClick={(params) => handleRowClick(params)} {...rows}
         initialState={{
           columns: {
             columnVisibilityModel: {

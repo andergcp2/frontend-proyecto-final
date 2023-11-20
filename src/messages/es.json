@@ -190,7 +190,27 @@
         "assignSuccess": "La prueba se asignó correctamente"
       },
       "CandidateTest": {
-        "title": "Tus tests"
+        "title": "Tus tests",
+        "Test": {
+          "test": "Prueba",
+          "level": "Nivel",
+          "start": "Comenzar",
+          "next": "Siguiente",
+          "submit": "Enviar",
+          "questionsQuantity": "Cantidad de preguntas"
+        }
+      },
+      "CandidateTestTaker": {
+        "test": "Resumen de tu prueba",
+        "level": "Nivel",
+        "start": "Comenzar",
+        "questionsQuantity": "Cantidad de preguntas",
+        "next": "Siguiente",
+        "submit": "Enviar Prueba",
+        "loading": "Cargando...",
+        "score": "Tu puntaje es",
+        "testEnd": "La prueba ha finalizado",
+        "testWarning": "Una vez comienzas no puedes volver atrás"
       }
     }
   },

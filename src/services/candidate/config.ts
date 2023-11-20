@@ -8,7 +8,8 @@ export const candidateMethods = {
   },
   assignTest: {
     method: "POST" as Method,
-    url: "candidates/tests",
+    // url: "candidates/tests",
+    url: "candidateTest",
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   },
   getCandidateTests: {

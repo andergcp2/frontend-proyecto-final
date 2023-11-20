@@ -15,6 +15,7 @@ const StyledDataGrid = styled(DataGrid)(() => ({
     fontWeight: 'bold',
     fontSize: theme.typography.body1.fontSize,
   },
+  width: '100%',
 }))
 
 export default StyledDataGrid;
