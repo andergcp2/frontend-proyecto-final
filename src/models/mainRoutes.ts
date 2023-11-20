@@ -8,7 +8,8 @@ export const mainRoutes = {
   },
   dashboard: {
     root: "/dashboard",
-    project: "/project",
-    candidate: "/candidate"
+    project: "/dashboard/project",
+    candidate: "/dashboard/candidate",
+    candidateTest: "/dashboard/candidateTest",
   },
 };

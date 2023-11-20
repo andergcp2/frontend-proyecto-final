@@ -1,20 +1,18 @@
 import { useTranslations } from "next-intl"
-import { GridColDef } from '@mui/x-data-grid';
-import { CandidateTest } from "@/models/test.model";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getCandidateTests } from "@/services/candidate";
 import { getSession } from "next-auth/react";
-
+import { useRouter } from 'next/navigation'
+import { useQuery } from "@tanstack/react-query";
+import { GridColDef } from '@mui/x-data-grid';
+import { getCandidateTests } from "@/services/candidate";
+import { CandidateTest } from "@/models/test.model";
+import { mainRoutes } from "@/models";
 
 const useCandidateTestContext = () => {
   const t = useTranslations('Dashboard.Modules.CandidateTest')
-
-  // const [candidateTests, setCandidateTests] = useState<CandidateTest[]>([])
+  const { push } = useRouter()
 
   const getTestsData = async () => {
     const session = await getSession()
-    console.log(session)
     const response = await getCandidateTests(session?.user?.id as string ?? '')
     return response
   }
@@ -45,7 +43,7 @@ const useCandidateTestContext = () => {
 
   const rows: CandidateTest[] = candidateTests.map((candidateTest) => {
     return {
-      id: candidateTest.test?.id ?? 0,
+      id: candidateTest.test?.id ?? '',
       name: candidateTest.test?.name ?? '',
       idcandidate: candidateTest.idcandidate,
       idtest: candidateTest.idtest,
@@ -54,10 +52,25 @@ const useCandidateTestContext = () => {
     }
   })
 
+  // const handleRowClick = (testId: string) => {
+  //   // redirect to test page
+  //   push(`${mainRoutes.dashboard.candidateTest}/${testId}`)
+  // }
   const handleRowClick = (params: any) => {
-    alert(`User "${params.row.names}" clicked`);
+    // redirect to test page
+    console.log('Ander params handleRowClick ', params)
+    push(`${mainRoutes.dashboard.candidateTest}/${params.row.idtest}`)
   }
-  return { isFetchingCandidateTestsData, columns, rows, t, handleRowClick }
+  return {
+    // candidateTestData,
+    candidateTests,
+    columns,
+    // isFetchingCandidateTestData,
+    isFetchingCandidateTestsData,
+    rows,
+    t,
+    handleRowClick,
+  }
 }
 
 export default useCandidateTestContext

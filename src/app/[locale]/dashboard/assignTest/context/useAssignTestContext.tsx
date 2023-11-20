@@ -7,7 +7,7 @@ import { assignTest, getCandidatesByCriteria } from '@/services/candidate'
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AssignTestProps, SearchCandidateRow } from "@/models";
 import { getTests } from "@/services/test"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { Test } from "@/models/test.model"
 
 const validationSchema = Yup.object<AssignTestProps>({
@@ -72,7 +72,6 @@ const useAssignTestContext = () => {
 
   // FUNCTIONS
   const AssignTest = async (variables: AssignTestProps) => {
-    console.log('Ander variables', variables)
     await AssignTestReq(variables)
   }
 
@@ -98,7 +97,6 @@ const useAssignTestContext = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log("Anderrrr")
       await AssignTest(values)
     }
   })

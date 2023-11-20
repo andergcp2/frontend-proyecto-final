@@ -1,13 +1,13 @@
 'use client'
 
+import { useState } from "react";
+import { GridEventListener } from "@mui/x-data-grid";
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography";
 import { useSearchCandidate } from "../context/searchCandidateContext";
 import StyledDataGrid from "../../../../../components/styledDataGrid/StyledDataGrid";
 import SearchCandidateForm from "../components/SearchCandidateForm";
-import { GridEventListener } from "@mui/x-data-grid";
 import BasicModal from "@/components/modal/Modal";
-import { useState } from "react";
 
 interface SearchCandidateContainerProps { }
 const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
@@ -40,6 +40,7 @@ const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
         flexDirection={'column'}
         justifyContent={'center'}
         alignItems={'left'}
+        textAlign={'center'}
         height={'fit-content'}
         width={{ xs: '100%', md: '80%' }}
         my={20}

@@ -4,3 +4,4 @@ export * from "./mainRoutes";
 export * from "./project.model";
 export * from "./candidate.model";
 export * from "./pagination";
+export * from "./test.model";

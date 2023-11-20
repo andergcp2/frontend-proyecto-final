@@ -190,7 +190,27 @@
         "assignSuccess": "Test assigned successfully"
       },
       "CandidateTest": {
-        "title": "Your tests"
+        "title": "Your tests",
+        "Test": {
+          "test": "Test",
+          "level": "Level",
+          "start": "Start",
+          "next": "Next",
+          "submit": "Submit",
+          "questionsQuantity": "Questions quantity"
+        }
+      },
+      "CandidateTestTaker": {
+        "test": "Test Summary",
+        "level": "Level",
+        "start": "Start",
+        "questionsQuantity": "Questions quantity",
+        "next": "Next",
+        "submit": "Submit Test",
+        "loading": "Loading...",
+        "score": "Your score is",
+        "testEnd": "Test ended",
+        "testWarning": "Once you start you can not go back"
       }
     }
   },
