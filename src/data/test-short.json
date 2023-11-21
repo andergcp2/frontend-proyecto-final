@@ -1,0 +1,200 @@
+{
+  "name": "Fullstack Developer technical test",
+  "numQuestions": 4,
+  "minLevel": 1,
+  "profiles": [
+    {
+      "profile": "Forest/woodland manager"
+    },
+    {
+      "profile": "Curator"
+    },
+    {
+      "profile": "Conservation officer, nature"
+    }
+  ],
+  "techSkills": [
+    {
+      "skill": "field"
+    },
+    {
+      "skill": "economic"
+    },
+    {
+      "skill": "gas"
+    }
+  ],
+  "questions": [
+    {
+      "question": "Build city capital.",
+      "level": 2,
+      "url": "http://www.taylor-shepherd.com/",
+      "answers": [
+        {
+          "answer": "Capital place.",
+          "correct": false
+        },
+        {
+          "answer": "Admit.",
+          "correct": false
+        },
+        {
+          "answer": "Field marriage.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Expect wish.",
+      "level": 1,
+      "url": "https://www.ryan.com/",
+      "answers": [
+        {
+          "answer": "Deep.",
+          "correct": false
+        },
+        {
+          "answer": "Language.",
+          "correct": false
+        },
+        {
+          "answer": "Project.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Manage something book.",
+      "level": 2,
+      "url": "http://wheeler.org/",
+      "answers": [
+        {
+          "answer": "Our control.",
+          "correct": false
+        },
+        {
+          "answer": "They wind.",
+          "correct": false
+        },
+        {
+          "answer": "Red.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Hour color home.",
+      "level": 4,
+      "url": "http://james.biz/",
+      "answers": [
+        {
+          "answer": "President word.",
+          "correct": false
+        },
+        {
+          "answer": "Chair.",
+          "correct": false
+        },
+        {
+          "answer": "Chance tell.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Science you.",
+      "level": 1,
+      "url": "http://rojas.com/",
+      "answers": [
+        {
+          "answer": "Human.",
+          "correct": false
+        },
+        {
+          "answer": "Whatever.",
+          "correct": false
+        },
+        {
+          "answer": "Approach.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Fear door chair.",
+      "level": 1,
+      "url": "http://gonzalez.biz/",
+      "answers": [
+        {
+          "answer": "Security.",
+          "correct": false
+        },
+        {
+          "answer": "Say.",
+          "correct": false
+        },
+        {
+          "answer": "Occur machine.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Character future board.",
+      "level": 4,
+      "url": "http://smith.com/",
+      "answers": [
+        {
+          "answer": "Performance.",
+          "correct": false
+        },
+        {
+          "answer": "Ever.",
+          "correct": false
+        },
+        {
+          "answer": "To value.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Art.",
+      "level": 3,
+      "url": "https://www.gomez.com/",
+      "answers": [
+        {
+          "answer": "Political late.",
+          "correct": false
+        },
+        {
+          "answer": "Can yes.",
+          "correct": false
+        },
+        {
+          "answer": "Such.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Their energy environmental.",
+      "level": 5,
+      "url": "https://www.le.com/",
+      "answers": [
+        {
+          "answer": "Force.",
+          "correct": false
+        },
+        {
+          "answer": "System camera.",
+          "correct": false
+        },
+        {
+          "answer": "Speak.",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}
