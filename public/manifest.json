@@ -1,11 +1,11 @@
 {
-  "orientation": "any",
+  "orientation": "landscape",
   "theme_color": "#000000",
   "background_color": "#FFFFFF",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "ABC App",
+  "name": "ABC Jobs",
   "short_name": "ABC",
   "description": "ABC App created as the final project for the MISO Master Degree in the University of Los Andes",
   "icons": [
@@ -40,8 +40,15 @@
       "url": "/dashboard",
       "description": "Takes you to the dashboard",
       "icons": [
-        { "src": "icon-96x96.png", "type": "image/png", "sizes": "96x96" }
+        {
+          "src": "icon-96x96.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
       ]
     }
-  ]
+  ],
+  "dir": "ltr",
+  "lang": "es",
+  "prefer_related_applications": false
 }
