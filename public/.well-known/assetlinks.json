@@ -1,12 +1,8 @@
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.criollos.abcjobs",
-      "sha256_cert_fingerprints": [
-        "B5:CC:3D:6D:E5:1E:87:DB:4D:E1:7E:7C:09:E2:B7:1F:85:F3:E1:1C:F6:3C:54:88:52:1E:48:02:61:95:C8:C1"
-      ]
-    }
-  }
-]
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.amplifyapp.d26g72fqjv2yn8.develop.twa",
+        "sha256_cert_fingerprints": ["72:EE:B1:06:F5:AB:AF:03:21:55:AE:9B:1F:94:4D:3A:E5:D1:EA:37:65:A7:5A:6F:E3:E4:0F:CD:4B:E5:20:25"]
+      }
+    }]
