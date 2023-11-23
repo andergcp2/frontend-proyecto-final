@@ -152,6 +152,32 @@
       }
     }
   },
+  "Sidebar":{
+    "Company":{
+      "title": "Empresa",
+      "projects": "Proyectos",
+      "candidates": "Candidatos",
+      "searchCandidates": "Búsqueda de candidatos",
+      "interviews": "Entrevistas",
+      "createProject": "Crear proyecto",
+      "myProjects": "Mis proyectos"
+    },
+    "Abc":{
+      "title": "Abc admin",
+      "tests": "Pruebas",
+      "testLoad": "Cargue de pruebas",
+      "assingTest": "Asignar pruebas a candidatos",
+      "testResults": "Registro de resultados",
+      "candidates": "Candidatos",
+      "searchCandidates": "Búsqueda de candidatos"
+    },
+    "Candidate":{
+      "title": "Candidate",
+      "tests": "Pruebas",
+      "assignedTests": "Pruebas técnicas",
+      "assingTest": "Asignar pruebas a candidatos"
+    }
+  },
   "Errors": {
     "00": "Error 00"
   },

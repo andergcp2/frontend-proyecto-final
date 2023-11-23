@@ -221,6 +221,32 @@
       }
     }
   },
+  "Sidebar":{
+    "Company":{
+      "title": "Company",
+      "projects": "Projects",
+      "candidates": "Candidates",
+      "searchCandidates": "Candidate Search",
+      "interviews": "Interviews",
+      "createProject": "Create project",
+      "myProjects": "My projects"
+    },
+    "Abc":{
+      "title": "Company",
+      "tests": "Tests",
+      "testLoad": "Load Tests",
+      "assingTest": "Assing test to candidate",
+      "testResults": "Results register",
+      "candidates": "Candidates",
+      "searchCandidates": "Candidate Search"
+    },
+    "Candidate":{
+      "title": "Candidate",
+      "tests": "Pruebas",
+      "assignedTests": "Technical Tests",
+      "assingTest": "Asignar pruebas a candidatos"
+    }
+  },
   "Project": {
     "required": "El campo es requerido",
     "projectFormTitle": "Create project",
