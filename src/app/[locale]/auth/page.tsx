@@ -1,13 +1,8 @@
 'use client'
 
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import { Metadata } from 'next';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
-
-// export const metadata: Metadata = {
-//   title: 'Auth',
-// }
 
 export interface AuthProps { }
 
