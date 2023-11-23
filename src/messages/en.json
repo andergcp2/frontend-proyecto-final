@@ -242,7 +242,7 @@
     },
     "Candidate":{
       "title": "Candidate",
-      "tests": "Pruebas",
+      "tests": "Tests",
       "assignedTests": "Technical Tests",
       "assingTest": "Asignar pruebas a candidatos"
     }

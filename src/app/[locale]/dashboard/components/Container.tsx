@@ -5,17 +5,34 @@ import { FC } from "react";
 import CustomCard from "./Card";
 import { useDashboard } from "../context/dashboardContext";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export interface DashboardContainerProps { }
 
-const DashboardContainer: FC<DashboardContainerProps> = () => {
+function CandidateDashboard(){
+  const { t, cardsValues } = useDashboard();
+  return (
+    <Box display={"flex"} flexDirection={"column"} mt={2} p={4}>
+      <Typography variant="h1" my={5}>Candidato</ Typography >
+    </Box>
+  );
+}
+
+function AbcDashboard(){
+  const { t, cardsValues } = useDashboard();
+  return (
+    <Box display={"flex"} flexDirection={"column"} mt={2} p={4}>
+      <Typography variant="h1" my={5}>Abc Admin</ Typography >
+    </Box>
+  );
+}
+
+function CompanyDashboard(){
   const { t, cardsValues } = useDashboard();
   const { push } = useRouter()
-
   const handleCardActionButton = (navigateTo: string) => {
     push(navigateTo)
   }
-
   return (
     <Box display={"flex"} flexDirection={"column"} mt={2} p={4}>
       <Typography variant="h1" my={5}>{t('companyTitle')}</ Typography >
@@ -33,6 +50,35 @@ const DashboardContainer: FC<DashboardContainerProps> = () => {
         ))}
       </ Grid>
     </Box>
+  );
+}
+
+function getUserRole(role: any){
+  switch (role) {
+      case 'candidato':
+          return <CandidateDashboard />;
+      case 'empresa':
+          return <CompanyDashboard />;
+      case 'abc':
+          return <AbcDashboard />;
+      default:
+          return ;
+  }
+}
+
+const DashboardContainer: FC<DashboardContainerProps> = () => {
+  const { t, cardsValues } = useDashboard();
+  const { data: session } = useSession();
+  const { push } = useRouter()
+
+  const handleCardActionButton = (navigateTo: string) => {
+    push(navigateTo)
+  }
+
+  return (
+    <>
+      {getUserRole(session?.user.role)}
+    </>
   )
 }
 
