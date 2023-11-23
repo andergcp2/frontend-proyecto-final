@@ -7,11 +7,11 @@ import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 
 export default function useQanttoAuth() {
   const [signUpCompanyDTO, setSignUpCompanyDTO] = useState<SignUpCompanyDTO>()
-
+  const { data: session, update } = useSession();
   const { showToast } = useToast()
   const t = useTranslations('Auth.ToastMsg')
 
