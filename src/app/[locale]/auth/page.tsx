@@ -36,16 +36,13 @@ const Auth: FC<AuthProps> = () => {
                 {t('candidateRegister')}
               </Typography>
               <Typography variant="body1" color="text.secondary">
-              ¡Descubre tu próximo desafío profesional con nosotros! En AbcJobs, 
-              buscamos mentes creativas y apasionadas para unirse a nuestro equipo. 
-              Explora emocionantes oportunidades de carrera en nuestra página de reclutamiento en línea. 
-              Tu futuro te espera.¡Únete a nosotros y haz avanzar tu carrera hoy! 
+                {t('candidateText')}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary" href='/auth/register/candidate'>
-              Registrarse
+              {t('buttonLabel')}
             </Button>
           </CardActions>
         </Card>
@@ -61,19 +58,16 @@ const Auth: FC<AuthProps> = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Registrarse como empresa
+                  {t('companyRegister')}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
-                ¡Optimiza tu éxito empresarial con nuestro servicio de vanguardia! En AbcJobs, 
-                ofrecemos soluciones innovadoras diseñadas para potenciar tu eficiencia y rendimiento. 
-                Descubre cómo podemos transformar tu negocio y llevarte al siguiente nivel. 
-                  ¡Aprovecha hoy mismo nuestro servicio y desata tu potencial!
+                  {t('companyText')}
                 </Typography>
               </CardContent>
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary" href='/auth/register/company'>
-                Registrarse
+                {t('buttonLabel')}
               </Button>
             </CardActions>
           </Card>

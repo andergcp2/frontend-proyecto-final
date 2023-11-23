@@ -1,11 +1,18 @@
 {
   "Index": {
-    "title": "Hello world!"
+    "title": "Hola Mundo!",
+    "registerTitle": "Register at Abc Jobs",
+    "registerButton": "Register",
+    "loginTitle": "Are you member of ABC Jobs?",
+    "loginButton": "Log in"
   },
   "Auth": {
     "Register": {
       "companyRegister": "Register as a company",
-      "candidateRegister": "Register as a candidate"
+      "companyText": "Optimize your business success with our cutting-edge service! At AbcJobs, we offer innovative solutions designed to enhance your efficiency and performance. Discover how we can transform your business and take you to the next level. Take advantage of our service today and unleash your potential!",
+      "candidateRegister": "Register as a candidate",
+      "candidateText": "Discover your next professional challenge with us! At AbcJobs, we're looking for creative and passionate minds to join our team. Explore exciting career opportunities on our online recruitment page. Your future awaits. Join us and advance your career today!",
+      "buttonLabel": "Register"
     },
     "SignUp": {
       "Company": {
