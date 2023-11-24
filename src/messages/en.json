@@ -269,5 +269,15 @@
     "softskills": "Soft skills",
     "techskills": "Tech skills",
     "profilesList": "Profiles"
+  },
+  "Interview": {
+    "Create": {
+      "title": "Create interview",
+      "project": "Project",
+      "candidate": "Candidate",
+      "date": "Date",
+      "time": "Time",
+      "submit": "Create interview"
+    }
   }
 }

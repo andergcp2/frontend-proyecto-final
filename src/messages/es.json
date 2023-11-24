@@ -270,5 +270,15 @@
     "softskills": "Habilidades blandas",
     "techskills": "Habilidades técnicas",
     "profilesList": "Perfiles"
+  },
+  "Interview": {
+    "Create": {
+      "title": "Crear Entrevista",
+      "project": "Proyecto",
+      "candidate": "Candidato",
+      "date": "Fecha",
+      "time": "Hora",
+      "submit": "Crear Entrevista"
+    }
   }
 }
