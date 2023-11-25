@@ -42,3 +42,12 @@ export const createProject = async (
   });
   return response.data;
 };
+
+export const getProjectsByCompanyId = async (companyId: any): Promise<Project[]> => {
+  const response = await axiosMethod<Project[]>({
+    name: "getProjectsByCompanyId",
+    pathParams: { companyId },
+  });
+  console.log("Resp: " +companyId)
+  return response.data;
+};

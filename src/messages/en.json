@@ -5,6 +5,11 @@
     "registerButton": "Register",
     "loginTitle": "Are you member of ABC Jobs?",
     "loginButton": "Log in"
+    "title": "Hola Mundo!",
+    "registerTitle": "Register at Abc Jobs",
+    "registerButton": "Register",
+    "loginTitle": "Are you member of ABC Jobs?",
+    "loginButton": "Log in"
   },
   "Auth": {
     "Register": {

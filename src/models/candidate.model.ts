@@ -64,7 +64,7 @@ export type SearchCandidateResponse = {
   pages: number;
 };
 
-export interface AssignTestProps {
+export interface CandidateProjectProps {
   candidateId: number;
   testId: number;
 }

@@ -7,33 +7,38 @@ import Typography from "@mui/material/Typography";
 import { useSearchCandidate } from "../context/searchCandidateContext";
 import StyledDataGrid from "../../../../../components/styledDataGrid/StyledDataGrid";
 import SearchCandidateForm from "../components/SearchCandidateForm";
-import BasicModal from "@/components/modal/Modal";
+import CandidateModal from "../components/ModalCandidate";
+import { SearchCandidateRow } from "@/models";
 
 interface SearchCandidateContainerProps { }
 const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
   const [open, setOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState("");
+  const row: SearchCandidateRow = {
+    id: 0,
+    name: ""
+  };
+  const [selectedUser, setSelectedUser] = useState(row);
   const {
     columns,
     isFetchingCandidatesData,
+    projects,
     rows,
     t,
   } = useSearchCandidate()
 
   const handleRowClick: GridEventListener<'rowClick'> = (params) => {
-    setSelectedUser(params.row.names)
+    setSelectedUser(params.row)
     setOpen(true)
-    alert(`User "${params.row.names}" clicked`);
   };
 
   return (
     <>
-      <BasicModal
+      <CandidateModal
         open={open}
         handleClose={() => setOpen(false)}
         handleOpen={() => setOpen(true)}
-        modalTitle={selectedUser}
-        modalText=""
+        candidate={selectedUser}
+        projects={projects}
       />
       <Box
         display={'flex'}
