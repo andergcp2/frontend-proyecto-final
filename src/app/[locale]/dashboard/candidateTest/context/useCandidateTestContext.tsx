@@ -58,7 +58,6 @@ const useCandidateTestContext = () => {
   // }
   const handleRowClick = (params: any) => {
     // redirect to test page
-    console.log('Ander params handleRowClick ', params)
     push(`${mainRoutes.dashboard.candidateTest}/${params.row.idtest}`)
   }
   return {

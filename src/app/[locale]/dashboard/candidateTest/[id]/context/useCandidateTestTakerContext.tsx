@@ -54,7 +54,6 @@ const useCandidateTestTakerContext = () => {
     queryFn: getTestsData,
     onSuccess: (data) => {
       setCandidateTests([...data] ?? [])
-      console.log('Ander getTestsData ', data)
     },
     onError: (error: any) => {
       console.log(error.message) // TODO Do something
@@ -64,12 +63,9 @@ const useCandidateTestTakerContext = () => {
 
   // EFFECTS
   useEffect(() => {
-    // console.log('Ander setCurrentTest in efect', candidateTests)
     const currentTest = candidateTests.find(
       (candidateTest) => parseInt(candidateTest.idtest) == testId
     ) ?? {} as CandidateTest
-    // console.log('Ander testId', testId)
-    // console.log('Ander currentTest to be set', currentTest)
     setCurrentTest(currentTest)
     return () => {
       setCurrentTest({} as CandidateTest)
@@ -89,7 +85,6 @@ const useCandidateTestTakerContext = () => {
     mutationFn: testInit,
     onSuccess: (data) => {
       updateNewQuestion(data)
-      console.log('Ander data testInit', data)
     },
     onError: (error: any) => {
       console.log('Ander error testInit', error.message)
@@ -101,7 +96,6 @@ const useCandidateTestTakerContext = () => {
     mutationFn: testNext,
     onSuccess: (data) => {
       updateNewQuestion(data)
-      console.log('Ander data testNext', data)
     },
     onError: (error: any) => {
       console.log('Ander error testNext ', error.message)
@@ -113,7 +107,6 @@ const useCandidateTestTakerContext = () => {
     mutationFn: testDone,
     onSuccess: (data) => {
       setTestResults(data)
-      console.log('Ander data testDone', data)
     },
     onError: (error: any) => {
       console.log('Ander error testDone ', error.message)
@@ -122,18 +115,15 @@ const useCandidateTestTakerContext = () => {
 
   // HANDLERS
   const handleTestStart = useCallback(() => {
-    console.log('Ander starting test')
     testInitReq({ candidateId, testId })
     setTestStep(TestStep.QUESTIONS)
   }, [candidateId, testId, testInitReq])
 
   const handleNextQuestion = useCallback(() => {
-    console.log('Ander next question')
     testNextReq({ candidateId, testId, totalQuestions, numQuestion, questionId, answerId: selectedAnswerId })
   }, [candidateId, numQuestion, questionId, selectedAnswerId, testId, testNextReq, totalQuestions])
 
   const handleTestEnd = useCallback(() => {
-    console.log('Ander test end')
     testDoneReq({ candidateId, testId, totalQuestions, numQuestion, questionId, answerId: selectedAnswerId })
     setTestStep(TestStep.RESULTS)
   }, [candidateId, numQuestion, questionId, selectedAnswerId, testDoneReq, testId, totalQuestions])

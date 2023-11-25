@@ -5,11 +5,6 @@
     "registerButton": "Register",
     "loginTitle": "Are you member of ABC Jobs?",
     "loginButton": "Log in"
-    "title": "Hola Mundo!",
-    "registerTitle": "Register at Abc Jobs",
-    "registerButton": "Register",
-    "loginTitle": "Are you member of ABC Jobs?",
-    "loginButton": "Log in"
   },
   "Auth": {
     "Register": {
@@ -282,7 +277,11 @@
       "candidate": "Candidate",
       "date": "Date",
       "time": "Time",
-      "submit": "Create interview"
+      "submit": "Create interview",
+      "interviewDate": "Interview date",
+      "topic": "Interview Topic",
+      "assignInterviewTitle": "Assign interview",
+      "interviewCreatedSuccess": "Interview created successfully"
     }
   }
 }

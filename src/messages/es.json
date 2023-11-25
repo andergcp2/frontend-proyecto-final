@@ -277,7 +277,11 @@
       "candidate": "Candidato",
       "date": "Fecha",
       "time": "Hora",
-      "submit": "Crear Entrevista"
+      "submit": "Crear Entrevista",
+      "interviewDate": "Fecha de la entrevista",
+      "topic": "Tema de la entrevista",
+      "assignInterviewTitle": "Asignar entrevista",
+      "interviewCreatedSuccess": "La entrevista se creó correctamente"
     }
   }
 }
