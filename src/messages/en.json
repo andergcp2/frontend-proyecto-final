@@ -221,8 +221,8 @@
       }
     }
   },
-  "Sidebar":{
-    "Company":{
+  "Sidebar": {
+    "Company": {
       "title": "Company",
       "projects": "Projects",
       "candidates": "Candidates",
@@ -231,7 +231,7 @@
       "createProject": "Create project",
       "myProjects": "My projects"
     },
-    "Abc":{
+    "Abc": {
       "title": "Company",
       "tests": "Tests",
       "testLoad": "Load Tests",
@@ -240,7 +240,7 @@
       "candidates": "Candidates",
       "searchCandidates": "Candidate Search"
     },
-    "Candidate":{
+    "Candidate": {
       "title": "Candidate",
       "tests": "Tests",
       "assignedTests": "Technical Tests",
