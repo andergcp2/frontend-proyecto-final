@@ -1,9 +1,9 @@
 import * as Yup from 'yup'
-import { CandidateProjectProps, Project, SearchCandidateRow, searchCandidateParams } from '@/models';
+import { AssignProjectProps, Project, SearchCandidateRow, searchCandidateParams } from '@/models';
 import { GridColDef } from '@mui/x-data-grid';
 import { useTranslations } from 'next-intl';
-import { getCandidatesByCriteria } from '@/services/candidate';
-import { useQuery } from '@tanstack/react-query';
+import { assignProject, getCandidatesByCriteria } from '@/services/candidate';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { getProjectsByCompanyId } from '@/services/project';
 import { getSession } from 'next-auth/react';
@@ -16,7 +16,8 @@ const useSearchCandidateContext = () => {
   const [queryParams, setQueryParams] = useState<string>('')
   const [candidates, setCandidates] = useState<SearchCandidateRow[]>([])
   const [projects, setProjects] = useState<Project[]>([])
-  const [companyId, setCompanyId] = useState(0)
+  const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false)
 
   // REACT QUERY
   const getCandidatesData = async () => {
@@ -47,6 +48,25 @@ const useSearchCandidateContext = () => {
     },
     onError: (error: any) => {
       console.log(error.message) // TODO Do something
+    }
+  })
+  // MUTATIONS
+  const assingCandidateToProject = async (variables: AssignProjectProps) => {
+    const session = await getSession()
+    variables.candidateId = session?.user?.id as string ?? ''
+    return await assignProject(variables)
+  }
+
+  const { mutateAsync: AssingToProjectReq, isLoading: isAssinedToProjectLoading } = useMutation({
+    mutationFn: assingCandidateToProject,
+    onSuccess: () => {
+      console.log('Candidato asignado al proyecto de manera exitosa')
+      setOpen(false)
+      setOpenModal(true)
+    },
+    onError: (error: any) => {
+      console.log(error.message)
+      formik.setErrors({projectId: error.message})
     }
   })
 
@@ -92,16 +112,20 @@ const useSearchCandidateContext = () => {
   })
 
     // FORMIK
-    const formik = useFormik<CandidateProjectProps>({
+    const formik = useFormik<AssignProjectProps>({
       initialValues: {
-        candidateId: 0,
-        testId: 0,
+        candidateId: "0",
+        projectId: "0",
       },
       validationSchema: validationSchema,
       onSubmit: async (values) => {
-        await AssignTest(values)
+        await AssingToProjectReq(values)
       }
     })
+
+    const handleProjectChange = (_: any, value: any) => {
+      formik.setFieldValue("projectId", `${value?.id}` || null);
+    };
 
   // METHODS
   const buildParams = ({ role, softSkills, technicalSkills }: searchCandidateParams): string => {
@@ -133,6 +157,9 @@ const useSearchCandidateContext = () => {
   return {
     columns,
     isFetchingCandidatesData,
+    isFetchingProjectsData,
+    handleProjectChange,
+    formik,
     projects,
     rows,
     validationSchema,
@@ -140,6 +167,10 @@ const useSearchCandidateContext = () => {
     getCandidatesData,
     setQueryParams,
     t,
+    open,
+    setOpen,
+    openModal,
+    setOpenModal,
   }
 }
 

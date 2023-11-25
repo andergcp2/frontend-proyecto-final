@@ -205,7 +205,11 @@
         "role": "Role",
         "softskills": "Habilidades blandas",
         "technicalSkills": "Habilidades técnicas",
-        "submit": "Buscar"
+        "submit": "Buscar",
+        "assingToProject": "Asignar a un proyecto",
+        "project": "Proyecto",
+        "assignProjectButton": "Confirmar asignación",
+        "candidateAssignedSuccess": "Candidato asignado al proyecto exitosamente"
       },
       "QuestionsBank": {
         "uploadText": "Arrastre y suelte el archivo aquí o haga clic",

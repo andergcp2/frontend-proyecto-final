@@ -9,10 +9,10 @@ import StyledDataGrid from "../../../../../components/styledDataGrid/StyledDataG
 import SearchCandidateForm from "../components/SearchCandidateForm";
 import CandidateModal from "../components/ModalCandidate";
 import { SearchCandidateRow } from "@/models";
+import BasicModal from "@/components/modal/Modal";
 
 interface SearchCandidateContainerProps { }
 const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
-  const [open, setOpen] = useState(false);
   const row: SearchCandidateRow = {
     id: 0,
     name: ""
@@ -21,9 +21,16 @@ const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
   const {
     columns,
     isFetchingCandidatesData,
+    isFetchingProjectsData,
     projects,
     rows,
     t,
+    handleProjectChange,
+    formik,
+    open,
+    setOpen,
+    openModal,
+    setOpenModal
   } = useSearchCandidate()
 
   const handleRowClick: GridEventListener<'rowClick'> = (params) => {
@@ -33,12 +40,23 @@ const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
 
   return (
     <>
+      <BasicModal
+        open={openModal}
+        handleClose={() => setOpenModal(false)}
+        handleOpen={() => setOpenModal(true)}
+        modalTitle={t('candidateAssignedSuccess')}
+        modalText=""
+      />
       <CandidateModal
         open={open}
         handleClose={() => setOpen(false)}
         handleOpen={() => setOpen(true)}
         candidate={selectedUser}
         projects={projects}
+        t={t}
+        handleProjectChange={handleProjectChange}
+        formik={formik}
+        isLoading={isFetchingProjectsData}
       />
       <Box
         display={'flex'}

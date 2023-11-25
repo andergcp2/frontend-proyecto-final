@@ -1,11 +1,14 @@
-import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Project, SearchCandidateRow } from '@/models';
-import { Autocomplete, Avatar, Divider, Grid, Paper } from '@mui/material';
-import { TextFields } from '@mui/icons-material';
+import { AssignProjectProps, Project, SearchCandidateRow } from '@/models';
+import { Autocomplete, Avatar, Divider, Grid, IconButton, Paper } from '@mui/material';
+import TextField from "@mui/material/TextField";
+import { FormikProps, FormikProvider } from 'formik';
+import { Close } from '@mui/icons-material';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -22,13 +25,17 @@ const style = {
 interface BasicModalProps {
   candidate: SearchCandidateRow,
   projects: Project[],
+  formik: FormikProps<AssignProjectProps>,
+  t: (...args0: any) => string,
   open: boolean,
+  handleProjectChange: () => void,
+  isLoading: boolean,
   handleOpen: () => void,
   handleClose: () => void
 }
 
-export default function CandidateModal({ candidate, projects, open, handleClose, handleOpen }: BasicModalProps) {
-  console.log(projects)
+export default function CandidateModal({ handleProjectChange, isLoading, t, candidate, projects, open, formik, handleClose }: BasicModalProps) {
+
   return (
     <Modal
       open={open}
@@ -37,6 +44,14 @@ export default function CandidateModal({ candidate, projects, open, handleClose,
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
+      <IconButton
+          edge="end"
+          color="inherit"
+          onClick={handleClose}
+          aria-label="close"
+        >
+          <Close />
+        </IconButton>
       <Grid container 
       direction="column"
       alignItems="center"
@@ -64,25 +79,37 @@ export default function CandidateModal({ candidate, projects, open, handleClose,
                   <Typography>{candidate.city}</Typography>
               </Grid>
               <Grid item xs={12}>
-                {/* <Autocomplete
-                  loading={isLoading}
-                  getOptionLabel={(option: Test) => {
-                    return option?.name ?? ''
-                  }}
-                  id="select-test"
-                  options={projects}
-                  onChange={handleTestChange}
-                  renderInput={(params) => (
-                    <TextFields {...params}
-                      id="companyId"
-                      name='companyId'
-                      variant="standard"
-                      label={t('test')}
-                      error={formik.touched.testId && Boolean(formik.errors.testId)}
-                      helperText={formik.touched.testId && t(formik.errors.testId)}
-                    />
+              <Divider/>
+              <Box
+                component="form"
+                id="create-project-form"
+                onSubmit={formik.handleSubmit}
+                mt={1}
+              >
+              <Typography variant="h4">{t('assingToProject')}</Typography>
+              <FormikProvider value={formik}>
+                <Autocomplete
+                    loading={isLoading}
+                    getOptionLabel={(option: Project) => {
+                      return option?.name ?? ''
+                    }}
+                    id="select-project"
+                    options={projects}
+                    onChange={handleProjectChange}
+                    renderInput={(params) => (
+                      <TextField {...params}
+                        id={params.id}
+                        name='projectId'
+                        variant="standard"
+                        label={t('project')}
+                        error={formik.touched.projectId && Boolean(formik.errors.projectId)}
+                        helperText={formik.touched.projectId && formik.errors.projectId}
+                      />
                   )}
-                /> */}
+                />
+                <Button type="submit" variant='contained' sx={{ mt: 1 }}>{t('assignProjectButton')}</Button>
+                </FormikProvider>
+                </Box>
               </Grid>
             </Grid>
         </Grid>
