@@ -52,13 +52,8 @@ const useCandidateTestContext = () => {
     }
   })
 
-  // const handleRowClick = (testId: string) => {
-  //   // redirect to test page
-  //   push(`${mainRoutes.dashboard.candidateTest}/${testId}`)
-  // }
   const handleRowClick = (params: any) => {
     // redirect to test page
-    console.log('Ander params handleRowClick ', params)
     push(`${mainRoutes.dashboard.candidateTest}/${params.row.idtest}`)
   }
   return {

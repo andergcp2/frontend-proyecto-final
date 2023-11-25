@@ -225,8 +225,8 @@
       }
     }
   },
-  "Sidebar":{
-    "Company":{
+  "Sidebar": {
+    "Company": {
       "title": "Company",
       "projects": "Projects",
       "candidates": "Candidates",
@@ -235,7 +235,7 @@
       "createProject": "Create project",
       "myProjects": "My projects"
     },
-    "Abc":{
+    "Abc": {
       "title": "Company",
       "tests": "Tests",
       "testLoad": "Load Tests",
@@ -244,7 +244,7 @@
       "candidates": "Candidates",
       "searchCandidates": "Candidate Search"
     },
-    "Candidate":{
+    "Candidate": {
       "title": "Candidate",
       "tests": "Tests",
       "assignedTests": "Technical Tests",
@@ -273,5 +273,26 @@
     "softskills": "Soft skills",
     "techskills": "Tech skills",
     "profilesList": "Profiles"
+  },
+  "Interview": {
+    "rateButton": "Send Review",
+    "rateModalTitle": "Rate interview",
+    "rateModalText": "Rate the interview in range from 1 to 5",
+    "commentLabel": "Give a comment (optional)",
+    "sendRateButton": "Send",
+    "interviewsListTitle": "Interviews",
+    "createInterviewButton": "Create interview",
+    "Create": {
+      "title": "Create interview",
+      "project": "Project",
+      "candidate": "Candidate",
+      "date": "Date",
+      "time": "Time",
+      "submit": "Create interview",
+      "interviewDate": "Interview date",
+      "topic": "Interview Topic",
+      "assignInterviewTitle": "Assign interview",
+      "interviewCreatedSuccess": "Interview created successfully"
+    }
   }
 }

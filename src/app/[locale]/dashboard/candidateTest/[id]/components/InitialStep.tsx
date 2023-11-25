@@ -4,7 +4,6 @@ import { theme } from "@/config/theme";
 
 const InitialStep = () => {
   const { t, handleTestStart, currentTest, isFetchingCandidateTestsData } = useCandidateTestTaker();
-  // console.log('Ander currentTest initialStep', currentTest)
   if (isFetchingCandidateTestsData || !currentTest.test) return (
     <Box
       display={'flex'}

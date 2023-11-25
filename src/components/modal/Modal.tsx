@@ -21,11 +21,10 @@ interface BasicModalProps {
   modalText: string,
   modalTitle: string,
   open: boolean,
-  handleOpen: () => void,
   handleClose: () => void
 }
 
-export default function BasicModal({ modalText, modalTitle, open, handleClose, handleOpen }: BasicModalProps) {
+export default function BasicModal({ modalText, modalTitle, open, handleClose }: BasicModalProps) {
 
   return (
     <Modal

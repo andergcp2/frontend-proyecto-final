@@ -10,7 +10,7 @@ const candidateItems = ['Búsqueda de candidatos', 'Gestión de entrevistas', 'G
 const candidateRoutes = ['dashboard/searchCandidate', 'dashboard/searchCandidates', 'dashboard/searchCandidates']
 const managementItems = ['Gestión de contratos', 'Gestión de desempeño', 'Gestión de tiempo']
 
-function getUserRole(role: any){
+function getUserRole(role: any) {
     switch (role) {
         case 'candidato':
             return <CandidateSideBar />;
@@ -19,11 +19,11 @@ function getUserRole(role: any){
         case 'abc':
             return <AbcSideBar />;
         default:
-            return ;
+            return;
     }
 }
 
-interface Props {}
+interface Props { }
 
 export default function ResponsiveDrawer(props: Props) {
     const { data: session, update } = useSession();
@@ -31,8 +31,8 @@ export default function ResponsiveDrawer(props: Props) {
     return (
         <>
             <Toolbar />
-                <Divider />
-                {getUserRole(session?.user.role)}
+            <Divider />
+            {getUserRole(session?.user.role)}
         </>
     );
 }
