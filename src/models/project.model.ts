@@ -24,4 +24,9 @@ export interface SoftSkill {
   name: string;
 }
 
+export interface AssignTestProps {
+  candidateId: number;
+  projectId: number;
+}
+
 export type CreateProjectDTO = Omit<Project, "id">;
