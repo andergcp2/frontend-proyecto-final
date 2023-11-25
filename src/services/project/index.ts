@@ -48,6 +48,5 @@ export const getProjectsByCompanyId = async (companyId: any): Promise<Project[]>
     name: "getProjectsByCompanyId",
     pathParams: { companyId },
   });
-  console.log("Resp: " +companyId)
   return response.data;
 };

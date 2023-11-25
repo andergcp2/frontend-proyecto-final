@@ -17,4 +17,9 @@ export const candidateMethods = {
     url: "candidateTest/{params.candidateId}",
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   },
+  assignProject: {
+    method: "POST" as Method,
+    url: "projects/{params.projectId}/candidates/{params.candidateId}",
+    baseUrl: process.env.NEXT_PUBLIC_API_URL,
+  },
 };

@@ -1,5 +1,6 @@
 import { axiosMethod } from "@/config/http/axios";
 import {
+  AssignProjectProps,
   AssignTestProps,
   CandidatesByCriteriaParams,
   SearchCandidateResponse,
@@ -41,4 +42,15 @@ export const getCandidateTests = async (
     pathParams: { candidateId },
   });
   return response.data as CandidateTest[];
+};
+
+export const assignProject = async ({ candidateId, projectId }: AssignProjectProps) => {
+  const response = await axiosMethod({
+    name: "assignProject",
+    pathParams: {
+      candidateId: candidateId,
+      projectId: projectId,
+    },
+  });
+  return response.data;
 };

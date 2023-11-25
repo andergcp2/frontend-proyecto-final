@@ -179,7 +179,11 @@
         "role": "Role",
         "softskills": "Soft skills",
         "technicalSkills": "Technical skills",
-        "submit": "Search"
+        "submit": "Search",
+        "assingToProject": "Assing to project",
+        "project": "Project",
+        "assignProjectButton": "Confirm assing",
+        "candidateAssignedSuccess": "Candidate assigned to project successfully"
       },
       "QuestionsBank": {
         "uploadText": "Click or drag file to this area to upload",
