@@ -271,6 +271,13 @@
     "profilesList": "Profiles"
   },
   "Interview": {
+    "rateButton": "Send Review",
+    "rateModalTitle": "Rate interview",
+    "rateModalText": "Rate the interview in range from 1 to 5",
+    "commentLabel": "Give a comment (optional)",
+    "sendRateButton": "Send",
+    "interviewsListTitle": "Interviews",
+    "createInterviewButton": "Create interview",
     "Create": {
       "title": "Create interview",
       "project": "Project",

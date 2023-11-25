@@ -11,5 +11,6 @@ export const mainRoutes = {
     project: "/dashboard/project",
     candidate: "/dashboard/candidate",
     candidateTest: "/dashboard/candidateTest",
+    interview: "/dashboard/interview",
   },
 };

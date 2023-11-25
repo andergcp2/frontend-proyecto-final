@@ -271,6 +271,13 @@
     "profilesList": "Perfiles"
   },
   "Interview": {
+    "rateButton": "Calificar",
+    "rateModalTitle": "Calificar entrevista",
+    "rateModalText": "Califica de 1 a 5 la entrevista",
+    "commentLabel": "Deja un comentario (opcional)",
+    "sendRateButton": "Calificar",
+    "interviewsListTitle": "Lista de entrevistas",
+    "createInterviewButton": "Crear entrevista",
     "Create": {
       "title": "Crear Entrevista",
       "project": "Proyecto",
