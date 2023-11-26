@@ -3,7 +3,7 @@
     "title": "Hola Mundo!",
     "registerTitle": "Register at Abc Jobs",
     "registerButton": "Register",
-    "loginTitle": "Are you member of ABC Jobs?",
+    "loginTitle": "Are you member?",
     "loginButton": "Log in"
   },
   "Auth": {
