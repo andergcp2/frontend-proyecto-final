@@ -2,10 +2,15 @@ import { UploadProps } from "antd/es/upload";
 import { message } from 'antd';
 import { useTranslations } from "next-intl"
 import { UploaderProps } from "@/components/uploader/Uploader";
+import { useState } from "react";
 
 const useQuestionsBankContext = () => {
   const t = useTranslations('Dashboard.Modules.QuestionsBank')
 
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false)
+  }
   // UPLOADER PROPS
   const props: UploadProps & UploaderProps = {
     name: 'file',
@@ -20,6 +25,7 @@ const useQuestionsBankContext = () => {
       }
       if (status === 'done') {
         message.success(`${info.file.name} ${t('uploadSuccess')}`); // file uploaded successfully.
+        setOpen(true)
       } else if (status === 'error') {
         message.error(`${info.file.name} t('uploadError')`); // file upload failed.
       }
@@ -33,8 +39,10 @@ const useQuestionsBankContext = () => {
   };
 
   return {
+    open,
     props,
     t,
+    handleClose,
   }
 }
 

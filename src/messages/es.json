@@ -220,7 +220,8 @@
       "QuestionsBank": {
         "uploadText": "Arrastre y suelte el archivo aquí o haga clic",
         "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
-        "uploadTitle": "Aquí puedes subir tus bancos de preguntas"
+        "uploadTitle": "Aquí puedes subir tus bancos de preguntas",
+        "updaloadSuccessModalText": "El banco de preguntas se subió correctamente"
       },
       "Candidate": {
         "welcome": "Bienvenid@"

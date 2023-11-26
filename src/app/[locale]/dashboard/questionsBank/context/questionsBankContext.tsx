@@ -4,7 +4,9 @@ import useQuestionsBankContext from "./useQuestionsBankContext";
 import { UploadProps } from "antd/es/upload";
 
 interface QuestionsBankContextProps {
+  open: boolean,
   props: UploadProps<any>,
+  handleClose: () => void,
   t: (...args: any[]) => string
 }
 

@@ -193,7 +193,8 @@
       "QuestionsBank": {
         "uploadText": "Click or drag file to this area to upload",
         "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
-        "uploadTitle": "Here you can upload your question bank"
+        "uploadTitle": "Here you can upload your question bank",
+        "updaloadSuccessModalText": "The questions were uploaded successfully"
       },
       "Candidate": {
         "welcome": "Welcome"
