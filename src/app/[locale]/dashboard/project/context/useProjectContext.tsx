@@ -53,11 +53,11 @@ const useProjectContext = () => {
 
   const headerClassName = 'search-candidate-header'
   const columns: GridColDef[] = [
-    { field: 'name', headerName: 'Names', flex: 1, headerClassName },
-    { field: 'type', headerName: 'Type', flex: 1, headerClassName },
-    { field: 'leader', headerName: 'Leader', flex: 1, headerClassName },
-    { field: 'role', headerName: 'Leader Role', flex: 1, headerClassName },
-    { field: 'email', headerName: 'Leader Email', flex: 1, headerClassName },
+    { field: 'name', headerName: 'Names', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'type', headerName: 'Type', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'leader', headerName: 'Leader', flex: 1, headerClassName, minWidth: 180 },
+    { field: 'role', headerName: 'Leader Role', flex: 1, headerClassName, minWidth: 180 },
+    { field: 'email', headerName: 'Leader Email', flex: 1, headerClassName, minWidth: 180 },
   ]
 
   return {

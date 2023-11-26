@@ -31,12 +31,12 @@ const useCandidateTestContext = () => {
 
   const headerClassName = 'search-candidate-header'
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'Test Id', width: 70, headerClassName, },
-    { field: 'name', headerName: 'Name', flex: 1, headerClassName },
-    { field: 'numQuestions', headerName: 'Número preguntas', flex: 1, headerClassName },
-    { field: 'idcandidate', headerName: 'idcandidate', flex: 1, headerClassName },
-    { field: 'idtest', headerName: 'idtest', flex: 1, headerClassName },
-    { field: 'testestatus', headerName: 'Test Status', flex: 1, headerClassName },
+    { field: 'id', headerName: 'Test Id', width: 70, headerClassName, minWidth: 100 },
+    { field: 'name', headerName: 'Name', flex: 1, headerClassName, minWidth: 150 },
+    { field: 'numQuestions', headerName: 'Número preguntas', flex: 1, headerClassName, minWidth: 100 },
+    { field: 'idcandidate', headerName: 'idcandidate', flex: 1, headerClassName, minWidth: 100 },
+    { field: 'idtest', headerName: 'idtest', flex: 1, headerClassName, minWidth: 100 },
+    { field: 'testestatus', headerName: 'Test Status', flex: 1, headerClassName, minWidth: 120 },
   ];
 
   const candidateTests: CandidateTest[] = candidateTestsData ?? []

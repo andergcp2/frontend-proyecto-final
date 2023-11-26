@@ -83,13 +83,13 @@ const useCreateInterviewContext = () => {
   const headerClassName = 'search-candidate-header'
 
   const columns: GridColDef[] = [
-    { field: 'interviewId', headerName: 'InterviewId', flex: 1, headerClassName, },
-    { field: 'interviewDate', headerName: 'Date', flex: 1, headerClassName, },
-    { field: 'topic', headerName: 'Topic', flex: 1, headerClassName, },
-    { field: 'comment', headerName: 'Comment', flex: 1, headerClassName, },
-    { field: 'status', headerName: 'Status', flex: 1, headerClassName, },
+    { field: 'interviewId', headerName: 'InterviewId', flex: 1, headerClassName, minWidth: 100, },
+    { field: 'interviewDate', headerName: 'Date', flex: 1, headerClassName, minWidth: 150, },
+    { field: 'topic', headerName: 'Topic', flex: 1, headerClassName, minWidth: 150, },
+    { field: 'comment', headerName: 'Comment', flex: 1, headerClassName, minWidth: 180, },
+    { field: 'status', headerName: 'Status', flex: 1, headerClassName, minWidth: 120, },
     {
-      field: 'rate', headerName: 'Rate', flex: 1, headerClassName,
+      field: 'rate', headerName: 'Rate', flex: 1, headerClassName, minWidth: 150,
       renderCell: (params) => {
         if (params.row?.status && params.row.status !== 'FINALIZADA') {
           return (

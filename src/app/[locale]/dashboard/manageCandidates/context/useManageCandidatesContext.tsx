@@ -88,13 +88,13 @@ const useManageCandidatesContext = () => {
   const headerClassName = 'search-candidate-header'
 
   const columns: GridColDef[] = [
-    { field: 'name', headerName: 'Names', flex: 1, headerClassName },
-    { field: 'lastName', headerName: 'Last Names', flex: 1, headerClassName },
-    { field: 'email', headerName: 'Email', flex: 1, headerClassName },
-    { field: 'phone', headerName: 'Phone Number', flex: 1, headerClassName },
-    { field: 'comments', headerName: 'Comments', flex: 1, headerClassName, },
+    { field: 'name', headerName: 'Names', flex: 1, headerClassName, minWidth: 120, },
+    { field: 'lastName', headerName: 'Last Names', flex: 1, headerClassName, minWidth: 120, },
+    { field: 'email', headerName: 'Email', flex: 1, headerClassName, minWidth: 120, },
+    { field: 'phone', headerName: 'Phone Number', flex: 1, headerClassName, minWidth: 120, },
+    { field: 'comments', headerName: 'Comments', flex: 1, headerClassName, minWidth: 200, },
     {
-      field: 'rate', headerName: 'Rate', flex: 1, headerClassName,
+      field: 'rate', headerName: 'Rate', flex: 1, headerClassName, minWidth: 150,
       renderCell: (params) => {
         console.log('Ander params ', params)
         if (!params.row?.rating) {
@@ -111,8 +111,8 @@ const useManageCandidatesContext = () => {
         return <Rating name="read-only" value={params.row.rating} readOnly />
       }
     },
-    { field: 'id', headerName: 'ID', width: 70, headerClassName, },
-    { field: 'projectId', headerName: 'Project Id', flex: 1, headerClassName },
+    { field: 'id', headerName: 'ID', width: 70, headerClassName, minWidth: 120, },
+    { field: 'projectId', headerName: 'Project Id', flex: 1, headerClassName, minWidth: 120, },
   ]
 
   const rows: CompanyCandidate[] = candidates.map((candidate: CompanyCandidate) => {

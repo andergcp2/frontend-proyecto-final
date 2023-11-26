@@ -66,7 +66,7 @@ const useSearchCandidateContext = () => {
     },
     onError: (error: any) => {
       console.log(error.message)
-      formik.setErrors({projectId: error.message})
+      formik.setErrors({ projectId: error.message })
     }
   })
 
@@ -80,18 +80,18 @@ const useSearchCandidateContext = () => {
   const headerClassName = 'search-candidate-header'
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 70, headerClassName, },
-    { field: 'name', headerName: 'Names', flex: 1, headerClassName },
-    { field: 'lastName', headerName: 'Last Names', flex: 1, headerClassName },
-    { field: 'identificationType', headerName: 'ID Type', flex: 1, headerClassName },
-    { field: 'identificationNumber', headerName: 'ID Number', flex: 1, headerClassName },
-    { field: 'email', headerName: 'Email', flex: 1, headerClassName },
-    { field: 'phoneNumber', headerName: 'Phone Number', flex: 1, headerClassName },
-    { field: 'country', headerName: 'Country', flex: 1, headerClassName },
-    { field: 'city', headerName: 'City', flex: 1, headerClassName },
-    { field: 'address', headerName: 'Address', flex: 1, headerClassName },
-    { field: 'photo', headerName: 'Photo', flex: 1, headerClassName },
-    { field: 'profession', headerName: 'Profession', flex: 1, headerClassName },
+    { field: 'id', headerName: 'ID', width: 70, headerClassName, minWidth: 120 },
+    { field: 'name', headerName: 'Names', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'lastName', headerName: 'Last Names', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'identificationType', headerName: 'ID Type', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'identificationNumber', headerName: 'ID Number', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'email', headerName: 'Email', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'phoneNumber', headerName: 'Phone Number', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'country', headerName: 'Country', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'city', headerName: 'City', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'address', headerName: 'Address', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'photo', headerName: 'Photo', flex: 1, headerClassName, minWidth: 120 },
+    { field: 'profession', headerName: 'Profession', flex: 1, headerClassName, minWidth: 120 },
   ];
 
   const rows: SearchCandidateRow[] = candidates.map((candidate) => {
@@ -111,21 +111,21 @@ const useSearchCandidateContext = () => {
     }
   })
 
-    // FORMIK
-    const formik = useFormik<AssignProjectProps>({
-      initialValues: {
-        candidateId: "0",
-        projectId: "0",
-      },
-      validationSchema: validationSchema,
-      onSubmit: async (values) => {
-        await AssingToProjectReq(values)
-      }
-    })
+  // FORMIK
+  const formik = useFormik<AssignProjectProps>({
+    initialValues: {
+      candidateId: "0",
+      projectId: "0",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      await AssingToProjectReq(values)
+    }
+  })
 
-    const handleProjectChange = (_: any, value: any) => {
-      formik.setFieldValue("projectId", `${value?.id}` || null);
-    };
+  const handleProjectChange = (_: any, value: any) => {
+    formik.setFieldValue("projectId", `${value?.id}` || null);
+  };
 
   // METHODS
   const buildParams = ({ role, softSkills, technicalSkills }: searchCandidateParams): string => {

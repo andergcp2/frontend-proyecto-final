@@ -91,7 +91,7 @@ const QuestionStep = () => {
         sx={{ mt: 2 }}
         onClick={isFinalQuestion ? handleTestEnd : handleNextQuestion}
       >
-        {isFinalQuestion ? t('next') : t('submit')}
+        {isFinalQuestion ? t('submit') : t('next')}
       </Button>
     </Box>
 
