@@ -1,16 +1,13 @@
 'use client';
 
-import { mainRoutes } from "@/models";
-import { Interview } from "@/models/interview";
+import { Interview } from "@/models/interview.model";
 import { getInterviews, rateInterview } from "@/services/interview";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import Typography from "@mui/material/Typography";
 import { GridColDef } from "@mui/x-data-grid";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { staticGenerationAsyncStorage } from "next/dist/client/components/static-generation-async-storage.external";
 import { useState } from "react";
 
 const useCreateInterviewContext = () => {
@@ -19,8 +16,6 @@ const useCreateInterviewContext = () => {
   const [interviewToRate, setInterviewToRate] = useState<Interview | null>(null)
   const [rating, setRate] = useState(0)
   const [comment, setComment] = useState('')
-
-  const headerClassName = 'search-candidate-header'
 
   const handleRowClick = (params: any) => {
     // redirect to interview page
@@ -34,10 +29,7 @@ const useCreateInterviewContext = () => {
   }
 
   const handleRateInterview = () => {
-    // TODO: Implement the use case
-    console.log('Rate interview')
     rateInterviewReq()
-    // Send requesto for rating
     setOpenRate(false)
   }
 
@@ -88,6 +80,7 @@ const useCreateInterviewContext = () => {
   })
 
   const interviews: Interview[] = interviewsData?.items ?? []
+  const headerClassName = 'search-candidate-header'
 
   const columns: GridColDef[] = [
     { field: 'interviewId', headerName: 'InterviewId', flex: 1, headerClassName, },
@@ -117,7 +110,7 @@ const useCreateInterviewContext = () => {
   const rows: Interview[] = interviews.map((interview) => {
     return {
       interviewId: interview.interviewId,
-      interviewDate: interview.interviewDate,
+      interviewDate: new Date(interview.interviewDate).toLocaleDateString(),
       topic: interview.topic,
       candidateId: interview.candidateId,
       companyId: interview.companyId,
@@ -130,13 +123,13 @@ const useCreateInterviewContext = () => {
 
   return {
     columns,
+    comment,
     interviewToRate,
     isFetchingInterviewsData,
     isRatingLoading,
     openRate,
-    rows,
     rating,
-    comment,
+    rows,
     t,
     handleRateChange,
     handleRateClose,

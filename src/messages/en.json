@@ -222,6 +222,14 @@
         "score": "Your score is",
         "testEnd": "Test ended",
         "testWarning": "Once you start you can not go back"
+      },
+      "ManageCandidates": {
+        "manageCandidatesTitle": "Manage candidates",
+        "rateModalTitle": "Rate candidate",
+        "rateModalText": "Evaluate candidate in range from 1 to 5",
+        "commentLabel": "Give a comment (optional)",
+        "sendRateButton": "Send",
+        "rateButton": "Rate"
       }
     }
   },
@@ -233,7 +241,8 @@
       "searchCandidates": "Candidate Search",
       "interviews": "Interviews",
       "createProject": "Create project",
-      "myProjects": "My projects"
+      "myProjects": "My projects",
+      "manageCandidates": "Manage candidates"
     },
     "Abc": {
       "title": "Company",

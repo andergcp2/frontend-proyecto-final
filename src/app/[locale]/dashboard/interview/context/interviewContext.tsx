@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import useInterviewContext from "./useInterviewContext";
-import { Interview } from "@/models/interview";
+import { Interview } from "@/models/interview.model";
 
 interface InterviewContextProps {
   columns: GridColDef[]
