@@ -50,6 +50,5 @@ export const getProjectsByCompanyId = async (
     name: "getProjectsByCompanyId",
     pathParams: { companyId },
   });
-  console.log("Resp: " + companyId);
   return response.data;
 };

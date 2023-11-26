@@ -1,12 +1,12 @@
 'use client'
 
-import { FC } from "react"
-import ProjectContainer from "./container/ProjectContainer"
+import ProjectContainer from "./container/ProjectContainer";
+import { ProjectProvider } from "./context/projectContext";
 
-export interface ProjectProps { }
+const ProjectPage = () => (
+  <ProjectProvider>
+    <ProjectContainer />
+  </ProjectProvider>
+);
 
-const Project: FC<ProjectProps> = () => {
-  return <ProjectContainer />
-}
-
-export default Project
+export default ProjectPage;

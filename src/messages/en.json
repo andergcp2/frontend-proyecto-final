@@ -169,7 +169,9 @@
         "cardTitle": "Projects",
         "cardSubtitle": "Manage your projects",
         "cardDescription": "In this section you can manage your projects",
-        "cardButtonLabel": "Go to projects"
+        "cardButtonLabel": "Go to projects",
+        "projectTitle": "Projects",
+        "createProjectButton": "Create project"
       },
       "Management": {
         "cardTitle": "Management",

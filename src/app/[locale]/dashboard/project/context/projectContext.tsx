@@ -1,15 +1,14 @@
-'use client'
-
-import { createContext, useContext } from 'react'
-import useProjectContext from './useProjectContext';
-import { CreateProjectDTO, Project } from '@/models';
-import { FormikProps } from 'formik';
+import { createContext, useContext } from "react";
+import useProjectContext from "./useProjectContext";
+import { GridColDef } from "@mui/x-data-grid";
+import { Project } from "@/models";
 
 interface ProjectContextProps {
-  formik: FormikProps<Project>
+  columns: GridColDef[]
+  rows: Project[]
+  isFetchingProjectsData: boolean
+  handleRowClick: (params: any) => void
   t: (...args0: any) => string
-  validationSchema: any,
-  CreateProject: (variables: CreateProjectDTO) => Promise<void>,
 }
 
 const ProjectContext = createContext<ProjectContextProps>({} as ProjectContextProps);
@@ -17,11 +16,11 @@ const ProjectContext = createContext<ProjectContextProps>({} as ProjectContextPr
 export const ProjectProvider = ({ children }: {
   children: React.ReactNode
 }) => {
-  const states = useProjectContext();
+  const states = useProjectContext()
   return (
-    <ProjectContext.Provider value={states}>
+    < ProjectContext.Provider value={states}>
       {children}
-    </ProjectContext.Provider>
+    </ProjectContext.Provider >
   )
 }
 

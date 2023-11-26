@@ -6,7 +6,8 @@ import { AddBox, Folder, QuestionAnswer } from "@mui/icons-material";
 import { usePathname } from "next/navigation";
 
 const routeLink = {
-  createProject: "/dashboard/project",
+  createProject: "/dashboard/project/create",
+  projects: "/dashboard/project",
   searchCandidates: "/dashboard/searchCandidate",
   interviews: "/dashboard/interview",
   manageCandidates: "/dashboard/manageCandidates",
@@ -38,7 +39,7 @@ export default function CompanySideBar(props: Props) {
           </ListItemButton>
         </ListItem>
         <ListItem key="myProjects" disablePadding>
-          <ListItemButton>
+          <ListItemButton href={`${routeLink.projects}`}>
             <ListItemIcon>
               <Folder />
             </ListItemIcon>

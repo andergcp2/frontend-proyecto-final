@@ -1,20 +1,19 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, TextField, Grid, Typography, Divider, Modal, Autocomplete, FormHelperText } from '@mui/material'
+import { Box, TextField, Grid, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Field, FieldArray, FieldArrayRenderProps, FormikErrors, FormikProvider, useFormik } from 'formik'
+import { FieldArray, FieldArrayRenderProps, FormikProvider } from 'formik'
 import Button from '@/components/button/Button'
-import { useProject } from '../context/projectContext'
-import { CandidateProfile, Project } from '@/models';
+import { useCreateProject } from '../context/createProjectContext'
 
-export interface ProjectFormProps { }
+export interface CreateProjectFormProps { }
 
-const ProjectForm: FC<ProjectFormProps> = () => {
+const CreateProjectForm: FC<CreateProjectFormProps> = () => {
   const {
     formik,
     t,
-  } = useProject()
+  } = useCreateProject()
 
   return (
     <Box component="form"
@@ -331,5 +330,5 @@ const ProjectForm: FC<ProjectFormProps> = () => {
   )
 }
 
-export default ProjectForm
+export default CreateProjectForm
 

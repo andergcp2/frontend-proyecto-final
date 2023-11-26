@@ -196,7 +196,9 @@
         "cardTitle": "Proyectos",
         "cardSubtitle": "Administra tus proyectos",
         "cardDescription": "En esta sección puedas ver los proyectos de tu empresa y gestionarlos",
-        "cardButtonLabel": "Acceder"
+        "cardButtonLabel": "Acceder",
+        "projectTitle": "Proyectos",
+        "createProjectButton": "Crear proyecto"
       },
       "Management": {
         "cardTitle": "Gestión",
