@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 const routeLink = {
   testLoad: "/dashboard/questionsBank",
-  testResult: "",
+  assignTest: "/dashboard/assignTest",
   searchCandidates: "/dashboard/searchCandidate"
 }
 
@@ -32,26 +32,12 @@ export default function AbcSideBar(props: Props) {
                     <ListItemText primary={t('testLoad')} />
                 </ListItemButton>
                 </ListItem>
-                <ListItem key="testResults" disablePadding>
-                <ListItemButton href={routeLink.testResult}>
+                <ListItem key="assignTest" disablePadding>
+                <ListItemButton href={routeLink.assignTest}>
                     <ListItemIcon>
                       <AssignmentReturn />
                     </ListItemIcon>
-                    <ListItemText primary={t('testResults')} />
-                </ListItemButton>
-                </ListItem>
-            </List>
-            <Divider />
-            <Typography variant="body1" noWrap component="div" sx={{ p: 2 }}>
-              {t('candidates')}
-            </Typography>
-            <List>
-                <ListItem key="searchCandidates" disablePadding>
-                <ListItemButton href={routeLink.searchCandidates}>
-                    <ListItemIcon>
-                      <PersonSearch />
-                    </ListItemIcon>
-                    <ListItemText primary={t('searchCandidates')} />
+                    <ListItemText primary={t('assignTest')} />
                 </ListItemButton>
                 </ListItem>
             </List>
