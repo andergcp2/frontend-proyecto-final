@@ -169,7 +169,7 @@
       "title": "Abc admin",
       "tests": "Pruebas",
       "testLoad": "Cargue de pruebas",
-      "assingTest": "Asignar pruebas a candidatos",
+      "assignTest": "Asignar pruebas a candidatos",
       "testResults": "Registro de resultados",
       "candidates": "Candidatos",
       "searchCandidates": "Búsqueda de candidatos"

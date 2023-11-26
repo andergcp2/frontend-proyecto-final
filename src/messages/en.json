@@ -253,7 +253,7 @@
       "title": "Company",
       "tests": "Tests",
       "testLoad": "Load Tests",
-      "assingTest": "Assing test to candidate",
+      "assignTest": "Assing test to candidate",
       "testResults": "Results register",
       "candidates": "Candidates",
       "searchCandidates": "Candidate Search"
