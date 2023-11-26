@@ -134,7 +134,10 @@
         "privacyPolicy": "I agree to the privacy policy",
         "professionalInformation": "Professional information",
         "accountInformation": "Account information",
-        "submit": "Register"
+        "submit": "Register",
+        "invalidPassword": "Password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
+        "passwordsMustMatch": "Passwords must match",
+        "invalidEmail": "Invalid email"
       }
     },
     "Login": {

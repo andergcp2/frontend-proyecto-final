@@ -10,6 +10,8 @@ import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
 import softskills from '@/data/softSkills'
 import technicalSkills from '@/data/technicalSkills'
+import { PASSWORD_REGEX } from '@/models'
+import { PasswordInput } from '@/components/inputs'
 
 
 export interface RegisterFormProps { }
@@ -19,7 +21,9 @@ const validationSchema = Yup.object({
   lastName: Yup.string().required('lastNamesRequired'),
   idType: Yup.string().required('identificationTypeRequired'),
   identification: Yup.string().required('identificationNumberRequired'),
-  email: Yup.string().required('emailRequired'),
+  email: Yup.string().
+    email('invalidEmail').
+    required('emailRequired'),
   phone: Yup.string().required('phoneNumberRequired'),
   country: Yup.string().required('countryRequired'),
   city: Yup.string().required('cityRequired'),
@@ -29,8 +33,11 @@ const validationSchema = Yup.object({
   softSkills: Yup.array().required('softskillsRequired'),
   technicalSkills: Yup.array().required('technicalSkillsRequired'),
   username: Yup.string().required('usernameRequired'),
-  password: Yup.string().required('passwordRequired'),
-  passwordConfirmation: Yup.string().required('passwordConfirmationRequired'),
+  password: Yup.string().required('passwordRequired').
+    matches(PASSWORD_REGEX, 'invalidPassword'),
+  passwordConfirmation: Yup.string().
+    required('passwordConfirmationRequired').
+    oneOf([Yup.ref('password')], 'passwordsMustMatch')
   // termsAndConditions: Yup.boolean().required('termsAndConditionsRequired'),
   // privacyPolicy: Yup.boolean().required('privacyPolicyRequired')
 })
@@ -340,10 +347,11 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          {/* <TextField
             fullWidth
             id="password"
             name="password"
+            type='password'
             label={t('password')}
             value={formik.values.password}
             required
@@ -351,13 +359,29 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && t(formik.errors.password)}
+          /> */}
+          <PasswordInput
+            id="password"
+            name="password"
+            label={t('password')}
+            margin="none"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.password) && Boolean(formik.errors.password)
+            }
+            errorText={
+              formik.errors.password ? t(formik.errors.password) : ''
+            }
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          {/* <TextField
             fullWidth
             id="passwordConfirmation"
             name="passwordConfirmation"
+            type='password'
             label={t('passwordConfirmation')}
             value={formik.values.passwordConfirmation}
             required
@@ -365,6 +389,21 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.passwordConfirmation && Boolean(formik.errors.passwordConfirmation)}
             helperText={formik.touched.passwordConfirmation && t(formik.errors.passwordConfirmation)}
+          /> */}
+          <PasswordInput
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            label={t('passwordConfirmation')}
+            margin="none"
+            value={formik.values.passwordConfirmation}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.passwordConfirmation) && Boolean(formik.errors.passwordConfirmation)
+            }
+            errorText={
+              formik.errors.passwordConfirmation ? t(formik.errors.passwordConfirmation) : ''
+            }
           />
         </Grid>
         {/* <Grid item xs={12}>

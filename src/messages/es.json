@@ -134,7 +134,10 @@
         "privacyPolicy": "Acepto la política de privacidad",
         "professionalInformation": "Información profesional",
         "accountInformation": "Información de la cuenta",
-        "submit": "Registrarse"
+        "submit": "Registrarse",
+        "invalidPassword": "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial",
+        "passwordsMustMatch": "Las contraseñas deben coincidir",
+        "invalidEmail": "Email inválido"
       }
     },
     "Login": {
