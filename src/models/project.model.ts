@@ -10,6 +10,7 @@ export interface Project {
   city?: string;
   address?: string;
   profiles?: Profile[];
+  companyId?: number;
 }
 
 export interface Profile {

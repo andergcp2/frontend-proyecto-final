@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { FC } from "react";
 import Button from '@/components/button/Button';
 import LanguageSelector from '@/components/lang/LanguageSelector';
+import { mainRoutes } from '@/models';
+import { Link } from '@mui/material';
 
 // const navItems = ['Candidate', 'Companies', 'Sign In'];
 const navItems: string[] = [];
@@ -18,9 +20,15 @@ const Sidebar: FC<MuiAppBarProps> = ({ children }) => {
       <CssBaseline />
       <MuiAppBar position="sticky">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant="h3" noWrap component="div">
-            ABC Jobs
-          </Typography>
+          <Link
+            href={mainRoutes.home}
+            color={'inherit'}
+            underline={'none'}
+          >
+            <Typography variant="h3" noWrap component="div">
+              ABC Jobs
+            </Typography>
+          </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
@@ -29,7 +37,7 @@ const Sidebar: FC<MuiAppBarProps> = ({ children }) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <LanguageSelector />          
+            <LanguageSelector />
           </Box>
         </Toolbar>
       </MuiAppBar>

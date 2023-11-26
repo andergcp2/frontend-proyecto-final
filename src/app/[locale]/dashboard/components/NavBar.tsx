@@ -1,9 +1,10 @@
-import { AppBar, Avatar, Box, CssBaseline, Divider, Drawer, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Avatar, Box, CssBaseline, Divider, Drawer, IconButton, Link, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ResponsiveDrawer from "./ResponsiveDrawer";
 import { useState } from "react";
 import LanguageSelector from "@/components/lang/LanguageSelector";
 import { signOut } from "next-auth/react";
+import { mainRoutes } from "@/models";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -20,7 +21,9 @@ export default function CompaniesAppBar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-    signOut();
+    signOut({
+      callbackUrl: mainRoutes.auth.login
+    });
   };
 
 
@@ -49,9 +52,15 @@ export default function CompaniesAppBar() {
           </IconButton>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-            <Typography variant="h5">
-              Abc Jobs
-            </Typography>
+            <Link
+              href={mainRoutes.home}
+              color={'inherit'}
+              underline={'none'}
+            >
+              <Typography variant="h5">
+                Abc Jobs
+              </Typography>
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

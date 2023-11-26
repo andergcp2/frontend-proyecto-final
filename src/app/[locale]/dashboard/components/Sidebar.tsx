@@ -21,6 +21,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { FC, useState } from "react";
 import Button from '@/components/button/Button';
+import { Link } from '@mui/material';
+import { mainRoutes } from '@/models';
 
 const drawerWidth = 320;
 const navItems = ['Bienvenido'];
@@ -89,9 +91,15 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            ABC Jobs
-          </Typography>
+          <Link
+            href={mainRoutes.home}
+            color={'inherit'}
+            underline={'none'}
+          >
+            <Typography variant="h6" noWrap component="div">
+              ABC Jobs
+            </Typography>
+          </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>

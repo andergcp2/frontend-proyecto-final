@@ -9,7 +9,7 @@ export const createProject = async (
     name: "createProject",
     data: {
       ...params,
-      company: 1,
+      // company: 1,
       country: "CO",
       city: "11001",
       profiles: params.profiles?.map((profile) => ({
@@ -35,8 +35,6 @@ export const createProject = async (
           },
         ],
         tests: [],
-        // softskills: profile.softskills.split(','),
-        // techskills: profile.techskills.split(','),
       })),
     },
   });
