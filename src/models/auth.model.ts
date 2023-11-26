@@ -69,4 +69,5 @@ export interface LoginDTO {
 export interface Login {
   token: string;
   user: User;
+  statusCode?: number;
 }

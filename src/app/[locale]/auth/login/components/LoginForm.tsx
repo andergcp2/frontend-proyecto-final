@@ -48,66 +48,66 @@ const LoginForm: FC<LoginFormProps> = () => {
     <Container component="main" maxWidth="xs">
       <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={3}>
         <Box component="img" src='/Logo.png' alt='Logo abc' sx={{ height: "auto", width: "100%" }} />
-          <Box
-            component="form"
-            onSubmit={formik.handleSubmit}
-            id="login-form"
-            noValidate
-            sx={{ mt: 1 }}
-            display={'flex'}
-            flexDirection={'column'}
-            alignItems={'center'}
-            margin={'auto'}
-            maxWidth={'500px'}
+        <Box
+          component="form"
+          onSubmit={formik.handleSubmit}
+          id="login-form"
+          noValidate
+          sx={{ mt: 1 }}
+          display={'flex'}
+          flexDirection={'column'}
+          alignItems={'center'}
+          margin={'auto'}
+          maxWidth={'500px'}
+        >
+
+          <Typography component="h1" variant="h4" align="center" sx={{ mt: 3, mb: 3 }}>
+            {t('Title')}
+          </Typography>
+          <TextField
+            id="username"
+            name="username"
+            label={t('username')}
+            fullWidth
+            required
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.username && Boolean(formik.errors.username)}
+            helperText={
+              formik.touched.username &&
+              Boolean(formik.errors.username) &&
+              t(formik.errors.username as string)
+            }
+          />
+          <PasswordInput
+            id="password"
+            name="password"
+            label={t('password')}
+            margin="normal"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.password) && Boolean(formik.errors.password)
+            }
+            errorText={
+              formik.errors.password ? validationT(formik.errors.password) : ''
+            }
+          />
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth
+            sx={{ mt: 3, mb: 2, fontWeight: 600 }}
+          // loading={isLoginLoading}
           >
-            
-            <Typography component="h1" variant="h4" align="center" sx={{ mt: 3, mb: 3 }}>
-              {t('Title')}
-            </Typography>
-            <TextField
-              id="username"
-              name="username"
-              label={t('username')}
-              fullWidth
-              required
-              value={formik.values.username}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.username && Boolean(formik.errors.username)}
-              helperText={
-                formik.touched.username &&
-                Boolean(formik.errors.username) &&
-                t(formik.errors.username as string)
-              }
-            />
-            <PasswordInput
-              id="password"
-              name="password"
-              label={t('password')}
-              margin="normal"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={
-                Boolean(formik.touched.password) && Boolean(formik.errors.password)
-              }
-              errorText={
-                formik.errors.password ? validationT(formik.errors.password) : ''
-              }
-            />
-            <Button
-              variant="contained"
-              type="submit"
-              fullWidth
-              sx={{ mt: 3, mb: 2, fontWeight: 600 }}
-            // loading={isLoginLoading}
-            >
-              {t('signInBtn')}
-            </Button>
-            <Link href="/auth/" variant="body2">
-                  {t('registerLinkMsg')}
-            </Link>
-          </Box>
+            {t('signInBtn')}
+          </Button>
+          <Link href="/auth/" variant="body2">
+            {t('registerLinkMsg')}
+          </Link>
+        </Box>
       </Paper>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>

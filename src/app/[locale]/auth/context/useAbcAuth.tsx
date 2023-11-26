@@ -64,7 +64,10 @@ export default function useQanttoAuth() {
   }
 
   const Login = async (variables: LoginDTO) => {
-    await LoginReq(variables)
+    const res = await LoginReq(variables)
+    if (res && !res.ok) {
+      alert('Hubo un error iniciando sesión')
+    }
   }
 
   const SignUpCandidate = async (variables: SignUpCandidateDTO) => {

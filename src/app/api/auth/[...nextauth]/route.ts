@@ -108,6 +108,9 @@ const loginAbc = async (params: LoginDTO): Promise<any> => {
       },
       { timeout: 20000 }
     );
+    if (res.data.statusCode && res.data.statusCode === 500) {
+      throw new Error("Error en el servidor");
+    }
     return res.data;
   } catch (error) {
     console.error(
