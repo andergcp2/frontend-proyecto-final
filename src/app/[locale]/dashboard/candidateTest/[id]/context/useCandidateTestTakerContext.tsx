@@ -149,6 +149,8 @@ const useCandidateTestTakerContext = () => {
     currentTest,
     isFetchingCandidateTestsData,
     isFinalQuestion,
+    numQuestion,
+    totalQuestions,
     selectedAnswerId,
     t,
     testId,

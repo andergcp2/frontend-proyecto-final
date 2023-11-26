@@ -10,10 +10,12 @@ interface CandidateTestTakerContextProps {
   currentTest: CandidateTest
   isFetchingCandidateTestsData: boolean
   isFinalQuestion: boolean
+  numQuestion: number,
   selectedAnswerId: number,
   testId: number,
   testResults: TestDone,
   testStep: TestStep,
+  totalQuestions: number,
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
   handleNextQuestion: () => void
   handleTestEnd: () => void

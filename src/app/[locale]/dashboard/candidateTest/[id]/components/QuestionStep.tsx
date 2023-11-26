@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import { useCandidateTestTaker } from "../context/candidateTestTakerContext";
 import { theme } from "@/config/theme";
 import { TestAnswer } from "@/models";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const MockAnswerOptions: TestAnswer[] = [
   {
@@ -36,6 +37,8 @@ const QuestionStep = () => {
     currentAnswerOptions,
     isFinalQuestion,
     selectedAnswerId,
+    numQuestion,
+    totalQuestions,
     handleChange,
     handleNextQuestion,
     handleTestEnd,
@@ -52,14 +55,20 @@ const QuestionStep = () => {
       flexDirection={'column'}
       alignItems={'center'}
       justifyContent={'center'}
-      width={{ xs: '80%', md: '50%' }}
+      width={{ xs: '100%', md: '50%' }}
       height={'fit-content'}
       mt={20}
       mx={'auto'}
-      p={6}
+      px={6}
+      pb={6}
       border={`2px solid ${theme.palette.primary.main}`}
       borderRadius={2}
     >
+      <LinearProgress
+        variant="determinate"
+        value={(numQuestion / totalQuestions) * 100}
+        sx={{ width: '100%', mb: 2, pb: 1 }}
+      />
       <FormControl>
         <FormLabel>
           <Typography
@@ -67,7 +76,7 @@ const QuestionStep = () => {
             color="primary"
             gutterBottom
           >
-            {currentQuestion.question ?? '¿Qué es css?'}
+            {currentQuestion.question ?? ''}
           </Typography>
         </FormLabel>
         <RadioGroup
@@ -93,6 +102,9 @@ const QuestionStep = () => {
       >
         {isFinalQuestion ? t('submit') : t('next')}
       </Button>
+      <Typography variant="body1" mt={2}>
+        {`${t('question')} ${numQuestion} / ${totalQuestions}`}
+      </Typography>
     </Box>
 
 

@@ -254,7 +254,8 @@
         "loading": "Cargando...",
         "score": "Tu puntaje es",
         "testEnd": "La prueba ha finalizado",
-        "testWarning": "Una vez comienzas no puedes volver atrás"
+        "testWarning": "Una vez comienzas no puedes volver atrás",
+        "question": "Pregunta"
       },
       "ManageCandidates": {
         "manageCandidatesTitle": "Gestionar candidatos",

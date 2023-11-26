@@ -227,7 +227,8 @@
         "loading": "Loading...",
         "score": "Your score is",
         "testEnd": "Test ended",
-        "testWarning": "Once you start you can not go back"
+        "testWarning": "Once you start you can not go back",
+        "question": "Question"
       },
       "ManageCandidates": {
         "manageCandidatesTitle": "Manage candidates",
