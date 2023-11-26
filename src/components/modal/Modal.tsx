@@ -10,7 +10,7 @@ interface BasicModalProps {
   modalText: string,
   modalTitle: string,
   open: boolean,
-  type: ModalType
+  type?: ModalType
   handleClose: () => void
   handleOpen?: () => void
 }
