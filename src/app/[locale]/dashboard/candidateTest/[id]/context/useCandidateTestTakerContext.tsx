@@ -28,6 +28,7 @@ const useCandidateTestTakerContext = () => {
   const [testResults, setTestResults] = useState<TestDone>({} as TestDone)
   const [testStep, setTestStep] = useState<TestStep>(TestStep.INIT)
   const [totalQuestions, setTotalQuestions] = useState<number>(0)
+  const [initTestError, setInitTestError] = useState<string>('')
 
   const SetTestId = useCallback((id: number) => {
     setTestId(id)
@@ -56,6 +57,7 @@ const useCandidateTestTakerContext = () => {
       setCandidateTests([...data] ?? [])
     },
     onError: (error: any) => {
+      setInitTestError(error.message)
       console.log(error.message) // TODO Do something
     },
     enabled: !!testId
@@ -87,6 +89,8 @@ const useCandidateTestTakerContext = () => {
       updateNewQuestion(data)
     },
     onError: (error: any) => {
+      setInitTestError(error.message)
+      alert(error.message)
       console.log('Ander error testInit', error.message)
     }
   })
@@ -98,6 +102,7 @@ const useCandidateTestTakerContext = () => {
       updateNewQuestion(data)
     },
     onError: (error: any) => {
+      alert(error.message)
       console.log('Ander error testNext ', error.message)
     }
   })
@@ -109,15 +114,21 @@ const useCandidateTestTakerContext = () => {
       setTestResults(data)
     },
     onError: (error: any) => {
+      alert(error.message)
       console.log('Ander error testDone ', error.message)
     }
   })
 
   // HANDLERS
-  const handleTestStart = useCallback(() => {
-    testInitReq({ candidateId, testId })
+  const handleTestStart = useCallback(async () => {
+    await testInitReq({ candidateId, testId })
+    if (initTestError) {
+      alert(initTestError)
+      setInitTestError('')
+      return
+    }
     setTestStep(TestStep.QUESTIONS)
-  }, [candidateId, testId, testInitReq])
+  }, [candidateId, initTestError, testId, testInitReq])
 
   const handleNextQuestion = useCallback(() => {
     testNextReq({ candidateId, testId, totalQuestions, numQuestion, questionId, answerId: selectedAnswerId })
