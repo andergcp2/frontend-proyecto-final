@@ -10,7 +10,7 @@ export interface Project {
   city?: string;
   address?: string;
   profiles?: Profile[];
-  companyId?: number;
+  company?: number;
 }
 
 export interface Profile {

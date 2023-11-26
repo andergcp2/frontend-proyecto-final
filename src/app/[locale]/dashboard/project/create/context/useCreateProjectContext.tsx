@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { getSession } from "next-auth/react";
 
 const softSkillSchema = Yup.object({
   name: Yup.string().required('required'),
@@ -60,7 +61,9 @@ const useCreateProjectContext = () => {
 
   // FUNCTIONS
   const CreateProject = async (variables: CreateProjectDTO) => {
-    await CreateProjectReq(variables)
+    const session = await getSession()
+    const company = parseInt(session?.user?.id as string ?? '')
+    await CreateProjectReq({ ...variables, company })
   }
 
   // FORMIK - FORMS
