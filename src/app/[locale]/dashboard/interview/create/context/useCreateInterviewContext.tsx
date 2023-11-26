@@ -2,7 +2,7 @@
 
 import * as Yup from 'yup';
 import { useTranslations } from "next-intl";
-import { CreateInterviewFormProps } from '@/models/interview';
+import { CreateInterviewFormProps } from '@/models/interview.model';
 import { Dayjs } from 'dayjs';
 import { useFormik } from 'formik';
 import { useMutation, useQuery } from '@tanstack/react-query';

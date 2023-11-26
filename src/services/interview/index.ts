@@ -4,7 +4,7 @@ import {
   Interview,
   InterviewsResponse,
   RateInterview,
-} from "@/models/interview";
+} from "@/models/interview.model";
 
 export const createInterview = async (data: CreateInterviewFormProps) => {
   const response = await axiosMethod({

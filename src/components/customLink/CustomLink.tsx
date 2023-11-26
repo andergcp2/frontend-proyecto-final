@@ -26,7 +26,7 @@ const CustomLink = ({ linkText, redirectPath }: CustomLinkProps) => {
           px={2}
           py={1}
           borderColor={'primary.main'}
-          borderRadius={3}
+          borderRadius={1}
           color={'primary.main'}
         >
           {linkText}

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, createContext, useContext } from "react";
 import useCreateInterviewContext from "./useCreateInterviewContext";
 import { FormikProps } from "formik";
-import { CreateInterviewFormProps } from "@/models/interview";
+import { CreateInterviewFormProps } from "@/models/interview.model";
 import { Project, SearchCandidateRow } from "@/models";
 
 interface CreateInterviewContextProps {
