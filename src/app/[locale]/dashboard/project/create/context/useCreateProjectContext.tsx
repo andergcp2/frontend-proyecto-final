@@ -10,13 +10,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
 
-const softSkillSchema = Yup.object({
-  name: Yup.string().required('required'),
-})
+// const softSkillSchema = Yup.object({
+//   name: Yup.string().required('required'),
+// })
 
-const techSkillSchema = Yup.object({
-  name: Yup.string().required('required'),
-})
+// const techSkillSchema = Yup.object({
+//   name: Yup.string().required('required'),
+// })
 
 const profileSchema = Yup.object({
   name: Yup.string().required('required'),
@@ -46,15 +46,26 @@ const useCreateProjectContext = () => {
   const t = useTranslations('Project')
   const { push } = useRouter()
 
+  // STATES
+  const [open, setOpen] = useState(false)
+  const [modalType, setModalType] = useState<'success' | 'error' | 'warning' | 'info' | 'question'>('info')
+  const [modalTitle, setModalTitle] = useState('')
+
   // MUTATIONS
   const { mutateAsync: CreateProjectReq, isLoading: isCreateProjectLoading } = useMutation({
     mutationFn: createProject,
     onSuccess: () => {
-      alert('Proyecto creado exitosamente') // TODO Replace with modal
+      setModalTitle(t('createProjectSuccess'))
+      setModalType('success')
+      setOpen(true)
+      // alert('Proyecto creado exitosamente') // TODO Replace with modal
       push(mainRoutes.dashboard.project)
     },
     onError: (error: any) => {
-      alert('Hubo un error creando el proyecto')
+      setModalTitle(t('createProjectError'))
+      setModalType('error')
+      setOpen(true)
+      // alert('Hubo un error creando el proyecto')
       console.log(error.message)
     }
   })
@@ -64,6 +75,11 @@ const useCreateProjectContext = () => {
     const session = await getSession()
     const company = parseInt(session?.user?.id as string ?? '')
     await CreateProjectReq({ ...variables, company })
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+    push(mainRoutes.dashboard.project)
   }
 
   // FORMIK - FORMS
@@ -87,9 +103,13 @@ const useCreateProjectContext = () => {
 
   return {
     formik,
+    modalTitle,
+    modalType,
+    open,
     t,
     validationSchema,
     CreateProject,
+    handleClose,
   };
 }
 
