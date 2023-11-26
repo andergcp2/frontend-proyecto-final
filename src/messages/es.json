@@ -286,7 +286,9 @@
     "profession": "Profesión",
     "softskills": "Habilidades blandas",
     "techskills": "Habilidades técnicas",
-    "profilesList": "Perfiles"
+    "profilesList": "Perfiles",
+    "createProjectSuccess": "El proyecto se creó correctamente",
+    "createProjectError": "Hubo un error al crear el proyecto"
   },
   "Interview": {
     "rateButton": "Calificar",

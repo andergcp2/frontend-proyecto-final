@@ -6,12 +6,17 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { FieldArray, FieldArrayRenderProps, FormikProvider } from 'formik'
 import Button from '@/components/button/Button'
 import { useCreateProject } from '../context/createProjectContext'
+import BasicModal from '@/components/modal/Modal';
 
 export interface CreateProjectFormProps { }
 
 const CreateProjectForm: FC<CreateProjectFormProps> = () => {
   const {
+    open,
+    modalType,
+    modalTitle,
     formik,
+    handleClose,
     t,
   } = useCreateProject()
 
@@ -21,6 +26,13 @@ const CreateProjectForm: FC<CreateProjectFormProps> = () => {
       onSubmit={formik.handleSubmit}
       sx={{ mt: 3, mx: 'auto', maxWidth: 1000, pt: 10 }}
     >
+      <BasicModal
+        open={open}
+        type={modalType}
+        modalTitle={modalTitle}
+        modalText=''
+        handleClose={handleClose}
+      />
       <FormikProvider value={formik}>
         <Typography variant="h4" sx={{ mb: 2 }}>{t('projectFormTitle')}</Typography>
         <Grid container spacing={2} pb={5}>

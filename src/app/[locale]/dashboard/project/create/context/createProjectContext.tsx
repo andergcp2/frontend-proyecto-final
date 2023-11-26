@@ -7,9 +7,13 @@ import { FormikProps } from 'formik';
 
 interface CreateProjectContextProps {
   formik: FormikProps<Project>
-  t: (...args0: any) => string
+  modalTitle: string,
+  modalType: 'success' | 'error' | 'warning' | 'info' | 'question',
+  open: boolean,
   validationSchema: any,
   CreateProject: (variables: CreateProjectDTO) => Promise<void>,
+  handleClose: () => void,
+  t: (...args0: any) => string
 }
 
 const CreateProjectContext = createContext<CreateProjectContextProps>({} as CreateProjectContextProps);

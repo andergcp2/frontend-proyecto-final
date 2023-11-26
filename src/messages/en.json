@@ -286,7 +286,9 @@
     "profession": "Profession",
     "softskills": "Soft skills",
     "techskills": "Tech skills",
-    "profilesList": "Profiles"
+    "profilesList": "Profiles",
+    "createProjectSuccess": "Project created successfully",
+    "createProjectError": "There was an error creating the project"
   },
   "Interview": {
     "rateButton": "Send Review",
