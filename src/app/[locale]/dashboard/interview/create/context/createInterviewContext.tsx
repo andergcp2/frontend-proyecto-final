@@ -11,6 +11,8 @@ interface CreateInterviewContextProps {
   open: boolean
   projects: Project[] | undefined
   handleDateTimeChange: (event: any, value: any) => void
+  handleCandidateChange: (event: any, value: any) => void
+  handleProjectChange: (event: any, value: any) => void
   setOpen: Dispatch<SetStateAction<boolean>>
   t: (...args0: any) => string
 }

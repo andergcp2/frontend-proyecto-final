@@ -41,6 +41,13 @@ const useCreateInterviewContext = () => {
     formik.setFieldValue('interviewDate', date)
   }
 
+  const handleCandidateChange = (event: any, value: any) => {
+    formik.setFieldValue('candidateId', value?.id)
+  }
+  const handleProjectChange = (event: any, value: any) => {
+    formik.setFieldValue('projectId', value?.id)
+  }
+
   // QUERIES
   const getCandidatesData = async () => {
     const response = await getCandidatesByCriteria({ queryParams: '', page: 1, perPage: 10 })
@@ -78,6 +85,7 @@ const useCreateInterviewContext = () => {
 
   // MUTATIONS
   const CreateInterview = async (values: CreateInterviewFormProps) => {
+    console.log('Ander values', values)
     createInterviewReq({
       candidateId: values.candidateId,
       companyId: parseInt(companyId ?? '0'),
@@ -121,6 +129,8 @@ const useCreateInterviewContext = () => {
     open,
     projects,
     t,
+    handleCandidateChange,
+    handleProjectChange,
     handleDateTimeChange,
     setOpen,
   }

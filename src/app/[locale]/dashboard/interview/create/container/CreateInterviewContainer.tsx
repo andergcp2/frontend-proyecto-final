@@ -22,6 +22,8 @@ const CreateInterviewContainer: FC<CreateInterviewContainerProps> = () => {
     open,
     projects,
     handleDateTimeChange,
+    handleCandidateChange,
+    handleProjectChange,
     setOpen,
     t
   } = useCreateInterview()
@@ -61,15 +63,18 @@ const CreateInterviewContainer: FC<CreateInterviewContainerProps> = () => {
                 return option?.name ?? ''
               }}
               id='select-candidate'
-              onChange={formik.handleChange}
+              // onChange={formik.handleChange}
+              onChange={handleCandidateChange}
               renderInput={(params) => (
                 <TextField {...params}
                   id="candidateId"
                   name="candidateId"
                   variant="standard"
                   label={t('candidate')}
+                  onChange={formik.handleChange}
                   error={formik.touched.candidateId && Boolean(formik.errors.candidateId)}
                   helperText={formik.touched.candidateId && formik.errors.candidateId}
+                  value={formik.values.candidateId}
                 />
               )}
             />
@@ -82,7 +87,8 @@ const CreateInterviewContainer: FC<CreateInterviewContainerProps> = () => {
                 return option?.name ?? ''
               }}
               id='select-project'
-              onChange={formik.handleChange}
+              onChange={handleProjectChange}
+              // onChange={formik.handleChange}
               renderInput={(params) => (
                 <TextField {...params}
                   id="projectId"
@@ -91,6 +97,7 @@ const CreateInterviewContainer: FC<CreateInterviewContainerProps> = () => {
                   label={t('project')}
                   error={formik.touched.projectId && Boolean(formik.errors.projectId)}
                   helperText={formik.touched.projectId && formik.errors.projectId}
+                  value={formik.values.projectId}
                 />
               )}
             />
