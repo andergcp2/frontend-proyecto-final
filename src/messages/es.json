@@ -242,7 +242,11 @@
           "next": "Siguiente",
           "submit": "Enviar",
           "questionsQuantity": "Cantidad de preguntas"
-        }
+        },
+        "cardTitle": "Pruebas",
+        "cardSubtitle": "Accede a tus pruebas",
+        "cardButtonLabel": "Ir a pruebas",
+        "cardDescription": "Encuentra las pruebas que te han asignado y comienza a realizarlas"
       },
       "CandidateTestTaker": {
         "test": "Resumen de tu prueba",

@@ -23,7 +23,19 @@ const useDashboardContext = () => {
       navigateTo: '/dashboard/administration'
     },
   ];
+
+  const candidateCardsValues: CustomCardProps[] = [
+    {
+      title: tModules('CandidateTest.cardTitle'),
+      subtitle: tModules('CandidateTest.cardSubtitle'),
+      buttonLabel: tModules('CandidateTest.cardButtonLabel'),
+      imageUrl: "https://img.freepik.com/free-photo/business-people-are-brainstorming_53876-137640.jpg?w=1380&t=st=1698003517~exp=1698004117~hmac=1d9d737118726f9e66163dee2648ac8a63dd19e7dedeb2d1bb7374efce927d0b",
+      description: tModules('CandidateTest.cardDescription'),
+      navigateTo: '/dashboard/candidateTest'
+    },
+  ];
   return {
+    candidateCardsValues,
     cardsValues,
     t
   }

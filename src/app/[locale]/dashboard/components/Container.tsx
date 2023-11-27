@@ -10,10 +10,36 @@ import { useSession } from "next-auth/react";
 export interface DashboardContainerProps { }
 
 function CandidateDashboard() {
-  const { t, cardsValues } = useDashboard();
+  const { t, candidateCardsValues } = useDashboard();
+  const { push } = useRouter()
+  const handleCardActionButton = (navigateTo: string) => {
+    push(navigateTo)
+  }
   return (
-    <Box display={"flex"} flexDirection={"column"} mt={2} p={4}>
-      <Typography variant="h1" my={5}>Candidato</ Typography >
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      mt={2}
+      p={4}
+    >
+      <Typography variant="h1" my={5}>{t('companyTitle')}</ Typography >
+      <Box
+        display={"flex"}
+        flexDirection={{ xs: "column", sm: "row" }}
+        gap={2}
+      >
+        {candidateCardsValues.map((card, index) => (
+          <CustomCard
+            key={`${index}-${card.title.split(' ').join('-')}`}
+            title={card.title}
+            subtitle={card.subtitle}
+            buttonLabel={card.buttonLabel}
+            imageUrl={card.imageUrl}
+            description={card.description}
+            handleClick={() => handleCardActionButton(card.navigateTo || '/')}
+          />
+        ))}
+      </ Box>
     </Box>
   );
 }
