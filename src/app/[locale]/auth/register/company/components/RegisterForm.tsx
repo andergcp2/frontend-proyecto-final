@@ -10,6 +10,7 @@ import * as Yup from 'yup'
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
 import { PASSWORD_REGEX } from '@/models'
+import { PasswordInput } from '@/components/inputs'
 
 export interface RegisterFormProps { }
 const lengths = {
@@ -394,7 +395,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
         <Grid item xs={12} sm={4} >
-          <TextField
+          {/* <TextField
             id="password"
             name="password"
             type='password'
@@ -410,10 +411,25 @@ const RegisterForm: FC<RegisterFormProps> = () => {
               Boolean(formik.errors.password) &&
               t(formik.errors.password as string)
             }
+          /> */}
+          <PasswordInput
+            id="password"
+            name="password"
+            label={t('legalRepresentativePassword')}
+            margin="none"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.password) && Boolean(formik.errors.password)
+            }
+            errorText={
+              formik.errors.password ? t(formik.errors.password) : ''
+            }
           />
         </Grid>
         <Grid item xs={12} sm={4} >
-          <TextField
+          {/* <TextField
             id="confirmPassword"
             name="confirmPassword"
             label={t('legalRepresentativeConfirmPassword')}
@@ -428,6 +444,21 @@ const RegisterForm: FC<RegisterFormProps> = () => {
               formik.touched.confirmPassword &&
               Boolean(formik.errors.confirmPassword) &&
               t(formik.errors.confirmPassword as string)
+            }
+          /> */}
+          <PasswordInput
+            id="confirmPassword"
+            name="confirmPassword"
+            label={t('legalRepresentativeConfirmPassword')}
+            margin="none"
+            value={formik.values.confirmPassword}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.confirmPassword) && Boolean(formik.errors.confirmPassword)
+            }
+            errorText={
+              formik.errors.confirmPassword ? t(formik.errors.confirmPassword) : ''
             }
           />
         </Grid>

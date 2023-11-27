@@ -3,7 +3,7 @@
 import { Box } from '@mui/material'
 import { FC } from 'react'
 import { DashboardProvider } from './context/dashboardContext'
-import Sidebar from './components/Sidebar'
+import NavBar from './components/NavBar'
 
 export interface DashboardLayoutProps {
   children: React.ReactNode
@@ -12,8 +12,10 @@ export interface DashboardLayoutProps {
 const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <DashboardProvider>
-      <Sidebar />
-      {children}
+      <Box sx={{ display: 'flex' }}>
+        <NavBar />
+            {children}
+      </Box>  
     </DashboardProvider>
   )
 }

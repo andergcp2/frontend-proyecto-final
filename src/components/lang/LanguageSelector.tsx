@@ -38,23 +38,12 @@ const LanguageSelector: FC<LanguageSwitcherProps> = () => {
   ]
 
   return (
-    <Grid
-      py={0.5}
-      container
-      display="flex"
-      justifyContent={'flex-end'}
-      className='language-selector'
-      position={'sticky'}
-      top={0}
-      minHeight={'60px'}
-      sx={{ backgroundColor: 'white', zIndex: 100 }}
-    >
       <TextField
         id="toggle-language"
         select
         defaultValue={locale}
         size='small'
-        sx={{ marginRight: 3 }}
+        sx={{ background: "white", borderRadius: "10px"}}
         disabled={isPending}
         onChange={(event) => onSelectChange(event)}
       >
@@ -64,7 +53,6 @@ const LanguageSelector: FC<LanguageSwitcherProps> = () => {
           </MenuItem>
         ))}
       </TextField>
-    </Grid>
   )
 }
 

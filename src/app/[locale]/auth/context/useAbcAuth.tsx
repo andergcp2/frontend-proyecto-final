@@ -7,11 +7,11 @@ import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 
 export default function useQanttoAuth() {
   const [signUpCompanyDTO, setSignUpCompanyDTO] = useState<SignUpCompanyDTO>()
-
+  const { data: session, update } = useSession();
   const { showToast } = useToast()
   const t = useTranslations('Auth.ToastMsg')
 
@@ -22,7 +22,7 @@ export default function useQanttoAuth() {
     onSuccess: () => {
       // TODO: redirect to the right page
       alert('Empresa registrada exitosamente')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
       // TODO: Hacer login automatico
       showToast(t('success.signUpCompany'), 'success')
     },
@@ -37,7 +37,7 @@ export default function useQanttoAuth() {
     mutationFn: signUpCandidate,
     onSuccess: () => {
       alert('Candidato registrado exitosamente')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
       showToast(t('success.signUpCandidate'), 'success')
     },
     onError: (error: any) => {
@@ -55,7 +55,7 @@ export default function useQanttoAuth() {
         return showToast(t('error.login'), 'error')
       }
       showToast(t('success.login'), 'success')
-      push(mainRoutes.dashboard)
+      push(mainRoutes.dashboard.root)
     },
   })
 
@@ -64,7 +64,10 @@ export default function useQanttoAuth() {
   }
 
   const Login = async (variables: LoginDTO) => {
-    await LoginReq(variables)
+    const res = await LoginReq(variables)
+    if (res && !res.ok) {
+      alert('Hubo un error iniciando sesión')
+    }
   }
 
   const SignUpCandidate = async (variables: SignUpCandidateDTO) => {

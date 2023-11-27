@@ -4,12 +4,14 @@ import { useTranslations } from 'next-intl'
 import { FC } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import { Autocomplete, Box, Checkbox, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material'
 
 import { useAuth } from '../../../context/AuthContext'
 import Button from '@/components/button/Button'
 import softskills from '@/data/softSkills'
 import technicalSkills from '@/data/technicalSkills'
+import { PASSWORD_REGEX } from '@/models'
+import { PasswordInput } from '@/components/inputs'
 
 
 export interface RegisterFormProps { }
@@ -19,18 +21,23 @@ const validationSchema = Yup.object({
   lastName: Yup.string().required('lastNamesRequired'),
   idType: Yup.string().required('identificationTypeRequired'),
   identification: Yup.string().required('identificationNumberRequired'),
-  email: Yup.string().required('emailRequired'),
+  email: Yup.string().
+    email('invalidEmail').
+    required('emailRequired'),
   phone: Yup.string().required('phoneNumberRequired'),
   country: Yup.string().required('countryRequired'),
   city: Yup.string().required('cityRequired'),
   address: Yup.string().required('addressRequired'),
   // photo: Yup.string().required('photoRequired'),
   profession: Yup.string().required('professionRequired'),
-  softskills: Yup.array().required('softskillsRequired'),
+  softSkills: Yup.array().required('softskillsRequired'),
   technicalSkills: Yup.array().required('technicalSkillsRequired'),
   username: Yup.string().required('usernameRequired'),
-  password: Yup.string().required('passwordRequired'),
-  passwordConfirmation: Yup.string().required('passwordConfirmationRequired'),
+  password: Yup.string().required('passwordRequired').
+    matches(PASSWORD_REGEX, 'invalidPassword'),
+  passwordConfirmation: Yup.string().
+    required('passwordConfirmationRequired').
+    oneOf([Yup.ref('password')], 'passwordsMustMatch')
   // termsAndConditions: Yup.boolean().required('termsAndConditionsRequired'),
   // privacyPolicy: Yup.boolean().required('privacyPolicyRequired')
 })
@@ -52,7 +59,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
       address: '',
       // photo: '',
       profession: '',
-      softskills: [],
+      softSkills: [],
       technicalSkills: [],
       username: '',
       password: '',
@@ -263,20 +270,20 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softskills"
-                name='softskills'
+                id="softSkills"
+                name='softSkills'
                 variant="standard"
                 label={t('softskills')}
                 // placeholder="Favorites"
                 // onChange={formik.handleChange}
                 // onBlur={formik.handleBlur}
-                error={formik.touched.softskills && Boolean(formik.errors.softskills)}
-                helperText={formik.touched.softskills && t(formik.errors.softskills)}
+                error={formik.touched.softSkills && Boolean(formik.errors.softSkills)}
+                helperText={formik.touched.softSkills && t(formik.errors.softSkills)}
               />
             )}
-            value={formik.values.softskills}  // Add this line to set the value
+            value={formik.values.softSkills}  // Add this line to set the value
             onChange={(event, newValue) => {
-              formik.setFieldValue('softskills', newValue);  // Update the formik state
+              formik.setFieldValue('softSkills', newValue);  // Update the formik state
             }}
           />
         </Grid>
@@ -295,7 +302,7 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                id="softskills"
+                id="technicalSkills"
                 name='technicalSkills'
                 variant="standard"
                 label={t('technicalSkills')}
@@ -340,10 +347,11 @@ const RegisterForm: FC<RegisterFormProps> = () => {
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          {/* <TextField
             fullWidth
             id="password"
             name="password"
+            type='password'
             label={t('password')}
             value={formik.values.password}
             required
@@ -351,13 +359,29 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && t(formik.errors.password)}
+          /> */}
+          <PasswordInput
+            id="password"
+            name="password"
+            label={t('password')}
+            margin="none"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.password) && Boolean(formik.errors.password)
+            }
+            errorText={
+              formik.errors.password ? t(formik.errors.password) : ''
+            }
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
+          {/* <TextField
             fullWidth
             id="passwordConfirmation"
             name="passwordConfirmation"
+            type='password'
             label={t('passwordConfirmation')}
             value={formik.values.passwordConfirmation}
             required
@@ -365,6 +389,21 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             onChange={formik.handleChange}
             error={formik.touched.passwordConfirmation && Boolean(formik.errors.passwordConfirmation)}
             helperText={formik.touched.passwordConfirmation && t(formik.errors.passwordConfirmation)}
+          /> */}
+          <PasswordInput
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            label={t('passwordConfirmation')}
+            margin="none"
+            value={formik.values.passwordConfirmation}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              Boolean(formik.touched.passwordConfirmation) && Boolean(formik.errors.passwordConfirmation)
+            }
+            errorText={
+              formik.errors.passwordConfirmation ? t(formik.errors.passwordConfirmation) : ''
+            }
           />
         </Grid>
         {/* <Grid item xs={12}>

@@ -1,63 +1,106 @@
 'use client'
 
-import SearchBar from "@/components/searchBar/SearchBar"
-import candidates from "@/data/candidates"
+import { useState } from "react";
+import { GridEventListener } from "@mui/x-data-grid";
 import Box from "@mui/material/Box"
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-
+import Typography from "@mui/material/Typography";
+import { useSearchCandidate } from "../context/searchCandidateContext";
+import StyledDataGrid from "../../../../../components/styledDataGrid/StyledDataGrid";
+import SearchCandidateForm from "../components/SearchCandidateForm";
+import CandidateModal from "../components/ModalCandidate";
+import { SearchCandidateRow } from "@/models";
+import BasicModal from "@/components/modal/Modal";
 
 interface SearchCandidateContainerProps { }
 const SearchCandidateContainer = ({ }: SearchCandidateContainerProps) => {
-  const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'names', headerName: 'Names', flex: 1 },
-    { field: 'lastNames', headerName: 'Last Names', flex: 1 },
-    { field: 'identificationType', headerName: 'ID Type', flex: 1 },
-    { field: 'identificationNumber', headerName: 'ID Number', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 1 },
-    { field: 'phoneNumber', headerName: 'Phone Number', flex: 1 },
-    { field: 'country', headerName: 'Country', flex: 1 },
-    { field: 'city', headerName: 'City', flex: 1 },
-    { field: 'address', headerName: 'Address', flex: 1 },
-    { field: 'photo', headerName: 'Photo', flex: 1 },
-    { field: 'profession', headerName: 'Profession', flex: 1 },
-  ];
+  const row: SearchCandidateRow = {
+    id: 0,
+    name: ""
+  };
+  const [selectedUser, setSelectedUser] = useState(row);
+  const {
+    columns,
+    isFetchingCandidatesData,
+    isFetchingProjectsData,
+    projects,
+    rows,
+    t,
+    handleProjectChange,
+    formik,
+    open,
+    setOpen,
+    openModal,
+    setOpenModal
+  } = useSearchCandidate()
 
-  const rows = candidates.map((candidate) => {
-    return {
-      id: candidate.id,
-      names: candidate.names,
-      lastNames: candidate.lastNames,
-      identificationType: candidate.identificationType,
-      identificationNumber: candidate.identificationNumber,
-      email: candidate.email,
-      phoneNumber: candidate.phoneNumber,
-      country: candidate.country,
-      city: candidate.city,
-      address: candidate.address,
-      photo: candidate.photo,
-      profession: candidate.profession,
-    }
-  })
+  const handleRowClick: GridEventListener<'rowClick'> = (params) => {
+    setSelectedUser(params.row)
+    setOpen(true)
+  };
+
   return (
-    <Box
-      display={'flex'}
-      flexDirection={'column'}
-      justifyContent={'center'}
-      alignItems={'center'}
-      height={'fit-content'}
-      width={'100%'}
-      py={4}
-      px={{ xs: 2, sm: 4 }}
-    >
-      <SearchBar />
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSizeOptions={[5, 10]}
-        disableRowSelectionOnClick
+    <>
+      <BasicModal
+        open={openModal}
+        handleClose={() => setOpenModal(false)}
+        handleOpen={() => setOpenModal(true)}
+        modalTitle={t('candidateAssignedSuccess')}
+        modalText=""
       />
-    </Box>
+      <CandidateModal
+        open={open}
+        handleClose={() => setOpen(false)}
+        handleOpen={() => setOpen(true)}
+        candidate={selectedUser}
+        projects={projects}
+        t={t}
+        handleProjectChange={handleProjectChange}
+        formik={formik}
+        isLoading={isFetchingProjectsData}
+      />
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+        alignItems={'left'}
+        textAlign={'center'}
+        height={'fit-content'}
+        width={{ xs: '100%', md: '80%' }}
+        my={20}
+        px={{ xs: 2, sm: 4 }}
+      >
+        <Typography variant={'h2'}>{t('title')}</Typography>
+        <SearchCandidateForm />
+        <StyledDataGrid
+          rows={rows}
+          columns={columns}
+          pageSizeOptions={[5, 10]}
+          disableRowSelectionOnClick
+          autoHeight
+          loading={isFetchingCandidatesData}
+          onRowClick={handleRowClick} {...rows}
+          initialState={{
+            columns: {
+              columnVisibilityModel: {
+                id: false,
+                // names: false,
+                // lastNames: false,
+                identificationType: false,
+                identificationNumber: false,
+                // email: false,
+                // phoneNumber: false,
+                country: false,
+                city: false,
+                address: false,
+                photo: false,
+                profession: false,
+              }
+            }
+          }}
+        />
+      </Box>
+    </>
+
   )
 }
 

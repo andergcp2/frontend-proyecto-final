@@ -11,7 +11,7 @@ export enum ThemePalette {
   DARKER_BLUE = "#053B50",
   DARK_BLUE = "#176B87",
   BLUE = "#64CCC5",
-  WHITE = "#EEEEEE",
+  WHITE = "#FFFFFF",
   ERROR = "#FF9494",
   FONT_GLOBAL = "'Roboto', sans-serif",
 }
@@ -25,6 +25,9 @@ export const theme = createTheme({
     },
     primary: {
       main: ThemePalette.DARKER_BLUE,
+    },
+    secondary: {
+      main: ThemePalette.WHITE,
     },
   },
   typography: {
@@ -48,6 +51,13 @@ export const theme = createTheme({
       fontWeight: 600,
       "@media (max-width:600px)": {
         fontSize: "18px",
+      },
+    },
+    h4: {
+      fontSize: "20px",
+      fontWeight: 600,
+      "@media (max-width:600px)": {
+        fontSize: "16px",
       },
     },
     body1: {

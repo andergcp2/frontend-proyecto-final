@@ -1,8 +1,19 @@
 {
   "Index": {
-    "title": "Hello world!"
+    "title": "Hola Mundo!",
+    "registerTitle": "Register at Abc Jobs",
+    "registerButton": "Register",
+    "loginTitle": "Are you member?",
+    "loginButton": "Log in"
   },
   "Auth": {
+    "Register": {
+      "companyRegister": "Register as a company",
+      "companyText": "Optimize your business success with our cutting-edge service! At AbcJobs, we offer innovative solutions designed to enhance your efficiency and performance. Discover how we can transform your business and take you to the next level. Take advantage of our service today and unleash your potential!",
+      "candidateRegister": "Register as a candidate",
+      "candidateText": "Discover your next professional challenge with us! At AbcJobs, we're looking for creative and passionate minds to join our team. Explore exciting career opportunities on our online recruitment page. Your future awaits. Join us and advance your career today!",
+      "buttonLabel": "Register"
+    },
     "SignUp": {
       "Company": {
         "name": "Company name",
@@ -123,13 +134,18 @@
         "privacyPolicy": "I agree to the privacy policy",
         "professionalInformation": "Professional information",
         "accountInformation": "Account information",
-        "submit": "Register"
+        "submit": "Register",
+        "invalidPassword": "Password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character",
+        "passwordsMustMatch": "Passwords must match",
+        "invalidEmail": "Invalid email"
       }
     },
     "Login": {
+      "Title": "Login",
       "username": "Username",
       "password": "Password",
-      "signInBtn": "Sign in"
+      "signInBtn": "Sign in",
+      "registerLinkMsg": "Don't have an account? Sign Up"
     },
     "ToastMsg": {
       "success": {
@@ -148,19 +164,121 @@
   },
   "Dashboard": {
     "companyTitle": "Company Portal",
+    "candidateTitle": "Candidate Portal",
+    "abcTitle": "ABC Portal",
     "Modules": {
       "Projects": {
         "cardTitle": "Projects",
         "cardSubtitle": "Manage your projects",
         "cardDescription": "In this section you can manage your projects",
-        "cardButtonLabel": "Go to projects"
+        "cardButtonLabel": "Go to projects",
+        "projectTitle": "Projects",
+        "createProjectButton": "Create project"
       },
       "Management": {
         "cardTitle": "Management",
         "cardSubtitle": "Manage your company",
         "cardDescription": "In this section you can manage your company",
         "cardButtonLabel": "Go to management"
+      },
+      "SearchCandidate": {
+        "title": "Search candidates",
+        "role": "Role",
+        "softskills": "Soft skills",
+        "technicalSkills": "Technical skills",
+        "submit": "Search",
+        "assingToProject": "Assing to project",
+        "project": "Project",
+        "assignProjectButton": "Confirm assing",
+        "candidateAssignedSuccess": "Candidate assigned to project successfully"
+      },
+      "QuestionsBank": {
+        "uploadText": "Click or drag file to this area to upload",
+        "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
+        "uploadTitle": "Here you can upload your question bank",
+        "updaloadSuccessModalText": "The questions were uploaded successfully",
+        "cardTitle": "Questions bank",
+        "cardSubtitle": "Upload your tests",
+        "cardButtonLabel": "Upload Tests",
+        "cardDescription": "Upload you questions banks here"
+      },
+      "Candidate": {
+        "welcome": "Welcome"
+      },
+      "AssignTest": {
+        "assignTestTitle": "Assign test to candidate",
+        "assignTestButton": "Assign test",
+        "candidate": "Candidate",
+        "test": "Test",
+        "assignSuccess": "Test assigned successfully",
+        "cardTitle": "Assign Tests",
+        "cardSubtitle": "Assign tests to candidates",
+        "cardButtonLabel": "Assign Tests",
+        "cardDescription": "In this module you can assign tests to candidates"
+      },
+      "CandidateTest": {
+        "title": "Your tests",
+        "Test": {
+          "test": "Test",
+          "level": "Level",
+          "start": "Start",
+          "next": "Next",
+          "submit": "Submit",
+          "questionsQuantity": "Questions quantity"
+        },
+        "cardTitle": "Test",
+        "cardSubtitle": "Access your tests",
+        "cardButtonLabel": "Go to Tests",
+        "cardDescription": "Discover tests assigned to you"
+      },
+      "CandidateTestTaker": {
+        "test": "Test Summary",
+        "level": "Level",
+        "start": "Start",
+        "questionsQuantity": "Questions quantity",
+        "next": "Next",
+        "submit": "Submit Test",
+        "loading": "Loading...",
+        "score": "Your score is",
+        "testEnd": "Test ended",
+        "testWarning": "Once you start you can not go back",
+        "question": "Question"
+      },
+      "ManageCandidates": {
+        "manageCandidatesTitle": "Manage candidates",
+        "rateModalTitle": "Rate candidate",
+        "rateModalText": "Evaluate candidate in range from 1 to 5",
+        "commentLabel": "Give a comment (optional)",
+        "sendRateButton": "Send",
+        "rateButton": "Rate"
       }
+    }
+  },
+  "Sidebar": {
+    "Company": {
+      "title": "Company",
+      "projects": "Projects",
+      "candidates": "Candidates",
+      "searchCandidates": "Candidate Search",
+      "interviews": "Interviews",
+      "createProject": "Create project",
+      "myProjects": "My projects",
+      "manageCandidates": "Manage candidates"
+    },
+    "Abc": {
+      "title": "Company",
+      "tests": "Tests",
+      "testLoad": "Load Tests",
+      "assignTest": "Assing test to candidate",
+      "testResults": "Results register",
+      "candidates": "Candidates",
+      "searchCandidates": "Candidate Search"
+    },
+    "Candidate": {
+      "title": "Candidate",
+      "tests": "Tests",
+      "assignedTests": "Technical Tests",
+      "assingTest": "Asignar pruebas a candidatos"
     }
   },
   "Project": {
@@ -184,6 +302,29 @@
     "profession": "Profession",
     "softskills": "Soft skills",
     "techskills": "Tech skills",
-    "profilesList": "Profiles"
+    "profilesList": "Profiles",
+    "createProjectSuccess": "Project created successfully",
+    "createProjectError": "There was an error creating the project"
+  },
+  "Interview": {
+    "rateButton": "Send Review",
+    "rateModalTitle": "Rate interview",
+    "rateModalText": "Rate the interview in range from 1 to 5",
+    "commentLabel": "Give a comment (optional)",
+    "sendRateButton": "Send",
+    "interviewsListTitle": "Interviews",
+    "createInterviewButton": "Create interview",
+    "Create": {
+      "title": "Create interview",
+      "project": "Project",
+      "candidate": "Candidate",
+      "date": "Date",
+      "time": "Time",
+      "submit": "Create interview",
+      "interviewDate": "Interview date",
+      "topic": "Interview Topic",
+      "assignInterviewTitle": "Assign interview",
+      "interviewCreatedSuccess": "Interview created successfully"
+    }
   }
 }

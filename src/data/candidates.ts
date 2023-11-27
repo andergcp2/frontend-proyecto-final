@@ -1,24 +1,4 @@
-// Create an array of candidates 10 with the next data:
-// id: number;
-// names: string;
-// lastNames: string;
-// identificationType: string;
-// identificationNumber: string;
-// email: string;
-// phoneNumber: string;
-// country: string;
-// city: string;
-// address: string;
-// photo: string;
-// profession: string;
-// softskills: CandidateSoftSkill[];
-// technicalSkills: CandidateTechnicalSkill[];
-// username: string;
-// password: string;
-// termsAndConditions: boolean;
-// privacyPolicy: boolean;
-
-import { Candidate } from "@/models";
+import { Candidate, SearchCandidateRow } from "@/models";
 
 const candidates: Candidate[] = [
   {
@@ -192,3 +172,92 @@ const candidates: Candidate[] = [
 ];
 
 export default candidates;
+
+export const candidatesCreated = [
+  {
+    softSkills: [
+      {
+        skill: "Teamwork",
+      },
+      {
+        skill: "Communication",
+      },
+    ],
+    technicalSkills: [
+      {
+        skill: "Back-End Development",
+      },
+      {
+        skill: "Cloud Computing",
+      },
+    ],
+    id: 1,
+    name: "Alexandra",
+    lastName: "Suarez",
+    idType: "CC",
+    identification: "1234567",
+    email: "alexaSz1@mail.com",
+    phone: "1234567890",
+    country: "Colombia",
+    city: "Bogota",
+    address: "Calle 123",
+    profession: "Systems Engineer",
+    username: "alexaSz1",
+    createdAt: "2023-11-12T23:26:05.081973",
+  },
+  {
+    softSkills: [
+      {
+        skill: "Problem Solving",
+      },
+    ],
+    technicalSkills: [
+      {
+        skill: "Programming Languages",
+      },
+      {
+        skill: "Database Management",
+      },
+    ],
+    id: 2,
+    name: "Jose",
+    lastName: "Ramirez",
+    idType: "CC",
+    identification: "1234567",
+    email: "j.ramirez@mail.com",
+    phone: "1234567890",
+    country: "Colombia",
+    city: "Bogota",
+    address: "Calle 123",
+    profession: "Software Engineer",
+    username: "joseRmrz1",
+    createdAt: "2023-11-13T00:02:40.809445",
+  },
+  {
+    softSkills: [
+      {
+        skill: "Problem Solving",
+      },
+    ],
+    technicalSkills: [
+      {
+        skill: "Communication",
+      },
+    ],
+    id: 3,
+    name: "Andres",
+    lastName: "Martinez",
+    idType: "CC",
+    identification: "1234567",
+    email: "a.martinez@mail.com",
+    phone: "1234567890",
+    country: "Colombia",
+    city: "Bogota",
+    address: "Calle 123",
+    profession: "Software Engineer",
+    username: "amartinez1",
+    createdAt: "2023-11-13T00:03:57.406308",
+  },
+];
+
+// export const testsCreated =

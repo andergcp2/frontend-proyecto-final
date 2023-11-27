@@ -1,8 +1,8 @@
 'use client'
-import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import Box from '@mui/material/Box';
 
 interface SearchBarProps {
   placeholder?: string;
@@ -17,12 +17,19 @@ const SearchBar = ({
   ariaLabel
 }: SearchBarProps) => {
   return (
-    <Paper
+    <Box
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, marginX: 'auto' }}
+      display={'flex'}
+      alignItems={'left'}
+      justifyContent={'left'}
+      width={{ xs: '100%', sm: '50%' }}
+      my={2}
+      px={2}
+      border={'1px solid #ccc'}
+      borderRadius={'5px'}
     >
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
+        sx={{ flex: 1 }}
         placeholder={placeholder || ''}
         inputProps={{ 'aria-label': ariaLabel || '' }}
         onChange={onChange}
@@ -30,7 +37,7 @@ const SearchBar = ({
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={onClick}>
         <SearchIcon />
       </IconButton>
-    </Paper>
+    </Box >
   );
 }
 

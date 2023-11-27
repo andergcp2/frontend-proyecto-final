@@ -6,5 +6,11 @@ export const mainRoutes = {
     companyRegister: "/auth/register/company",
     candidateRegister: "/auth/register/candidate",
   },
-  dashboard: "/dashboard",
+  dashboard: {
+    root: "/dashboard",
+    project: "/dashboard/project",
+    candidate: "/dashboard/candidate",
+    candidateTest: "/dashboard/candidateTest",
+    interview: "/dashboard/interview",
+  },
 };

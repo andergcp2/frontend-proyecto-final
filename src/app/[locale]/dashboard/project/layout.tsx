@@ -1,7 +1,7 @@
 'use client'
 
 import { FC } from "react";
-import { ProjectProvider } from "./context/projectContext";
+import { CreateProjectProvider } from "./create/context/createProjectContext";
 
 interface ProjectLayoutProps {
   children: React.ReactNode
@@ -12,9 +12,9 @@ const ProjectLayout: FC<ProjectLayoutProps> = (
     { children: React.ReactNode }
 ) => {
   return (
-    <ProjectProvider>
+    <CreateProjectProvider>
       {children}
-    </ProjectProvider>);
+    </CreateProjectProvider>);
 }
 
 export default ProjectLayout;

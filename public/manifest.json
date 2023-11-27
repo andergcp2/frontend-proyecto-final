@@ -1,32 +1,54 @@
 {
+  "orientation": "landscape",
   "theme_color": "#000000",
   "background_color": "#FFFFFF",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "ABC App",
+  "name": "ABC Jobs",
   "short_name": "ABC",
   "description": "ABC App created as the final project for the MISO Master Degree in the University of Los Andes",
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "public/manifest-icon-192.maskable.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/icon-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "public/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512x512.png",
+      "src": "public/manifest-icon-512.maskable.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "public/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/dashboard",
+      "description": "Takes you to the dashboard",
+      "icons": [
+        {
+          "src": "icon-96x96.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "dir": "ltr",
+  "lang": "es",
+  "prefer_related_applications": false
 }

@@ -1,20 +1,24 @@
 'use client'
 
 import { FC } from 'react'
-import { Box, TextField, Grid, Typography, Divider, Modal, Autocomplete, FormHelperText } from '@mui/material'
+import { Box, TextField, Grid, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Field, FieldArray, FieldArrayRenderProps, FormikErrors, FormikProvider, useFormik } from 'formik'
+import { FieldArray, FieldArrayRenderProps, FormikProvider } from 'formik'
 import Button from '@/components/button/Button'
-import { useProject } from '../context/projectContext'
-import { Profile, Project } from '@/models';
+import { useCreateProject } from '../context/createProjectContext'
+import BasicModal from '@/components/modal/Modal';
 
-export interface ProjectFormProps { }
+export interface CreateProjectFormProps { }
 
-const ProjectForm: FC<ProjectFormProps> = () => {
+const CreateProjectForm: FC<CreateProjectFormProps> = () => {
   const {
+    open,
+    modalType,
+    modalTitle,
     formik,
+    handleClose,
     t,
-  } = useProject()
+  } = useCreateProject()
 
   return (
     <Box component="form"
@@ -22,6 +26,13 @@ const ProjectForm: FC<ProjectFormProps> = () => {
       onSubmit={formik.handleSubmit}
       sx={{ mt: 3, mx: 'auto', maxWidth: 1000, pt: 10 }}
     >
+      <BasicModal
+        open={open}
+        type={modalType}
+        modalTitle={modalTitle}
+        modalText=''
+        handleClose={handleClose}
+      />
       <FormikProvider value={formik}>
         <Typography variant="h4" sx={{ mb: 2 }}>{t('projectFormTitle')}</Typography>
         <Grid container spacing={2} pb={5}>
@@ -170,7 +181,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.name`}
                           name={`profiles.${idx}.name`}
                           label={t('rolName')}
-                          value={formik.values.profiles[idx].name}
+                          value={formik.values?.profiles?.[idx].name}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.rolName && Boolean(formik.errors.profiles?.[idx])}
                           // helperText={formik.touched.profiles?.[idx]?.rolName && formik.errors.profiles?.[idx]}
@@ -184,7 +195,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.profession`}
                           name={`profiles.${idx}.profession`}
                           label={t('profession')}
-                          value={formik.values.profiles[idx].profession}
+                          value={formik.values?.profiles?.[idx].profession}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.profession && Boolean(formik.errors.profiles?.[idx]?.profession)}
                           // helperText={formik.touched.profiles?.[idx]?.profession && formik.errors.profiles?.[idx]?.profession}
@@ -260,7 +271,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.softskills`}
                           name={`profiles.${idx}.softskills`}
                           label={t('softskills')}
-                          value={formik.values.profiles[idx].softskills}
+                          value={formik.values?.profiles?.[idx].softskills}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.softskills && Boolean(formik.errors.profiles?.[idx]?.softskills)}
                           // helperText={formik.touched.profiles?.[idx]?.softskills && formik.errors.profiles?.[idx]?.softskills}
@@ -290,7 +301,7 @@ const ProjectForm: FC<ProjectFormProps> = () => {
                           id={`profiles.${idx}.techskills`}
                           name={`profiles.${idx}.techskills`}
                           label={t('techskills')}
-                          value={formik.values.profiles[idx].techskills}
+                          value={formik.values?.profiles?.[idx].techskills}
                           onChange={formik.handleChange}
                           // error={formik.touched.profiles?.[idx]?.techskills && Boolean(formik.errors.profiles?.[idx]?.techskills)}
                           // helperText={formik.touched.profiles?.[idx]?.techskills && formik.errors.profiles?.[idx]?.techskills}
@@ -331,5 +342,5 @@ const ProjectForm: FC<ProjectFormProps> = () => {
   )
 }
 
-export default ProjectForm
+export default CreateProjectForm
 

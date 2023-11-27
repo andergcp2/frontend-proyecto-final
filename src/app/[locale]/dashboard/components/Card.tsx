@@ -1,7 +1,7 @@
 'use client';
 
 import Button from "@/components/button/Button";
-import { Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
+import { Card, CardActions, CardContent, CardMedia, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -24,8 +24,12 @@ const CustomCard: FC<CustomCardProps> = ({
   handleClick
 }) => {
   // const { push } = useRouter()
+  const theme = useTheme();
+  const matchesXs = useMediaQuery(theme.breakpoints.up('xs'));
+
+  const maxWidth = matchesXs ? "100%" : "40%"
   return (
-    <Card sx={{ backgroundColor: "theme.palette.background.default", maxWidth: "40%" }}>
+    <Card sx={{ backgroundColor: "theme.palette.background.default", maxWidth }}>
       <CardContent>
         <Typography variant={'h2'}>
           {title}

@@ -5,7 +5,9 @@ import useDashboardContext from "./useDasbhoardContext";
 import { CustomCardProps } from "../components/Card";
 
 interface DashboardContextProps {
+  candidateCardsValues: CustomCardProps[];
   cardsValues: CustomCardProps[];
+  abcCardsValues: CustomCardProps[];
   t: (...args0: any) => string;
 }
 

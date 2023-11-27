@@ -2,3 +2,8 @@ export * from "./auth.model";
 export * from "./http-config";
 export * from "./mainRoutes";
 export * from "./project.model";
+export * from "./candidate.model";
+export * from "./pagination";
+export * from "./test.model";
+export * from "./interview.model";
+export * from "./company.model";

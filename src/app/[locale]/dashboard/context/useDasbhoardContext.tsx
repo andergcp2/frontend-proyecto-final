@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { CustomCardProps } from "../components/Card";
 import { useTranslations } from "next-intl";
 
@@ -24,7 +23,38 @@ const useDashboardContext = () => {
       navigateTo: '/dashboard/administration'
     },
   ];
+
+  const candidateCardsValues: CustomCardProps[] = [
+    {
+      title: tModules('CandidateTest.cardTitle'),
+      subtitle: tModules('CandidateTest.cardSubtitle'),
+      buttonLabel: tModules('CandidateTest.cardButtonLabel'),
+      imageUrl: "https://img.freepik.com/free-photo/business-people-are-brainstorming_53876-137640.jpg?w=1380&t=st=1698003517~exp=1698004117~hmac=1d9d737118726f9e66163dee2648ac8a63dd19e7dedeb2d1bb7374efce927d0b",
+      description: tModules('CandidateTest.cardDescription'),
+      navigateTo: '/dashboard/candidateTest'
+    },
+  ];
+  const abcCardsValues: CustomCardProps[] = [
+    {
+      title: tModules('QuestionsBank.cardTitle'),
+      subtitle: tModules('QuestionsBank.cardSubtitle'),
+      buttonLabel: tModules('QuestionsBank.cardButtonLabel'),
+      imageUrl: "https://img.freepik.com/free-photo/business-people-are-brainstorming_53876-137640.jpg?w=1380&t=st=1698003517~exp=1698004117~hmac=1d9d737118726f9e66163dee2648ac8a63dd19e7dedeb2d1bb7374efce927d0b",
+      description: tModules('QuestionsBank.cardDescription'),
+      navigateTo: '/dashboard/questionsBank'
+    },
+    {
+      title: tModules('AssignTest.cardTitle'),
+      subtitle: tModules('AssignTest.cardSubtitle'),
+      buttonLabel: tModules('AssignTest.cardButtonLabel'),
+      imageUrl: "https://img.freepik.com/free-photo/creative-group-discussing-ideas-project-boardroom_74855-3367.jpg?w=1380&t=st=1698006278~exp=1698006878~hmac=204261e5a172eca0ba855612a550e0c3403fb10ffaf8ada5ee411133156e6dc2",
+      description: tModules('AssignTest.cardDescription'),
+      navigateTo: '/dashboard/assignTest'
+    },
+  ];
   return {
+    abcCardsValues,
+    candidateCardsValues,
     cardsValues,
     t
   }

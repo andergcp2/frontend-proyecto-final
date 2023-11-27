@@ -5,14 +5,13 @@ import type { Metadata } from 'next'
 import { ThemeConfig } from '@/config'
 import Providers from '@/config/Providers';
 
-import { Amplify, Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
-import LanguageSelector from '@/components/lang/LanguageSelector';
 import Toast from '@/components/toast/Toast';
 
 Amplify.configure(awsconfig);
 
-const APP_NAME = 'ABC App';
+const APP_NAME = 'ABC Jobs';
 const APP_DEFAULT_TITLE = 'ABC Criollos App';
 const APP_TITLE_TEMPLATE = '%s - ABC Criollos App';
 const APP_DESCRIPTION = 'ABC App created as the final project for the MISO Master Degree in the University of Los Andes';
@@ -35,9 +34,9 @@ export const metadata: Metadata = {
   },
   themeColor: 'black',
   icons: {
-    icon: '/icon.png',
-    shortcut: '/shortcut-icon.png',
-    apple: '/apple-icon.png',
+    icon: '/icon-512x512.png',
+    shortcut: '/icon-512x512.png',
+    apple: '/apple-icon-180.png',
   },
   twitter: {
     card: 'summary_large_image',
@@ -91,7 +90,6 @@ export default async function RootLayout({
         <ThemeConfig options={{ key: 'mui' }}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Providers>
-              <LanguageSelector />
               {children}
               <Toast />
             </Providers>

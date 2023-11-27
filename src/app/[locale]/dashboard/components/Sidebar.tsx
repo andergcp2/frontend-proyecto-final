@@ -21,11 +21,14 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { FC, useState } from "react";
 import Button from '@/components/button/Button';
+import { Link } from '@mui/material';
+import { mainRoutes } from '@/models';
 
 const drawerWidth = 320;
 const navItems = ['Bienvenido'];
 const projectItems = ['Crear Proyectos', 'Resultados entrevistas', 'Candidatos']
 const candidateItems = ['Búsqueda de candidatos', 'Gestión de entrevistas', 'Gestión de cantidatos']
+const candidateRoutes = ['./dashboard/searchCandidate', 'dashboard/searchCandidates', 'dashboard/searchCandidates']
 const managementItems = ['Gestión de contratos', 'Gestión de desempeño', 'Gestión de tiempo']
 
 interface AppBarProps extends MuiAppBarProps {
@@ -75,9 +78,9 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }} className='AnderBoxBar' position={'sticky'} top={'50px'}>
+    <Box sx={{ display: 'flex' }} position={'sticky'} top={'50px'} width={'100%'}>
       <CssBaseline />
-      <AppBar open={open} className='AnderAppBar'>
+      <AppBar open={open}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <IconButton
             color="inherit"
@@ -88,9 +91,15 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            ABC Jobs
-          </Typography>
+          <Link
+            href={mainRoutes.home}
+            color={'inherit'}
+            underline={'none'}
+          >
+            <Typography variant="h6" noWrap component="div">
+              ABC Jobs
+            </Typography>
+          </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
@@ -143,7 +152,7 @@ const Sidebar: FC<SidebarProps> = ({ }) => {
         <List>
           {candidateItems.map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton href={candidateRoutes[index]}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>

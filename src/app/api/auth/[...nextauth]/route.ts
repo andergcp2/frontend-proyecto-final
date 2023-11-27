@@ -3,6 +3,8 @@ import Credentials from "next-auth/providers/credentials";
 import { Login, LoginDTO } from "@/models";
 import axios, { AxiosError } from "axios";
 
+const jwt = require("jsonwebtoken");
+
 const handler = NextAuth({
   providers: [
     Credentials({
@@ -39,12 +41,26 @@ const handler = NextAuth({
       }
 
       if (user) {
-        console.log("Hay user-------- ", user);
+        console.log("Hay user-------- {}", user);
+        const id = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "custom:idDb"
+        );
+        const email = getAttributeValueFromToken(user.IdToken ?? "", "email");
+        const name = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "cognito:username"
+        );
+        const role = getAttributeValueFromToken(
+          user.IdToken ?? "",
+          "custom:Role"
+        );
         token.user = {
           ...user,
-          id: Number(user.id),
-          email: user.email ?? "",
-          name: user.name ?? "",
+          id,
+          email,
+          name,
+          role,
         };
       }
 
@@ -66,6 +82,23 @@ const handler = NextAuth({
 
 export { handler as GET, handler as POST };
 
+const getAttributeValueFromToken = (token: string, attributeName: string) => {
+  try {
+    const decodedToken = jwt.decode(token);
+
+    console.log(decodedToken);
+    if (decodedToken && decodedToken[attributeName]) {
+      return decodedToken[attributeName];
+    } else {
+      console.error("Atributo no encontrado en el payload del token.");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error al decodificar el token:", error);
+    return null;
+  }
+};
+
 const loginAbc = async (params: LoginDTO): Promise<any> => {
   try {
     const res = await axios.post<Login>(
@@ -75,6 +108,9 @@ const loginAbc = async (params: LoginDTO): Promise<any> => {
       },
       { timeout: 20000 }
     );
+    if (res.data.statusCode && res.data.statusCode === 500) {
+      throw new Error("Error en el servidor");
+    }
     return res.data;
   } catch (error) {
     console.error(

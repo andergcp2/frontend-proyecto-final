@@ -1,7 +1,6 @@
 import { axiosMethod } from "@/config/http/axios";
 import { CreateProjectDTO } from "@/models";
 import { Project } from "@/models/project.model";
-import { profile } from "console";
 
 export const createProject = async (
   params: CreateProjectDTO
@@ -10,10 +9,10 @@ export const createProject = async (
     name: "createProject",
     data: {
       ...params,
-      company: 123,
+      // company: 1,
       country: "CO",
       city: "11001",
-      profiles: params.profiles.map((profile) => ({
+      profiles: params.profiles?.map((profile) => ({
         ...profile,
         softskills: [
           {
@@ -36,10 +35,18 @@ export const createProject = async (
           },
         ],
         tests: [],
-        // softskills: profile.softskills.split(','),
-        // techskills: profile.techskills.split(','),
       })),
     },
+  });
+  return response.data;
+};
+
+export const getProjectsByCompanyId = async (
+  companyId: any
+): Promise<Project[]> => {
+  const response = await axiosMethod<Project[]>({
+    name: "getProjectsByCompanyId",
+    pathParams: { companyId },
   });
   return response.data;
 };

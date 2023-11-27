@@ -1,8 +1,19 @@
 {
   "Index": {
-    "title": "Hola Mundo!"
+    "title": "Hola Mundo!",
+    "registerTitle": "Regístrate en Abc Jobs",
+    "registerButton": "Regístrate",
+    "loginTitle": "¿Ya eres miembro?",
+    "loginButton": "Ingresa"
   },
   "Auth": {
+    "Register": {
+      "companyRegister": "Regístrate como empresa",
+      "companyText": "¡Optimiza tu éxito empresarial con nuestro servicio de vanguardia! En AbcJobs, ofrecemos soluciones innovadoras diseñadas para potenciar tu eficiencia y rendimiento. Descubre cómo podemos transformar tu negocio y llevarte al siguiente nivel. ¡Aprovecha hoy mismo nuestro servicio y desata tu potencial!",
+      "candidateRegister": "Regístrate como candidato",
+      "candidateText": "¡Descubre tu próximo desafío profesional con nosotros! En AbcJobs, buscamos mentes creativas y apasionadas para unirse a nuestro equipo. Explora emocionantes oportunidades de carrera en nuestra página de reclutamiento en línea. Tu futuro te espera.¡Únete a nosotros y haz avanzar tu carrera hoy!",
+      "buttonLabel": "Registrarse"
+    },
     "SignUp": {
       "Company": {
         "name": "Nombre de la empresa",
@@ -123,19 +134,51 @@
         "privacyPolicy": "Acepto la política de privacidad",
         "professionalInformation": "Información profesional",
         "accountInformation": "Información de la cuenta",
-        "submit": "Registrarse"
+        "submit": "Registrarse",
+        "invalidPassword": "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un caracter especial",
+        "passwordsMustMatch": "Las contraseñas deben coincidir",
+        "invalidEmail": "Email inválido"
       }
     },
     "Login": {
+      "Title": "Iniciar Sesión",
       "username": "Nombre de usuario",
       "password": "Contraseña",
-      "signInBtn": "Iniciar sesión"
+      "signInBtn": "Iniciar sesión",
+      "registerLinkMsg": "¿No tiene cuenta? Regístrese"
     },
     "ToastMsg": {
       "success": {
         "signUpCompany": "La empresa se registró correctamente",
         "signUpCandidate": "El candidato se registró correctamente"
       }
+    }
+  },
+  "Sidebar": {
+    "Company": {
+      "title": "Empresa",
+      "projects": "Proyectos",
+      "candidates": "Candidatos",
+      "searchCandidates": "Búsqueda de candidatos",
+      "interviews": "Entrevistas",
+      "createProject": "Crear proyecto",
+      "myProjects": "Mis proyectos",
+      "manageCandidates": "Gestionar candidatos"
+    },
+    "Abc": {
+      "title": "Abc admin",
+      "tests": "Pruebas",
+      "testLoad": "Cargue de pruebas",
+      "assignTest": "Asignar pruebas a candidatos",
+      "testResults": "Registro de resultados",
+      "candidates": "Candidatos",
+      "searchCandidates": "Búsqueda de candidatos"
+    },
+    "Candidate": {
+      "title": "Candidate",
+      "tests": "Pruebas",
+      "assignedTests": "Pruebas técnicas",
+      "assingTest": "Asignar pruebas a candidatos"
     }
   },
   "Errors": {
@@ -148,18 +191,93 @@
   },
   "Dashboard": {
     "companyTitle": "Portal empresas",
+    "candidateTitle": "Portal candidatos",
+    "abcTitle": "Portal ABC",
     "Modules": {
       "Projects": {
         "cardTitle": "Proyectos",
         "cardSubtitle": "Administra tus proyectos",
         "cardDescription": "En esta sección puedas ver los proyectos de tu empresa y gestionarlos",
-        "cardButtonLabel": "Acceder"
+        "cardButtonLabel": "Acceder",
+        "projectTitle": "Proyectos",
+        "createProjectButton": "Crear proyecto"
       },
       "Management": {
         "cardTitle": "Gestión",
         "cardSubtitle": "Administra tu empresa",
         "cardDescription": "En esta sección puedas ver y gestionar la información de tu empresa",
         "cardButtonLabel": "Acceder"
+      },
+      "SearchCandidate": {
+        "title": "Buscar Candidatos",
+        "role": "Role",
+        "softskills": "Habilidades blandas",
+        "technicalSkills": "Habilidades técnicas",
+        "submit": "Buscar",
+        "assingToProject": "Asignar a un proyecto",
+        "project": "Proyecto",
+        "assignProjectButton": "Confirmar asignación",
+        "candidateAssignedSuccess": "Candidato asignado al proyecto exitosamente"
+      },
+      "QuestionsBank": {
+        "uploadText": "Arrastre y suelte el archivo aquí o haga clic",
+        "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
+        "uploadTitle": "Aquí puedes subir tus bancos de preguntas",
+        "updaloadSuccessModalText": "El banco de preguntas se subió correctamente",
+        "cardTitle": "Banco de preguntas",
+        "cardSubtitle": "Sube tus bancos de preguntas",
+        "cardButtonLabel": "Subir pruebas",
+        "cardDescription": "Sube los bancos de preguntas de tus pruebas"
+      },
+      "Candidate": {
+        "welcome": "Bienvenid@"
+      },
+      "AssignTest": {
+        "assignTestTitle": "Asignar prueba a candidato",
+        "assignTestButton": "Asignar prueba",
+        "candidate": "Candidato",
+        "test": "Prueba",
+        "assignSuccess": "La prueba se asignó correctamente",
+        "cardTitle": "Asignar pruebas",
+        "cardSubtitle": "Asigna pruebas a candidatos",
+        "cardButtonLabel": "Asignar pruebas",
+        "cardDescription": "En esta sección puedes asignar pruebas técnicas a los candidatos"
+      },
+      "CandidateTest": {
+        "title": "Tus tests",
+        "Test": {
+          "test": "Prueba",
+          "level": "Nivel",
+          "start": "Comenzar",
+          "next": "Siguiente",
+          "submit": "Enviar",
+          "questionsQuantity": "Cantidad de preguntas"
+        },
+        "cardTitle": "Pruebas",
+        "cardSubtitle": "Accede a tus pruebas",
+        "cardButtonLabel": "Ir a pruebas",
+        "cardDescription": "Encuentra las pruebas que te han asignado y comienza a realizarlas"
+      },
+      "CandidateTestTaker": {
+        "test": "Resumen de tu prueba",
+        "level": "Nivel",
+        "start": "Comenzar",
+        "questionsQuantity": "Cantidad de preguntas",
+        "next": "Siguiente",
+        "submit": "Enviar Prueba",
+        "loading": "Cargando...",
+        "score": "Tu puntaje es",
+        "testEnd": "La prueba ha finalizado",
+        "testWarning": "Una vez comienzas no puedes volver atrás",
+        "question": "Pregunta"
+      },
+      "ManageCandidates": {
+        "manageCandidatesTitle": "Gestionar candidatos",
+        "rateModalTitle": "Calificar candidato",
+        "rateModalText": "Califica de 1 a 5 al candidato",
+        "commentLabel": "Deja un comentario (opcional)",
+        "sendRateButton": "Calificar",
+        "rateButton": "Calificar"
       }
     }
   },
@@ -184,6 +302,29 @@
     "profession": "Profesión",
     "softskills": "Habilidades blandas",
     "techskills": "Habilidades técnicas",
-    "profilesList": "Perfiles"
+    "profilesList": "Perfiles",
+    "createProjectSuccess": "El proyecto se creó correctamente",
+    "createProjectError": "Hubo un error al crear el proyecto"
+  },
+  "Interview": {
+    "rateButton": "Calificar",
+    "rateModalTitle": "Calificar entrevista",
+    "rateModalText": "Califica de 1 a 5 la entrevista",
+    "commentLabel": "Deja un comentario (opcional)",
+    "sendRateButton": "Calificar",
+    "interviewsListTitle": "Lista de entrevistas",
+    "createInterviewButton": "Crear entrevista",
+    "Create": {
+      "title": "Crear Entrevista",
+      "project": "Proyecto",
+      "candidate": "Candidato",
+      "date": "Fecha",
+      "time": "Hora",
+      "submit": "Crear Entrevista",
+      "interviewDate": "Fecha de la entrevista",
+      "topic": "Tema de la entrevista",
+      "assignInterviewTitle": "Asignar entrevista",
+      "interviewCreatedSuccess": "La entrevista se creó correctamente"
+    }
   }
 }
