@@ -191,6 +191,8 @@
   },
   "Dashboard": {
     "companyTitle": "Portal empresas",
+    "candidateTitle": "Portal candidatos",
+    "abcTitle": "Portal ABC",
     "Modules": {
       "Projects": {
         "cardTitle": "Proyectos",
@@ -221,7 +223,11 @@
         "uploadText": "Arrastre y suelte el archivo aquí o haga clic",
         "uploadHint": "Solo archivos JSON son aceptados. Suba el archivo con las preguntas de la prueba",
         "uploadTitle": "Aquí puedes subir tus bancos de preguntas",
-        "updaloadSuccessModalText": "El banco de preguntas se subió correctamente"
+        "updaloadSuccessModalText": "El banco de preguntas se subió correctamente",
+        "cardTitle": "Banco de preguntas",
+        "cardSubtitle": "Sube tus bancos de preguntas",
+        "cardButtonLabel": "Subir pruebas",
+        "cardDescription": "Sube los bancos de preguntas de tus pruebas"
       },
       "Candidate": {
         "welcome": "Bienvenid@"
@@ -231,7 +237,11 @@
         "assignTestButton": "Asignar prueba",
         "candidate": "Candidato",
         "test": "Prueba",
-        "assignSuccess": "La prueba se asignó correctamente"
+        "assignSuccess": "La prueba se asignó correctamente",
+        "cardTitle": "Asignar pruebas",
+        "cardSubtitle": "Asigna pruebas a candidatos",
+        "cardButtonLabel": "Asignar pruebas",
+        "cardDescription": "En esta sección puedes asignar pruebas técnicas a los candidatos"
       },
       "CandidateTest": {
         "title": "Tus tests",

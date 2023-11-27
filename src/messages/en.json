@@ -164,6 +164,8 @@
   },
   "Dashboard": {
     "companyTitle": "Company Portal",
+    "candidateTitle": "Candidate Portal",
+    "abcTitle": "ABC Portal",
     "Modules": {
       "Projects": {
         "cardTitle": "Projects",
@@ -194,7 +196,11 @@
         "uploadText": "Click or drag file to this area to upload",
         "uploadHint": "Only json files are accepted. Upload the file with the test questions.",
         "uploadTitle": "Here you can upload your question bank",
-        "updaloadSuccessModalText": "The questions were uploaded successfully"
+        "updaloadSuccessModalText": "The questions were uploaded successfully",
+        "cardTitle": "Questions bank",
+        "cardSubtitle": "Upload your tests",
+        "cardButtonLabel": "Upload Tests",
+        "cardDescription": "Upload you questions banks here"
       },
       "Candidate": {
         "welcome": "Welcome"
@@ -204,7 +210,11 @@
         "assignTestButton": "Assign test",
         "candidate": "Candidate",
         "test": "Test",
-        "assignSuccess": "Test assigned successfully"
+        "assignSuccess": "Test assigned successfully",
+        "cardTitle": "Assign Tests",
+        "cardSubtitle": "Assign tests to candidates",
+        "cardButtonLabel": "Assign Tests",
+        "cardDescription": "In this module you can assign tests to candidates"
       },
       "CandidateTest": {
         "title": "Your tests",
